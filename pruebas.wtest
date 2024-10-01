@@ -1,9 +1,3 @@
-import pepita.*
+import personajes.*
 
-describe "group of tests for pepita" {
-
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
-  }
-
-}
+//Lo que estaba acá lo borré pq por ahora no tenemos tests
