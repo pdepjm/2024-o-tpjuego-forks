@@ -1,4 +1,4 @@
-#  Dungeons % Objects
+#  Dungeons & Objects
 
 UTN - Facultad Regional Buenos Aires - Materia Paradigmas de Programación
 
@@ -13,7 +13,7 @@ UTN - Facultad Regional Buenos Aires - Materia Paradigmas de Programación
 
 ## Capturas 
 
-![caballero](assets/frente.png)
+![caballero](assets/Frente.png)
 
 ## Reglas de Juego / Instrucciones
 
