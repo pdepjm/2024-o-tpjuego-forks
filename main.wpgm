@@ -9,6 +9,7 @@ program DungeonGame {
 	game.height(50)
 	game.width(50)
 	game.cellSize(100)
+	//game.boardGround("tiles.png")
 
 
 	//Visuales
@@ -30,8 +31,10 @@ program DungeonGame {
 	// Disparar con espacio?
 
 	// Movimiento random del enemigo 
-	// Cada 2 segundos se mueve
-	game.onTick(2000, "movimiento random", { esqueleto.moverseSolo() })
+	game.onTick(2000, "movimiento random", { esqueleto.movimiento() })
+
+	// Colisiones
+	game.whenCollideDo(caballero, {elemento => elemento.volverAlOrigen(caballero)})
 
 
 	//Comienzo del Juego

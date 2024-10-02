@@ -4,12 +4,19 @@ object caballero {
   var property position = game.origin()
   var property image = "Frente.png"
 
+  method position() = position
+
   method moverse(nuevaPosicion) {
     self.position(nuevaPosicion)
   }
 
   method cambiaImagen(nuevaImagen) {
     self.image(nuevaImagen)
+  }
+
+  method volverAlOrigen() {
+    position = game.origin()
+    return position
   }
 }
 
@@ -18,11 +25,16 @@ object esqueleto {
   var property position = game.at(25,25) 
   var property image = "skeleton.png"
 
-  method moverseSolo() {
-    //position = game.at(0.randomUpTo(8),0.randomUpTo(8) )
-    const x = 0.randomUpTo(game.width()).truncate(0)
-    const y = 0.randomUpTo(game.height()).truncate(0)
+  method movimiento() {
+    // position = game.at(0.randomUpTo(8),0.randomUpTo(8) )
+    const x = 0.randomUpTo(game.width()).truncate(1)
+    const y = 0.randomUpTo(game.height()).truncate(1)
     position = game.at(x,y)
+  }
+
+    method volverAlOrigen(algo) {
+    algo.volverAlOrigen()
+    return position
   }
 }
 
