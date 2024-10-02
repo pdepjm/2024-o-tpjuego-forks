@@ -13,6 +13,7 @@ program DungeonGame {
 
 	//Visuales
 	game.addVisualCharacter(caballero)
+	game.addVisual(esqueleto)
 
 	//Teclas 
 		// Movimiento
@@ -27,6 +28,10 @@ program DungeonGame {
 		// Acciones
 	//Agarrar con e?
 	// Disparar con espacio?
+
+	// Movimiento random del enemigo 
+	// Cada 2 segundos se mueve
+	game.onTick(2000, "movimiento random", { esqueleto.moverseSolo() })
 
 
 	//Comienzo del Juego
