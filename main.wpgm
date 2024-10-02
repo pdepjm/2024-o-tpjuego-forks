@@ -16,10 +16,14 @@ program DungeonGame {
 
 	//Teclas 
 		// Movimiento
-	keyboard.up().onPressDo { caballero.moverse(caballero.position().up(1)); caballero.image("Trasero.png") }
-	keyboard.left().onPressDo { caballero.moverse(caballero.position().left(1)); caballero.image("Izquierda.png") }
-	keyboard.down().onPressDo { caballero.moverse(caballero.position().down(1)); caballero.image("Frente.png") }
-	keyboard.right().onPressDo { caballero.moverse(caballero.position().right(1)); caballero.image("Derecha.png") }
+	keyboard.w().onPressDo {caballero.moverse(caballero.position().up(1))}
+	keyboard.w().onPressDo {caballero.cambiaImagen("Trasero.png")}	
+	keyboard.a().onPressDo {caballero.moverse(caballero.position().left(1))} 
+	keyboard.a().onPressDo {caballero.cambiaImagen("Izquierda.png")}	
+	keyboard.s().onPressDo {caballero.moverse(caballero.position().down(1))} 
+	keyboard.s().onPressDo {caballero.cambiaImagen("Frente.png")}
+	keyboard.d().onPressDo {caballero.moverse(caballero.position().right(1))} 
+	keyboard.d().onPressDo {caballero.cambiaImagen("Derecha.png")}	
 		// Acciones
 	//Agarrar con e?
 	// Disparar con espacio?

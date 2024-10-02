@@ -1,19 +1,16 @@
 import wollok.game.*
 
 object caballero {
- 
   var property position = game.origin()
-  method image() = "Frente.png"
-
-  // method position() = position
-
-  // method hola() = "hola!"
+  var property image = "Frente.png"
 
   method moverse(nuevaPosicion) {
     self.position(nuevaPosicion)
   }
 
-   method image(nuevaImagen) = nuevaImagen
+  method cambiaImagen(nuevaImagen) {
+    self.image(nuevaImagen)
+  }
 }
 
 /*
