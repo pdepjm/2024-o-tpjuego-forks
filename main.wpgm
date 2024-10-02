@@ -6,19 +6,20 @@ program DungeonGame {
 
 	//Configuraciones iniciales
 	game.title("Dungeon & Objects")
-	game.height(100)
-	game.width(100)
-	game.cellSize(1000)
+	game.height(50)
+	game.width(50)
+	game.cellSize(100)
+
 
 	//Visuales
-	game.addVisual(caballero)
+	game.addVisualCharacter(caballero)
 
 	//Teclas 
 		// Movimiento
-	keyboard.w().onPressDo({caballero.position().up(1); caballero.image("trasero.png")})
-	keyboard.a().onPressDo({caballero.position().left(1); caballero.image("izquierda.png")})
-	keyboard.s().onPressDo({caballero.position().down(1); caballero.image("frente.png")})
-	keyboard.d().onPressDo({caballero.position().right(1); caballero.image("derecha.png")})
+	keyboard.up().onPressDo { caballero.moverse(caballero.position().up(1)); caballero.image("Trasero.png") }
+	keyboard.left().onPressDo { caballero.moverse(caballero.position().left(1)); caballero.image("Izquierda.png") }
+	keyboard.down().onPressDo { caballero.moverse(caballero.position().down(1)); caballero.image("Frente.png") }
+	keyboard.right().onPressDo { caballero.moverse(caballero.position().right(1)); caballero.image("Derecha.png") }
 		// Acciones
 	//Agarrar con e?
 	// Disparar con espacio?

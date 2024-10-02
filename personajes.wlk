@@ -1,26 +1,29 @@
+import wollok.game.*
+
 object caballero {
  
-  const position = game.at (50,50)
+  var property position = game.origin()
+  method image() = "Frente.png"
 
-  method position() = position
+  // method position() = position
 
-  method position(nuevaPosicion) {
+  // method hola() = "hola!"
+
+  method moverse(nuevaPosicion) {
     self.position(nuevaPosicion)
   }
 
-   method image(nuevaImagen) {
-    self.image(nuevaImagen)
-   }
-  
-
+   method image(nuevaImagen) = nuevaImagen
 }
 
+/*
+object esqueleto {
 
-/* object esqueleto {
   method moverseSolo() {
     position = game.at(0.randomUpTo(8),0.randomUpTo(8) )
   }
 }
+
 Lo saqué literal de un código q hicieron en clase, se los dejo acá por si les sirve
 Creo que estaría copado que se mueva random en lugar de fijo
 */ 
