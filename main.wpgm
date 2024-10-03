@@ -16,6 +16,7 @@ program DungeonGame {
 	//Visuales
 	game.addVisualCharacter(caballero)
 	game.addVisual(esqueleto)
+	game.addVisual(arco)
 
 	//Teclas 
 		// Movimiento
@@ -26,18 +27,25 @@ program DungeonGame {
 	keyboard.s().onPressDo {caballero.moverse(caballero.position().down(1))} 
 	keyboard.s().onPressDo {caballero.cambiaImagen("Frente.png")}
 	keyboard.d().onPressDo {caballero.moverse(caballero.position().right(1))} 
-	keyboard.d().onPressDo {caballero.cambiaImagen("Derecha.png")}	
+	keyboard.d().onPressDo {caballero.cambiaImagen("Derecha.png")}
+	
 		// Acciones
-	//Agarrar con e?
-	// Disparar con espacio?
-
+	//if (caballero.equipamiento.contains(arco)) 
+	keyboard.space().onPressDo {flecha.disparar(caballero)}
+	keyboard.space().onPressDo {game.addVisual(flecha)}
+	game.whenCollideDo(caballero, {arco => caballero.agarrar(arco)})
+	//Quiero que agarre las cosas con E, pero no estaría pudiendo hacerlo, por ahora queda on collide
+	
 	// Movimiento random del enemigo 
 	game.onTick(2000, "movimiento random", { esqueleto.movimiento() })
 
+	// Movimiento de la flecha
+
+	
 	// Colisiones
-	game.whenCollideDo(caballero, {elemento => elemento.volverAlOrigen(caballero)})
-
+	game.whenCollideDo(caballero, {esqueleto => esqueleto.volverAlOrigen(caballero)})
+	game.onCollideDo(flecha, {esqueleto => game.removeVisual(esqueleto)})
+	
 	//Comienzo del Juego
-
 	game.start()
 }

@@ -1,10 +1,14 @@
 import wollok.game.*
+import enemigos.*
+import equipamientos.*
 
 object caballero {
   var property position = game.origin()
   var property image = "Frente.png"
 
   method position() = position
+
+  const equipamiento = #{}
 
   method moverse(nuevaPosicion) {
     self.position(nuevaPosicion)
@@ -18,6 +22,12 @@ object caballero {
     position = game.origin()
     return position
   }
+  
+  method agarrar(equipo) {
+    game.removeVisual(equipo)
+    equipamiento.put(equipo)
+  }
+
 }
 
 
