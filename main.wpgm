@@ -27,20 +27,20 @@ program DungeonGame {
 	//Repite logica, habría que ver como optimizarlo
 
 		// Acciones
-	//if (caballero.equipamiento.contains("arco"))
-		keyboard.space().onPressDo {flecha.disparar(caballero)}
-		keyboard.space().onPressDo {game.addVisual(flecha)}
+	//if (caballero.equipamiento.contains(arco)) //puede disparar solo cumpliendo la colisiòn?
+		keyboard.space().onPressDo {flecha.disparar(caballero);game.addVisual(flecha)}
 
 	game.onCollideDo(caballero, {arco => caballero.agarrar(arco)})
 	//Quiero que agarre las cosas con E, pero no estaría pudiendo hacerlo, por ahora queda on collide
 	
 	// Movimiento random del enemigo 
-	game.onTick(1000, "movimiento random", { esqueleto.movimiento() })
+	//game.onTick(1000, "movimiento random", { esqueleto.movimiento() })
 	
 	// Colisiones
-	game.onCollideDo(caballero, {esqueleto => esqueleto.volverAlOrigen(caballero)})
+	game.whenCollideDo(caballero, {cosa => cosa.volverAlOrigen(caballero)})
 	game.onCollideDo(flecha, {esqueleto => esqueleto.muerto(); game.removeVisual(flecha)})
 
 	//Comienzo del Juego
 	game.start()
 }
+
