@@ -1,6 +1,7 @@
 import wollok.game.*
-
 import personajes.*
+import enemigos.*
+import equipamientos.*
 
 program DungeonGame {
 
@@ -35,7 +36,6 @@ program DungeonGame {
 
 	// Colisiones
 	game.whenCollideDo(caballero, {elemento => elemento.volverAlOrigen(caballero)})
-
 
 	//Comienzo del Juego
 
