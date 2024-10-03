@@ -21,23 +21,23 @@ method moverse(nuevaPosicion) {
 
 method disparar(personaje) {
 position = caballero.position()
-game.onTick(5, "vuela", { self.moverse(self.position().down(1)) }) 
+game.onTick(50, "vuela", { self.moverse(self.position().down(1)) }) 
 
 /* if (personaje.image()=="frente.png") {
         self.image("flechaAbajo.png")
-        game.onTick(2, "vuela", { self.moverse(self.position().down(1)) } ) 
+        game.onTick(50, "vuela", { self.moverse(self.position().down(1)) } ) 
     }
   else if (personaje.image()=="trasero.png") {
         self.image("flechaArriba.png") 
-        game.onTick(2, "vuela", { self.moverse(self.position().up(1)) } )       //Anda como el tuje esto jajajjaa
+        game.onTick(50, "vuela", { self.moverse(self.position().up(1)) } )       //Anda como el tuje esto jajajjaa
     }
   else if (personaje.image()=="izquierda.png") {
         self.image("flechaIzquierda.png")
-        game.onTick(2, "vuela", { self.moverse(self.position().left(1)) } )  
+        game.onTick(50, "vuela", { self.moverse(self.position().left(1)) } )  
     }
   else {
         self.image("flechaDerecha.png")
-        game.onTick(2, "vuela", { self.moverse(self.position().right(1)) } ) 
+        game.onTick(50, "vuela", { self.moverse(self.position().right(1)) } ) 
     } */
   } 
 }

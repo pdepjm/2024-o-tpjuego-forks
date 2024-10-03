@@ -30,22 +30,20 @@ program DungeonGame {
 	keyboard.d().onPressDo {caballero.cambiaImagen("Derecha.png")}
 	
 		// Acciones
-	//if (caballero.equipamiento.contains(arco)) 
-	keyboard.space().onPressDo {flecha.disparar(caballero)}
-	keyboard.space().onPressDo {game.addVisual(flecha)}
-	game.whenCollideDo(caballero, {arco => caballero.agarrar(arco)})
+	//if (caballero.equipamiento.contains("arco"))
+		keyboard.space().onPressDo {flecha.disparar(caballero)}
+		keyboard.space().onPressDo {game.addVisual(flecha)}
+
+	game.onCollideDo(caballero, {arco => caballero.agarrar(arco)})
 	//Quiero que agarre las cosas con E, pero no estaría pudiendo hacerlo, por ahora queda on collide
 	
 	// Movimiento random del enemigo 
-	game.onTick(2000, "movimiento random", { esqueleto.movimiento() })
-
-	// Movimiento de la flecha
-
+	game.onTick(1000, "movimiento random", { esqueleto.movimiento() })
 	
 	// Colisiones
-	game.whenCollideDo(caballero, {esqueleto => esqueleto.volverAlOrigen(caballero)})
-	game.onCollideDo(flecha, {esqueleto => game.removeVisual(esqueleto)})
-	
+	game.onCollideDo(caballero, {esqueleto => esqueleto.volverAlOrigen(caballero)})
+	game.onCollideDo(flecha, {esqueleto => esqueleto.muerto(); game.removeVisual(flecha)})
+
 	//Comienzo del Juego
 	game.start()
 }

@@ -25,7 +25,7 @@ object caballero {
   
   method agarrar(equipo) {
     game.removeVisual(equipo)
-    equipamiento.put(equipo)
+    equipamiento.add(equipo)
   }
 
 }
