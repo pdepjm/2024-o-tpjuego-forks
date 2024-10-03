@@ -20,7 +20,7 @@ method moverse(nuevaPosicion) {
   }
 
 method disparar(personaje) {
-position = caballero.position()
+position = personaje.position()
 game.onTick(50, "vuela", { self.moverse(self.position().down(1)) }) 
 
 /* if (personaje.image()=="frente.png") {
