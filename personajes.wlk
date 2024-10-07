@@ -28,6 +28,8 @@ object caballero {
     equipamiento.add(equipo)
   }
 
+  method tieneElElemento(elem) = equipamiento.contains(elem)
+
 }
 
 

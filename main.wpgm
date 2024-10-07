@@ -28,7 +28,7 @@ program DungeonGame {
 
 		// Acciones
 	//if (caballero.equipamiento.contains(arco)) //puede disparar solo cumpliendo la colisiòn?
-		keyboard.space().onPressDo {flecha.disparar(caballero);game.addVisual(flecha)}
+		keyboard.space().onPressDo {flecha.disparar(caballero); game.addVisual(flecha)}
 
 	game.onCollideDo(caballero, {arco => caballero.agarrar(arco)})
 	//Quiero que agarre las cosas con E, pero no estaría pudiendo hacerlo, por ahora queda on collide
