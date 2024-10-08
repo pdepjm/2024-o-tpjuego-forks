@@ -5,16 +5,27 @@ import equipamientos.*
 
 object abajo {
   var position = 0
-  method imagen() = "flechaAbajo.png"
-  method position() { position.down(1)
-  return position }
+  method image() = "flechaFrente.png"
+  method direc(obj) = obj.position().down(1)
+
 } 
 
 object derecha {
   var position = 0
-  method imagen() = "flechaderecha.png"
-  method position() { position.right(1) 
-  return position}
+  method image() = "flechaderecha.png"
+  method direc(obj) = obj.position().right(1)
+} 
+
+object izquierda {
+  var position = 0
+  method image() = "flechaizquierda.png"
+  method direc(obj) = obj.position().left(1)
+} 
+
+object arriba {
+  var position = 0
+  method image() = "flechaEspalda.png"
+  method direc(obj) = obj.position().up(1)
 } 
 
 
