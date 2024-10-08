@@ -11,14 +11,15 @@ object arco {
 
 object flecha {
 var property position = caballero.position()
-var direccion = abajo
-method direccion(direc) { direccion = direc
-return direccion } 
+var property direccion = caballero.direccion()
+// method direccion(direc) { direccion = direc
+// return direccion } 
 method image() = direccion.image()  //"flecha" + self.direccion(derecha) + ".png" //flacheabajo
 
 
 method disparar(personaje) {
   if (personaje.tieneElElemento(arco)){
+  direccion = personaje.direccion()
   position = personaje.position()
   game.onTick(50, "vuela", { self.moverse(direccion.direc(self))}) 
   self.image()
