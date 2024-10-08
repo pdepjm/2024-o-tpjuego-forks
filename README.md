@@ -13,7 +13,8 @@ UTN - Facultad Regional Buenos Aires - Materia Paradigmas de Programación
 
 ## Capturas 
 
-![caballero](assets/Frente.png)
+![caballero](assets/CaballeroFrente.png)
+![esqueleto](assets/EsqueletoFrente.png)
 
 ## Reglas de Juego / Instrucciones
 
@@ -28,4 +29,5 @@ UTN - Facultad Regional Buenos Aires - Materia Paradigmas de Programación
 - `A` ir hacia la izquierda
 - `S` ir hacia abajo
 - `D` ir hacia la derecha
-
+- `E` agarrar objeto
+- `space` disparar flecha 
