@@ -1,6 +1,7 @@
 import wollok.game.*
 import personajes.*
 import equipamientos.*
+import direcciones.*
 
 object esqueleto {
   var property position = game.at(25,25) 

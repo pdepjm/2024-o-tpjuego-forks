@@ -2,6 +2,7 @@ import wollok.game.*
 import personajes.*
 import enemigos.*
 import equipamientos.*
+import direcciones.*
 
 program DungeonGame {
 

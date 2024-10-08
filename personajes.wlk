@@ -1,6 +1,7 @@
 import wollok.game.*
 import enemigos.*
 import equipamientos.*
+import direcciones.*
 
 object caballero {
   var property position = game.origin()
