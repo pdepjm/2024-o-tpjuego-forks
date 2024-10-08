@@ -15,6 +15,7 @@ UTN - Facultad Regional Buenos Aires - Materia Paradigmas de Programación
 
 ![caballero](assets/CaballeroFrente.png)
 ![esqueleto](assets/EsqueletoFrente.png)
+![arquero](assets/ArqueroIzquierda.png)
 
 ## Reglas de Juego / Instrucciones
 
