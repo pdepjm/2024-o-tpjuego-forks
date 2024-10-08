@@ -4,7 +4,7 @@ import equipamientos.*
 
 object esqueleto {
   var property position = game.at(25,25) 
-  var property image = "esqueleto.png"
+  var property image = "EsqueletoFrente.png"
 
   method movimiento() {
     // position = game.at(0.randomUpTo(8),0.randomUpTo(8) ) 

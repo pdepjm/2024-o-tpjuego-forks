@@ -1,37 +1,22 @@
 import wollok.game.*
 import personajes.*
 import enemigos.*
-import direcciones.*
+import equipamientos.*
 
-object arco {
-  method position() = game.at(15,15)
-  var property image = "arco.png"
-  
-}
-
-object flecha {
-var property position = caballero.position()
-var direccion = derecha
-method direccion(direc) { direccion = direc
-return direccion } 
-method image() = "flecha" + self.direccion(derecha) + ".png" //flacheabajo
-
-
-method disparar(personaje) {
-  if (personaje.tieneElElemento(arco)){
-  position = personaje.position()
-  game.onTick(50, "vuela", { self.moverse(self.position().right(1))}) 
-  self.image()
-  }
+object abajo {
+  var position = 0
+  method imagen() = "flechaAbajo.png"
+  method position() { position.down(1)
+  return position }
 } 
 
-method image(nuevaImagen) {
-  self.image(nuevaImagen)
-}
+object derecha {
+  var position = 0
+  method imagen() = "flechaderecha.png"
+  method position() { position.right(1) 
+  return position}
+} 
 
-method moverse(nuevaPosicion) {
-    self.position(nuevaPosicion)
-  }
 
 // method disparar(personaje) {
 // position = personaje.position()
@@ -54,7 +39,7 @@ method moverse(nuevaPosicion) {
 //         game.onTick(50, "vuela", { self.moverse(self.position().right(1)) } ) 
 //     }
 //   } 
-}
+
 
 
 

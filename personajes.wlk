@@ -4,7 +4,7 @@ import equipamientos.*
 
 object caballero {
   var property position = game.origin()
-  var property image = "Frente.png"
+  var property image = "CaballeroFrente.png"
 
   method position() = position
 
