@@ -17,8 +17,6 @@ object caballero {
     
     if (xNueva >= 0 and xNueva < game.width() and yNueva >= 0 and yNueva < game.height()) {
       self.position(nuevaPosicion)
-    } else {
-      // no hace nada si esta fuera de los limites, pero no se si hay una forma de decir no hagas nada :)
     }
   }
 

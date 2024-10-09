@@ -42,8 +42,28 @@ program DungeonGame {
 	//game.onTick(1000, "movimiento random", { esqueleto.movimiento() })
 	
 	// Colisiones
-	game.whenCollideDo(caballero, {cosa => cosa.volverAlOrigen(caballero)})
-	game.onCollideDo(flecha, {esqueleto => esqueleto.muerto(); game.removeVisual(flecha)})
+	//game.whenCollideDo(caballero, {cosa => cosa.volverAlOrigen(caballero)})
+	//game.onCollideDo(flecha, {esqueleto => esqueleto.muerto(); game.removeVisual(flecha)})
+
+	// colisiones ¿nuevo? :)
+	game.onTick(100, "verificarColisiones", {
+  		if (esqueleto.estaEnRango(caballero)) {
+    		caballero.volverAlOrigen()
+  		}
+
+  		if (esqueleto.estaEnRango(flecha)) {
+    		esqueleto.muerto()
+    		game.removeVisual(flecha)
+  		}
+	})
+
+	// flechaa y esquieleto
+	game.onCollideDo(flecha, { esqueleto => 
+  		if (esqueleto.estaEnRango(flecha)) {
+    		esqueleto.muerto()
+    		game.removeVisual(flecha)
+  		}
+	})
 
 	//Comienzo del Juego
 	game.start()
