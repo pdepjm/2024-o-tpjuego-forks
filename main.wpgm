@@ -18,6 +18,7 @@ program DungeonGame {
 	game.addVisualCharacter(caballero)
 	game.addVisual(esqueleto)
 	game.addVisual(arco)
+	game.addVisual(vida)
 
 	//Teclas 
 		// Movimiento
