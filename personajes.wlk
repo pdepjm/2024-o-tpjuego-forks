@@ -11,7 +11,15 @@ object caballero {
   const equipamiento = #{}
 
   method moverse(nuevaPosicion) {
-    self.position(nuevaPosicion)
+    // no se si esta bien pq usa bastantes ifs, pero si se les ocurre algo mejor saquenlo jajaja
+    const xNueva = nuevaPosicion.x()
+    const yNueva = nuevaPosicion.y()
+    
+    if (xNueva >= 0 and xNueva < game.width() and yNueva >= 0 and yNueva < game.height()) {
+      self.position(nuevaPosicion)
+    } else {
+      // no hace nada si esta fuera de los limites, pero no se si hay una forma de decir no hagas nada :)
+    }
   }
 
   method cambiaImagen(nuevaImagen) {
