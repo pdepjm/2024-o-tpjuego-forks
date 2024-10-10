@@ -7,11 +7,14 @@ object caballero {
   var property position = game.origin()
   var property image = "caballeroFrente.png"
   var property direccion = izquierda
+  var property nombre = "caballero"
 
   const equipamiento = #{}
 
-  method moverse(nuevaPosicion) {
-    // no se si esta bien pq usa bastantes ifs, pero si se les ocurre algo mejor saquenlo jajaja
+  method moverse(nuevaDireccion) {
+    self.direccion(nuevaDireccion)
+    const nuevaPosicion = nuevaDireccion.direc(self)
+    nuevaDireccion.image(self)
     const xNueva = nuevaPosicion.x()
     const yNueva = nuevaPosicion.y()
     

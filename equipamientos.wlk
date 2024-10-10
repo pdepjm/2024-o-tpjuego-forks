@@ -12,19 +12,20 @@ object arco {
 object flecha {
 var property position = caballero.position()
 var property direccion = caballero.direccion()
-method image() = direccion.image()
+var property image = "flechaAbajo.png"
+var property nombre = "flecha"
 
 method disparar(personaje) {
   if (personaje.tieneElElemento(arco)){
   direccion = personaje.direccion()
   position = personaje.position()
+  direccion.image(self)
   game.addVisual(self)
-  game.onTick(50, "vuela", { self.moverse(direccion.direc(self))}) 
-  self.image()
+  game.onTick(50, "vuela", {self.moverse(direccion.direc(self))}) 
   }
 } 
 
-method image(nuevaImagen) {
+method cambiaImagen(nuevaImagen) {
   self.image(nuevaImagen)
 }
 

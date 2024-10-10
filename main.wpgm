@@ -22,15 +22,10 @@ program DungeonGame {
 
 	//Teclas 
 		// Movimiento
-	keyboard.w().onPressDo {caballero.moverse(caballero.position().up(1));caballero.cambiaImagen("caballeroEspalda.png")}
-	keyboard.w().onPressDo {caballero.direccion(arriba)}
-	keyboard.a().onPressDo {caballero.moverse(caballero.position().left(1));caballero.cambiaImagen("caballeroIzquierda.png")} 
-	keyboard.a().onPressDo {caballero.direccion(izquierda)}	
-	keyboard.s().onPressDo {caballero.moverse(caballero.position().down(1));caballero.cambiaImagen("caballeroFrente.png")} 
-	keyboard.s().onPressDo {caballero.direccion(abajo)}
-	keyboard.d().onPressDo {caballero.moverse(caballero.position().right(1));caballero.cambiaImagen("caballeroDerecha.png")}
-	keyboard.d().onPressDo { caballero.direccion(derecha)} 
-	//Repite logica, habría que ver como optimizarlo
+	keyboard.w().onPressDo {caballero.moverse(arriba)}
+	keyboard.a().onPressDo {caballero.moverse(izquierda)} 
+	keyboard.s().onPressDo {caballero.moverse(abajo)} 
+	keyboard.d().onPressDo {caballero.moverse(derecha)}	
 
 		// Acciones
 	keyboard.space().onPressDo {flecha.disparar(caballero)}

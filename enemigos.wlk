@@ -6,7 +6,8 @@ import direcciones.*
 object esqueleto {
   var property position = game.at(25,25) 
   var property image = "esqueletoFrente.png"
-
+  var property nombre = "esqueleto"
+  
   method movimiento() {
     // position = game.at(0.randomUpTo(8),0.randomUpTo(8) ) 
     const x = 0.randomUpTo(game.width()).truncate(1)
