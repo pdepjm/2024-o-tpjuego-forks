@@ -18,6 +18,7 @@ method disparar(personaje) {
   if (personaje.tieneElElemento(arco)){
   direccion = personaje.direccion()
   position = personaje.position()
+  game.addVisual(self)
   game.onTick(50, "vuela", { self.moverse(direccion.direc(self))}) 
   self.image()
   }
