@@ -18,7 +18,7 @@ program DungeonGame {
 	game.addVisualCharacter(caballero)
 	game.addVisual(esqueleto)
 	game.addVisual(arco)
-	game.addVisual(vida)
+	game.addVisual(barraDeVida)
 
 	//Teclas 
 		// Movimiento
@@ -41,9 +41,10 @@ program DungeonGame {
 	//game.onCollideDo(flecha, {esqueleto => esqueleto.muerto(); game.removeVisual(flecha)})
 
 	// colisiones ¿nuevo? :)
-	game.onTick(100, "verificarColisiones", {
+	game.onTick(1000, "verificarColisiones", {
   		if (esqueleto.estaEnRango(caballero)) {
-    		caballero.volverAlOrigen()
+    		caballero.cambiaVida(-1)
+			esqueleto.cambiaVida(caballero.danio)
   		}
 
   		if (esqueleto.estaEnRango(flecha)) {

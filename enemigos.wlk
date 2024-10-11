@@ -7,7 +7,8 @@ object esqueleto {
   var property position = game.at(25,25) 
   var property image = "esqueletoFrente.png"
   var property nombre = "esqueleto"
-  
+  var property vida = 5
+
   method movimiento() {
     // position = game.at(0.randomUpTo(8),0.randomUpTo(8) ) 
     const x = 0.randomUpTo(game.width()).truncate(1)
@@ -24,6 +25,12 @@ object esqueleto {
     self.image(nuevaImagen)
   }
 
+  method cambiaVida(cantidad) {
+    vida += cantidad
+    if (vida == 0) {
+      self.muerto()
+    }
+  }
   method muerto() {
     self.cambiaImagen("esqueletoMuerto.png")
     game.schedule(1000, {game.removeVisual(self)} )
