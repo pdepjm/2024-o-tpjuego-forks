@@ -52,7 +52,7 @@ program DungeonGame {
   		}
 	})
 
-	// flechaa y esquieleto
+	// flecha y esquieleto
 	game.onCollideDo(flecha, { esqueleto => 
   		if (esqueleto.estaEnRango(flecha)) {
     		esqueleto.muerto()

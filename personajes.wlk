@@ -13,14 +13,8 @@ object caballero {
 
   method moverse(nuevaDireccion) {
     self.direccion(nuevaDireccion)
-    const nuevaPosicion = nuevaDireccion.direc(self)
+    nuevaDireccion.direc(self)
     nuevaDireccion.image(self)
-    const xNueva = nuevaPosicion.x()
-    const yNueva = nuevaPosicion.y()
-    
-    if (xNueva >= 0 and xNueva < game.width() and yNueva >= 0 and yNueva < game.height()) {
-      self.position(nuevaPosicion)
-    }
   }
 
   method cambiaImagen(nuevaImagen) {
@@ -39,6 +33,7 @@ object caballero {
 
   method tieneElElemento(elem) = equipamiento.contains(elem)
 
+  method tocaBorde() {}
 }
 
 

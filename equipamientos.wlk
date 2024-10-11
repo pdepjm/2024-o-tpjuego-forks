@@ -21,7 +21,7 @@ method disparar(personaje) {
   position = personaje.position()
   direccion.image(self)
   game.addVisual(self)
-  game.onTick(50, "vuela", {self.moverse(direccion.direc(self))}) 
+  game.onTick(50, "vuela", {direccion.direc(self)}) 
   }
 } 
 
@@ -29,8 +29,6 @@ method cambiaImagen(nuevaImagen) {
   self.image(nuevaImagen)
 }
 
-method moverse(nuevaPosicion) {
-    self.position(nuevaPosicion)
-  }
+method tocaBorde() = game.removeVisual(self)
 }
 
