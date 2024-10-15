@@ -19,7 +19,7 @@ object caballero {
     nuevaDireccion.image(self)
   }
 
-  method cambiaImagen(nuevaImagen) {
+  method cambiaImagenn(nuevaImagen) {
     self.image(nuevaImagen)
   }
 
@@ -27,10 +27,15 @@ object caballero {
     position = game.origin()
     return position
   }
+
+  method puedeAgarrar(objeto) =
+    objeto.estaEnRango(self)
   
   method agarrar(equipo) {
+    if (self.puedeAgarrar(equipo)){
     game.removeVisual(equipo)
     equipamiento.add(equipo)
+    }
   }
 
   method tieneElElemento(elem) = equipamiento.contains(elem)
@@ -44,12 +49,24 @@ object caballero {
       self.muerto()
     }
   }
-  method muerto () {
+
+  method atacar(enemigo){
+    if (enemigo.estaEnRango(self)){
+    enemigo.cambiaVida(-1)
+    }
+  }
+
+
+  method muerto() {
+    self.image("caballeroTiradito.png")
+    game.schedule(2000, {game.removeVisual(self)})
     // El personaje se cae al piso (se gira)
     // Sale una nota que moriste
     // Se detiene el juego
   }
 }
+
+
 
 
 object barraDeVida {
@@ -64,3 +81,4 @@ object barraDeVida {
       }
   } 
 }
+

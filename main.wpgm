@@ -29,37 +29,42 @@ program DungeonGame {
 
 		// Acciones
 	keyboard.space().onPressDo {flecha.disparar(caballero)}
+	keyboard.e().onPressDo {caballero.agarrar(arco)}
+	keyboard.r().onPressDo {caballero.atacar(esqueleto)}
+	//game.onCollideDo(caballero, {arco => caballero.agarrar(arco)})
 
-	game.onCollideDo(caballero, {arco => caballero.agarrar(arco)})
-	//Quiero que agarre las cosas con E, pero no estaría pudiendo hacerlo, por ahora queda on collide
 	
 	// Movimiento random del enemigo 
 	//game.onTick(1000, "movimiento random", { esqueleto.movimiento() })
 	
 	// Colisiones
 	//game.whenCollideDo(caballero, {cosa => cosa.volverAlOrigen(caballero)})
-	//game.onCollideDo(flecha, {esqueleto => esqueleto.muerto(); game.removeVisual(flecha)})
+	game.onCollideDo(flecha, {esqueleto => esqueleto.muerto(); game.removeVisual(flecha)})
+	game.whenCollideDo(esqueleto, {personaje => personaje.cambiaVida(-1)
+	personaje.moverse(abajo)})
 
-	// colisiones ¿nuevo? :)
-	game.onTick(1000, "verificarColisiones", {
-  		if (esqueleto.estaEnRango(caballero)) {
-    		caballero.cambiaVida(-1)
-			esqueleto.cambiaVida(caballero.danio)
-  		}
+	//colisiones ¿nuevo? :)
+	// game.onTick(1000, "verificarColisiones", {
+  	// 	if (esqueleto.estaEnRango(caballero)) {
+    // 		caballero.cambiaVida(-1)
+	// 		esqueleto.cambiaVida(caballero.danio)
+  	// 	}
 
-  		if (esqueleto.estaEnRango(flecha)) {
-    		esqueleto.muerto()
-    		game.removeVisual(flecha)
-  		}
-	})
+  	// 	if (esqueleto.estaEnRango(flecha)) {
+    // 		esqueleto.muerto()
+    // 		game.removeVisual(flecha)
+  	// 	}
+	// })
 
-	// flecha y esquieleto
-	game.onCollideDo(flecha, { esqueleto => 
-  		if (esqueleto.estaEnRango(flecha)) {
-    		esqueleto.muerto()
-    		game.removeVisual(flecha)
-  		}
-	})
+	// game.whenCollideDo(caballero, {enemigo => enemigo.atacar(caballero)} )
+
+	// flecha y esqueleto
+	// game.onCollideDo(flecha, { esqueleto => 
+  	// 	if (esqueleto.estaEnRango(flecha)) {
+    // 		esqueleto.muerto()
+    // 		game.removeVisual(flecha)
+  	// 	}
+	// })
 
 	//Comienzo del Juego
 	game.start()

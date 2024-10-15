@@ -8,6 +8,7 @@ object esqueleto {
   var property image = "esqueletoFrente.png"
   var property nombre = "esqueleto"
   var property vida = 5
+  var property danio = 2 
 
   method movimiento() {
     // position = game.at(0.randomUpTo(8),0.randomUpTo(8) ) 
@@ -43,3 +44,4 @@ object esqueleto {
     return diferenciaX <= 1 and diferenciaY <= 1
   }
 }
+
