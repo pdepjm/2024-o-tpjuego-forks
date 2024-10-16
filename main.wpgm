@@ -11,7 +11,7 @@ program DungeonGame {
 	game.height(50)
 	game.width(115)
 	game.cellSize(100)
-	game.boardGround("tiles.png")
+	game.boardGround("primerPiso.jpg")
 
 	//Visuales
 	game.addVisualCharacter(caballero)
