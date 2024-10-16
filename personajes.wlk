@@ -19,7 +19,7 @@ object caballero {
     nuevaDireccion.image(self)
   }
 
-  method cambiaImagenn(nuevaImagen) {
+  method cambiaImagen(nuevaImagen) {
     self.image(nuevaImagen)
   }
 
