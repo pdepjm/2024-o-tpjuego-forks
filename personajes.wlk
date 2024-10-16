@@ -3,6 +3,7 @@ import enemigos.*
 import equipamientos.*
 import direcciones.*
 
+
 object caballero {
   var property position = game.origin()
   var property image = "caballeroFrente.png"
@@ -19,7 +20,7 @@ object caballero {
     nuevaDireccion.image(self)
   }
 
-  method cambiaImagenn(nuevaImagen) {
+  method cambiaImagen(nuevaImagen) {
     self.image(nuevaImagen)
   }
 

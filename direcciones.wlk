@@ -3,6 +3,7 @@ import personajes.*
 import enemigos.*
 import equipamientos.*
 
+
 object abajo {
   method image(obj) = obj.cambiaImagen(obj.nombre() + "Frente.png")
   method direc(obj) {
@@ -58,4 +59,5 @@ object arriba {
     }
   } 
 } 
+
 

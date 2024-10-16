@@ -3,6 +3,7 @@ import personajes.*
 import enemigos.*
 import direcciones.*
 
+
 object arco {
   method position() = game.at(15,15)
   var property image = "arco.png"
@@ -27,7 +28,7 @@ method disparar(personaje) {
   position = personaje.position()
   direccion.image(self)
   game.addVisual(self)
-  game.onTick(50, "vuela", {direccion.direc(self)}) 
+  game.onTick(50, "vuela", {direccion.direc(self)})
   }
 } 
 
@@ -37,4 +38,5 @@ method cambiaImagen(nuevaImagen) {
 
 method tocaBorde() = game.removeVisual(self)
 }
+
 

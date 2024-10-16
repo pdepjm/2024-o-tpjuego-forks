@@ -4,6 +4,7 @@ import enemigos.*
 import equipamientos.*
 import direcciones.*
 
+
 program DungeonGame {
 
 	//Configuraciones iniciales
@@ -39,7 +40,8 @@ program DungeonGame {
 	
 	// Colisiones
 	//game.whenCollideDo(caballero, {cosa => cosa.volverAlOrigen(caballero)})
-	game.onCollideDo(flecha, {esqueleto => esqueleto.muerto(); game.removeVisual(flecha)})
+	game.onCollideDo(flecha, {esqueleto => esqueleto.muerto();
+	game.removeVisual(flecha)})
 	game.whenCollideDo(esqueleto, {personaje => personaje.cambiaVida(-1)
 	personaje.moverse(abajo)})
 
