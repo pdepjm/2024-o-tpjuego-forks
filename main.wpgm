@@ -35,11 +35,14 @@ program DungeonGame {
 
 	
 	// Movimiento random del enemigo 
-	//game.onTick(1000, "movimiento random", { esqueleto.movimiento() })
+	// game.onTick(2000, "movimiento random", { esqueleto.position(esqueleto.position().down(3))
+	// esqueleto.position(esqueleto.position().right(3))
+	// esqueleto.position(esqueleto.position().up(3))
+	// esqueleto.position(esqueleto.position().left(3))})
 	
 	// Colisiones
 	//game.whenCollideDo(caballero, {cosa => cosa.volverAlOrigen(caballero)})
-	game.onCollideDo(flecha, {esqueleto => esqueleto.muerto();
+	game.onCollideDo(flecha, {esq => esq.muerto()
 	game.removeVisual(flecha)})
 	game.whenCollideDo(esqueleto, {personaje => personaje.cambiaVida(-1)
 	personaje.moverse(abajo)})

@@ -24,17 +24,24 @@ var property nombre = "flecha"
 
 method disparar(personaje) {
   if (personaje.tieneElElemento(arco)){
-  game.removeTickEvent("vuela")
+  //game.removeTickEvent("vuela")
   direccion = personaje.direccion()
   position = personaje.position()
   direccion.image(self)
   game.addVisual(self)
+  game.removeTickEvent("vuela")
   game.onTick(50, "vuela", {direccion.direc(self)})
   }
 } 
 
 method cambiaImagen(nuevaImagen) {
   self.image(nuevaImagen)
+}
+
+method atacar(enemigo){
+  if (enemigo.estaEnRango(self)){
+    enemigo.muerto()
+    }
 }
 
 method tocaBorde() {

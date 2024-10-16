@@ -10,11 +10,15 @@ object esqueleto {
   var property vida = 5
   var property danio = 2 
 
-  method movimiento() {
+  method position(pos) {
     // position = game.at(0.randomUpTo(8),0.randomUpTo(8) ) 
-    const x = 0.randomUpTo(game.width()).truncate(1)
-    const y = 0.randomUpTo(game.height()).truncate(1)
-    position = game.at(x,y)
+    // const x = 0.randomUpTo(game.width()).truncate(1)
+    // const y = 0.randomUpTo(game.height()).truncate(1)
+    // position = game.at(x,y)
+    position = pos
+    // self.position().left(1)
+    // self.position().up(1)
+    // self.position().right(1)
   }
 
     method volverAlOrigen(algo) {
@@ -35,6 +39,12 @@ object esqueleto {
   method muerto() {
     self.cambiaImagen("esqueletoMuerto.png")
     game.schedule(1000, {game.removeVisual(self)} )
+  }
+
+  method atacado(arma){
+    if (self.estaEnRango(arma)){
+      self.muerto()
+    }
   }
 
   method estaEnRango(objeto) {

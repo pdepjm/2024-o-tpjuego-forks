@@ -47,7 +47,7 @@ object caballero {
     vida += cantidad
     barraDeVida.cambiaVida(cantidad)
     if (vida == 0) {
-      self.muerto()
+      self.perder()
     }
   }
 
@@ -57,14 +57,15 @@ object caballero {
     }
   }
 
-
-  method muerto() {
+  method perder() {
     self.image("caballeroTiradito.png")
-    game.schedule(2000, {game.removeVisual(self)})
+    game.schedule(1000, {game.removeVisual(self)})
     // El personaje se cae al piso (se gira)
     // Sale una nota que moriste
     // Se detiene el juego
   }
+
+  method muerto(){}
 }
 
 
