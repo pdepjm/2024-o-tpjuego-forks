@@ -26,9 +26,10 @@ UTN - Facultad Regional Buenos Aires - Materia Paradigmas de Programación
 
 ## Controles:
 
-- `W` ir hacia arriba
-- `A` ir hacia la izquierda
-- `S` ir hacia abajo
-- `D` ir hacia la derecha
-- `E` agarrar objeto
-- `space` disparar flecha 
+- `W` Ir hacia arriba
+- `A` Ir hacia la izquierda
+- `S` Ir hacia abajo
+- `D` Ir hacia la derecha
+- `E` Agarrar objeto
+- `R` Golpear cuerpo a cuerpo
+- `space` Disparar flecha 

@@ -5,8 +5,8 @@ import direcciones.*
 
 
 object caballero {
-  var property position = game.origin()
-  var property image = "caballeroFrente.png"
+  var property position = game.at(41,2)
+  var property image = "caballeroEspalda.png"
   var property direccion = izquierda
   var property nombre = "caballero"
   var property vida = 10

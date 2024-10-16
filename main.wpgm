@@ -10,10 +10,9 @@ program DungeonGame {
 	//Configuraciones iniciales
 	game.title("Dungeon & Objects")
 	game.height(50)
-	game.width(50)
+	game.width(115)
 	game.cellSize(100)
-	game.boardGround("tiles.png")
-
+	game.boardGround("Piso1.jpg")
 
 	//Visuales
 	game.addVisualCharacter(caballero)
