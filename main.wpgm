@@ -35,10 +35,7 @@ program DungeonGame {
 
 	
 	// Movimiento random del enemigo 
-	// game.onTick(2000, "movimiento random", { esqueleto.position(esqueleto.position().down(3))
-	// esqueleto.position(esqueleto.position().right(3))
-	// esqueleto.position(esqueleto.position().up(3))
-	// esqueleto.position(esqueleto.position().left(3))})
+	game.onTick(2000, "movimiento random", { esqueleto.movimiento() })
 	
 	// Colisiones
 	//game.whenCollideDo(caballero, {cosa => cosa.volverAlOrigen(caballero)})
