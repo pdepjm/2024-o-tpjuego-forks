@@ -53,7 +53,7 @@ object caballero {
 
   method atacar(enemigo){
     if (enemigo.estaEnRango(self)){
-    enemigo.cambiaVida(-1)
+    enemigo.cambiaVida(-danio)
     }
   }
 
@@ -72,14 +72,14 @@ object caballero {
 
 
 object barraDeVida {
-  var property image = "Vidas10.png"
+  var image = "Vidas10.png"
   var property position = game.at(42,47)
-  var property vidaActual = 10 
+  method vidaActual() = caballero.vida()
+  method image() = image
 
   method cambiaVida(cantidad) {
-    vidaActual += cantidad
-    if (vidaActual != 0) {
-      self.image("Vidas" + (vidaActual+cantidad).toString() + ".png")
+    if (self.vidaActual() != 0) {
+      image = "Vidas" + self.vidaActual().toString() + ".png"
       }
   } 
 }
