@@ -1,4 +1,5 @@
 import wollok.game.*
+import configuraciones.*
 import personajes.*
 import enemigos.*
 import equipamientos.*
@@ -9,7 +10,7 @@ object abajo {
   method direc(obj) {
     const nuevaPosicion = obj.position().down(1)  
     const yNueva = nuevaPosicion.y()
-    if (yNueva >= 0 and yNueva < game.height()) {
+    if (!(zonasPiso1.any { zona => zona.esZonaProhibida(nuevaPosicion.x(),yNueva)})) {
       obj.position(nuevaPosicion)
     }
     else {
@@ -20,10 +21,12 @@ object abajo {
 
 object derecha {
   method image(obj) = obj.cambiaImagen(obj.nombre() + "Derecha.png")
+    
    method direc(obj) {
     const nuevaPosicion = obj.position().right(1)  
     const xNueva = nuevaPosicion.x()
-    if (xNueva >= 0 and xNueva < game.width()) {
+  
+    if (!(zonasPiso1.any { zona => zona.esZonaProhibida(xNueva, nuevaPosicion.y())})) {
       obj.position(nuevaPosicion)
     }
     else {
@@ -37,7 +40,7 @@ object izquierda {
    method direc(obj) {
     const nuevaPosicion = obj.position().left(1)  
     const xNueva = nuevaPosicion.x()
-    if (xNueva >= 0 and xNueva < game.width()) {
+    if (!(zonasPiso1.any { zona => zona.esZonaProhibida(xNueva, nuevaPosicion.y())})) {
       obj.position(nuevaPosicion)
     }
     else {
@@ -51,7 +54,7 @@ object arriba {
    method direc(obj) {
     const nuevaPosicion = obj.position().up(1)  
     const yNueva = nuevaPosicion.y()
-    if (yNueva >= 0 and yNueva < game.height()) {
+    if (!(zonasPiso1.any { zona => zona.esZonaProhibida(nuevaPosicion.x(),yNueva)})) {
       obj.position(nuevaPosicion)
     }
     else {
