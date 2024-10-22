@@ -5,12 +5,10 @@ import equipamientos.*
 
 
 object abajo {
-  var nuevaPosicion = null
-  var yNueva = null
   method image(obj) = obj.cambiaImagen(obj.nombre() + "Frente.png")
   method direc(obj) {
-    nuevaPosicion = obj.position().down(1)  
-    yNueva = nuevaPosicion.y()
+    const nuevaPosicion = obj.position().down(1)  
+    const yNueva = nuevaPosicion.y()
     if (yNueva >= 0 and yNueva < game.height()) {
       obj.position(nuevaPosicion)
     }

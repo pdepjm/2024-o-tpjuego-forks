@@ -1,4 +1,5 @@
 import wollok.game.*
+import configuraciones.*
 import personajes.*
 import enemigos.*
 import equipamientos.*
@@ -6,68 +7,11 @@ import direcciones.*
 
 
 program DungeonGame {
-
-	//Configuraciones iniciales
-	game.title("Dungeon & Objects")
-	game.height(50)
-	game.width(115)
-	game.cellSize(100)
-	game.boardGround("Piso1.jpg")
-
-	//Visuales
-	game.addVisualCharacter(caballero)
-	game.addVisual(esqueleto)
-	game.addVisual(arco)
-	game.addVisual(barraDeVida)
-
-	//Teclas 
-		// Movimiento
-	keyboard.w().onPressDo {caballero.moverse(arriba)}
-	keyboard.a().onPressDo {caballero.moverse(izquierda)} 
-	keyboard.s().onPressDo {caballero.moverse(abajo)} 
-	keyboard.d().onPressDo {caballero.moverse(derecha)}	
-
-		// Acciones
-	keyboard.space().onPressDo {flecha.disparar(caballero)}
-	keyboard.e().onPressDo {caballero.agarrar(arco)}
-	keyboard.r().onPressDo {caballero.atacar(esqueleto)}
-	//game.onCollideDo(caballero, {arco => caballero.agarrar(arco)})
-
-	
-	// Movimiento random del enemigo 
-	game.onTick(2000, "movimiento random", { esqueleto.movimiento() })
-	
-	// Colisiones
-	//game.whenCollideDo(caballero, {cosa => cosa.volverAlOrigen(caballero)})
-	game.onCollideDo(flecha, {esq => esq.muerto()
-	game.removeVisual(flecha)})
-	game.whenCollideDo(esqueleto, {personaje => personaje.cambiaVida(-1)
-	personaje.moverse(abajo)})
-
-	//colisiones ¿nuevo? :)
-	// game.onTick(1000, "verificarColisiones", {
-  	// 	if (esqueleto.estaEnRango(caballero)) {
-    // 		caballero.cambiaVida(-1)
-	// 		esqueleto.cambiaVida(caballero.danio)
-  	// 	}
-
-  	// 	if (esqueleto.estaEnRango(flecha)) {
-    // 		esqueleto.muerto()
-    // 		game.removeVisual(flecha)
-  	// 	}
-	// })
-
-	// game.whenCollideDo(caballero, {enemigo => enemigo.atacar(caballero)} )
-
-	// flecha y esqueleto
-	// game.onCollideDo(flecha, { esqueleto => 
-  	// 	if (esqueleto.estaEnRango(flecha)) {
-    // 		esqueleto.muerto()
-    // 		game.removeVisual(flecha)
-  	// 	}
-	// })
-
-	//Comienzo del Juego
+	configuracionesIniciales.pantalla()
+	configuracionesIniciales.visuales()
+	configuracionesIniciales.teclas()
+	configuracionesIniciales.movimiento()
+	configuracionesIniciales.colisiones()
 	game.start()
 }
 
