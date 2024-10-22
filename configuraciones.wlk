@@ -56,20 +56,6 @@ object paredesPrimerPiso {
 	var property image = "" 
 }
 
-
-class ZonaPermitida {
-  const xMin
-  const xMax
-  const yMin
-  const yMax
-
- method esZonaPermitida (x,y) {
-    return x <= xMin && x >= xMax && y <= yMin && y >= yMax
-  }
-}
-
-const zonaPermitida = new ZonaPermitida(xMin=1,xMax=69,yMin=1,yMax=33)
-
 class ZonaProhibida {
   const xMin
   const xMax
@@ -81,6 +67,10 @@ class ZonaProhibida {
   }
 }
 
+const limiteInferior = new ZonaProhibida(xMin=0,xMax=69,yMin=1,yMax=1)
+const limiteSuperior = new ZonaProhibida(xMin=0,xMax=69,yMin=30,yMax=33)
+const limiteDerecho = new ZonaProhibida(xMin=66,xMax=66,yMin=0,yMax=33)
+const limiteIzquierdo = new ZonaProhibida(xMin=0,xMax=0,yMin=0,yMax=33)
 const hueco1 = new ZonaProhibida(xMin=2,xMax=11,yMin=3,yMax=8)
 const pared1 = new ZonaProhibida(xMin=10,xMax=11,yMin=6,yMax=33)
 const pared2 = new ZonaProhibida(xMin=37,xMax=39,yMin=1,yMax=10)
@@ -90,15 +80,13 @@ const pared5 = new ZonaProhibida(xMin=40,xMax=58,yMin=18,yMax=21)
 const pared6 = new ZonaProhibida(xMin=60,xMax=69,yMin=18,yMax=21)
 const pared7 = new ZonaProhibida(xMin=49,xMax=51,yMin=21,yMax=33)
 
-const zonasPiso1 = [hueco1,pared1,pared2,pared3,pared4,pared5,pared6,pared7]
+const zonasPiso1 = [limiteInferior,limiteSuperior,limiteDerecho,limiteIzquierdo,hueco1,pared1,pared2,pared3,pared4,pared5,pared6,pared7]
 
 object limitesDelMapa {
 	var property piso = caballero.piso()
 	var property zonasProhibidas = zonasPiso1
-	var property zonasHabilitadas = zonaPermitida
 
 	method puedePasar (x,y) {
-		return (zonaPermitida.esZonaPermitida(x,y))
-		|| !(zonasProhibidas.any { zona => zona.esZonaProhibida(x,y)}) 
+		return !(zonasProhibidas.any { zona => zona.esZonaProhibida(x,y)}) 
 	}
 }
