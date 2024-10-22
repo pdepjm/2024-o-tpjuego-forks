@@ -9,8 +9,8 @@ object abajo {
   method image(obj) = obj.cambiaImagen(obj.nombre() + "Frente.png")
   method direc(obj) {
     const nuevaPosicion = obj.position().down(1)  
-    const yNueva = nuevaPosicion.y()
-    if (!(zonasPiso1.any { zona => zona.esZonaProhibida(nuevaPosicion.x(),yNueva)})) {
+    
+    if (limitesDelMapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
       obj.position(nuevaPosicion)
     }
     else {
@@ -24,9 +24,8 @@ object derecha {
     
    method direc(obj) {
     const nuevaPosicion = obj.position().right(1)  
-    const xNueva = nuevaPosicion.x()
   
-    if (!(zonasPiso1.any { zona => zona.esZonaProhibida(xNueva, nuevaPosicion.y())})) {
+    if (limitesDelMapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
       obj.position(nuevaPosicion)
     }
     else {
@@ -39,8 +38,8 @@ object izquierda {
   method image(obj) = obj.cambiaImagen(obj.nombre() + "Izquierda.png")
    method direc(obj) {
     const nuevaPosicion = obj.position().left(1)  
-    const xNueva = nuevaPosicion.x()
-    if (!(zonasPiso1.any { zona => zona.esZonaProhibida(xNueva, nuevaPosicion.y())})) {
+
+    if (limitesDelMapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
       obj.position(nuevaPosicion)
     }
     else {
@@ -53,8 +52,8 @@ object arriba {
   method image(obj) = obj.cambiaImagen(obj.nombre() + "Espalda.png")
   method direc(obj) {
     const nuevaPosicion = obj.position().up(1)  
-    const yNueva = nuevaPosicion.y()
-    if (!(zonasPiso1.any { zona => zona.esZonaProhibida(nuevaPosicion.x(),yNueva)})) {
+    
+    if (limitesDelMapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
       obj.position(nuevaPosicion)
     }
     else {
