@@ -51,7 +51,7 @@ object izquierda {
 
 object arriba {
   method image(obj) = obj.cambiaImagen(obj.nombre() + "Espalda.png")
-   method direc(obj) {
+  method direc(obj) {
     const nuevaPosicion = obj.position().up(1)  
     const yNueva = nuevaPosicion.y()
     if (!(zonasPiso1.any { zona => zona.esZonaProhibida(nuevaPosicion.x(),yNueva)})) {
@@ -62,5 +62,4 @@ object arriba {
     }
   } 
 } 
-
 
