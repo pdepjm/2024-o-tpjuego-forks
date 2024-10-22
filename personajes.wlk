@@ -74,7 +74,7 @@ object caballero {
 
 object barraDeVida {
   var image = "Vidas10.png"
-  var property position = game.at(42,47)
+  var property position = game.at(65,32)
   method vidaActual() = caballero.vida()
   method image() = image
 

@@ -13,7 +13,7 @@ object configuracionesIniciales {
 	game.height(34)
 	game.width(70)
 	game.cellSize(100)
-	game.boardGround("Piso1.jpg")
+	game.boardGround("fondoPiso1.jpg")
   }
 
   method visuales() {
