@@ -48,3 +48,22 @@ object configuracionesIniciales {
 	  personaje.moverse(abajo)})
   }
 }
+
+class ZonaProhibida {
+  var xMin
+  var xMax
+  var yMin
+  var yMax
+
+ method esZonaProhibida (x,y) {
+    x <= xMin && x >= xMax && y >= yMin && y <= yMax
+  }
+}
+
+const hueco1 = new ZonaProhibida(xMin=5,xMax=12,yMin=5,yMax=8)
+const pared1 = new ZonaProhibida(xMin=12,xMax=12,yMin=9,yMax=33)
+const pared2 = new ZonaProhibida(xMin=41,xMax=41,yMin=1,yMax=10)
+const pared3 = new ZonaProhibida(xMin=41,xMax=41,yMin=13,yMax=27)
+const pared4 = new ZonaProhibida(xMin=41,xMax=41,yMin=30,yMax=33)
+const pared5 = new ZonaProhibida(xMin=42,xMax=60,yMin=23,yMax=23)
+const pared6 = new ZonaProhibida(xMin=64,xMax=68,yMin=23,yMax=23)
