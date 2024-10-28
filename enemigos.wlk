@@ -6,9 +6,9 @@ import direcciones.*
 object esqueleto {
   var property position = game.at(25,25) 
   var property image = "esqueletoFrente.png"
-  var property nombre = "esqueleto"
+  //const nombre = "esqueleto"
   var property vida = 5
-  var property danio = 2 
+  //const danio = 1 
 
   method movimiento() {
     position = game.at(25.randomUpTo(23), 25.randomUpTo(27) ) 
@@ -21,15 +21,6 @@ object esqueleto {
     // self.position().right(1)
   }
 
-    method volverAlOrigen(algo) {
-    algo.volverAlOrigen()
-    return position
-  }
-
-  method cambiaImagen(nuevaImagen) {
-    self.image(nuevaImagen)
-  }
-
   method cambiaVida(cantidad) {
     vida += cantidad
     if (vida == 0) {
@@ -37,7 +28,7 @@ object esqueleto {
     }
   }
   method muerto() {
-    self.cambiaImagen("esqueletoMuerto.png")
+    self.image("esqueletoMuerto.png")
     game.schedule(1000, {game.removeVisual(self)} )
   }
 

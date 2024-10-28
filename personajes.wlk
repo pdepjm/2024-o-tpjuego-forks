@@ -21,14 +21,6 @@ object caballero {
     nuevaDireccion.image(self)
   }
 
-  method cambiaImagen(nuevaImagen) {
-    self.image(nuevaImagen)
-  }
-
-  method volverAlOrigen() {
-    position = game.origin()
-    return position
-  }
 
   method puedeAgarrar(objeto) =
     objeto.estaEnRango(self)
@@ -79,7 +71,7 @@ object barraDeVida {
   method image() = image
 
   method cambiaVida(cantidad) {
-    if (self.vidaActual() != 0) {
+    if (self.vidaActual() != -1) {
       image = "Vidas" + self.vidaActual().toString() + ".png"
       }
   } 

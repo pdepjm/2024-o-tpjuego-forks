@@ -6,7 +6,7 @@ import equipamientos.*
 
 
 object abajo {
-  method image(obj) = obj.cambiaImagen(obj.nombre() + "Frente.png")
+  method image(obj) = obj.image(obj.nombre() + "Frente.png")
   method direc(obj) {
     const nuevaPosicion = obj.position().down(1)  
     
@@ -20,7 +20,7 @@ object abajo {
 } 
 
 object derecha {
-  method image(obj) = obj.cambiaImagen(obj.nombre() + "Derecha.png")
+  method image(obj) = obj.image(obj.nombre() + "Derecha.png")
     
    method direc(obj) {
     const nuevaPosicion = obj.position().right(1)  
@@ -35,7 +35,7 @@ object derecha {
 } 
 
 object izquierda {
-  method image(obj) = obj.cambiaImagen(obj.nombre() + "Izquierda.png")
+  method image(obj) = obj.image(obj.nombre() + "Izquierda.png")
    method direc(obj) {
     const nuevaPosicion = obj.position().left(1)  
 
@@ -49,7 +49,7 @@ object izquierda {
 } 
 
 object arriba {
-  method image(obj) = obj.cambiaImagen(obj.nombre() + "Espalda.png")
+  method image(obj) = obj.image(obj.nombre() + "Espalda.png")
   method direc(obj) {
     const nuevaPosicion = obj.position().up(1)  
     

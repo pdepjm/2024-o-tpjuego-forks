@@ -6,7 +6,7 @@ import direcciones.*
 
 object arco {
   method position() = game.at(15,15)
-  var property image = "arco.png"
+  method image() = "arco.png"
 
   method estaEnRango(objeto) {
     const diferenciaX = (self.position().x() - objeto.position().x()).abs()
@@ -15,6 +15,8 @@ object arco {
     return diferenciaX <= 1 and diferenciaY <= 1
   }
 }
+
+
 
 object flecha {
 var property position = caballero.position()
@@ -33,10 +35,6 @@ method disparar(personaje) {
   game.onTick(50, "vuela", {direccion.direc(self)})
   }
 } 
-
-method cambiaImagen(nuevaImagen) {
-  self.image(nuevaImagen)
-}
 
 method atacar(enemigo){
   if (enemigo.estaEnRango(self)){
