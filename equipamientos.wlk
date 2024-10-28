@@ -2,6 +2,7 @@ import wollok.game.*
 import personajes.*
 import enemigos.*
 import direcciones.*
+import pisos.*
 
 
 object arco {

@@ -4,7 +4,7 @@ import personajes.*
 import enemigos.*
 import equipamientos.*
 import direcciones.*
-
+import pisos.*
 
 program DungeonGame {
 	configuracionesIniciales.pantalla()

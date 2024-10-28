@@ -3,7 +3,7 @@ import configuraciones.*
 import personajes.*
 import enemigos.*
 import equipamientos.*
-
+import pisos.*
 
 object abajo {
   method image(obj) = obj.image(obj.nombre() + "Frente.png")

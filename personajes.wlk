@@ -2,7 +2,7 @@ import wollok.game.*
 import enemigos.*
 import equipamientos.*
 import direcciones.*
-
+import pisos.*
 
 object caballero {
   var property position = game.at(24,2)
@@ -77,3 +77,7 @@ object barraDeVida {
   } 
 }
 
+object habitacion {
+	var property image = "habitacion1-Photoroom.png"
+  var property position = game.origin() 
+  }
