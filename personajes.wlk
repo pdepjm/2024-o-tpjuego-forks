@@ -22,6 +22,11 @@ object caballero {
   }
 
 
+
+  method pasaPorPuerta(puerta) {
+    
+  }
+  
   method puedeAgarrar(objeto) =
     objeto.estaEnRango(self)
   

@@ -22,6 +22,7 @@ object configuracionesIniciales {
 	game.addVisual(arco)
 	game.addVisual(barraDeVida)
 	game.addVisual(habitacion)
+	game.addVisual(puerta1a4)
 	//game.addVisual(paredesPrimerPiso)
   }
 
@@ -48,5 +49,8 @@ object configuracionesIniciales {
 	game.removeVisual(flecha)})
 	game.whenCollideDo(esqueleto, {personaje => personaje.cambiaVida(-1)
 	personaje.moverse(abajo)})
+
+	game.whenCollideDo(puerta1a4, {personaje => personaje.pasaPorPuerta(puerta1a4)})
+
   }
 }

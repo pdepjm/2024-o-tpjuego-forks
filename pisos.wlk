@@ -25,7 +25,11 @@ const piso1 = new Piso (numero=1,paredes=paredesPrimerPiso,zonaProhibida=zonasPi
 
 object paredesPrimerPiso {
 	var property position = game.at(0,0) 
-	var property image = "" 
+	var property image = "habitacion1.png"  
+
+	method cambiaHabitacion(habitacion) {
+		self.image("habitacion" + habitacion)
+	}
 }
 
 const limiteInferior = new ZonaProhibida(xMin=0,xMax=69,yMin=1,yMax=1)
@@ -53,3 +57,20 @@ object limitesDelMapa {
 		return !(zonasProhibidas.any { zona => zona.esZonaProhibida(x,y)}) 
 	}
 }
+
+class Puerta {
+  const puerta
+  const position
+  const destino
+  const nuevaPosicionPersonaje
+  method pasaElCaballero() {
+	paredesPrimerPiso.cambiaHabitacion(destino)
+	nuevaPosicionPersonaje
+  }
+}
+
+const puerta1a4 = new Puerta (puerta = 3, position = game.at(37,11), destino = 4, nuevaPosicionPersonaje = caballero.position().right(3))
+const puerta4a1 = new Puerta (puerta = 3, position = game.at(39,11), destino = 1, nuevaPosicionPersonaje = caballero.position().left(3))
+
+const puertasPiso1 = [puerta1a4,puerta4a1]
+
