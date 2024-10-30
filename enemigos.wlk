@@ -4,22 +4,15 @@ import equipamientos.*
 import direcciones.*
 import pisos.*
 
-object esqueleto {
-  var property position = game.at(25,25) 
+class Esqueleto {
+  var property position  
   var property image = "esqueletoFrente.png"
   //const nombre = "esqueleto"
   var property vida = 5
   //const danio = 1 
 
-  method movimiento() {
-    position = game.at(25.randomUpTo(23), 25.randomUpTo(27) ) 
-    // const x = 0.randomUpTo(game.width()).truncate(1)
-    // const y = 0.randomUpTo(game.height()).truncate(1)
-    // position = game.at(x,y)
-    // position = pos
-    // self.position().left(1)
-    // self.position().up(1)
-    // self.position().right(1)
+  method movimiento(x,y) {
+    position = game.at(x.randomUpTo(x-2), y.randomUpTo(y+2)) 
   }
 
   method cambiaVida(cantidad) {
@@ -47,3 +40,6 @@ object esqueleto {
   }
 }
 
+const esqueleto1 = new Esqueleto (position= game.at(20,20))
+const esqueleto2 = new Esqueleto (position= game.at(30,25))
+const esqueleto3 = new Esqueleto (position= game.at(10,20))
