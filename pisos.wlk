@@ -28,7 +28,7 @@ object paredesPrimerPiso {
 	var property image = "habitacion1.png"  
 
 	method cambiaHabitacion(habitacion) {
-		self.image("habitacion" + habitacion)
+		self.image("habitacion" + habitacion + ".png")
 	}
 }
 
@@ -66,6 +66,7 @@ class Puerta {
   //const nuevaPosicionPersonaje
   method pasaElCaballero() {
 	paredesPrimerPiso.cambiaHabitacion(destino)
+	//(paredesPiso + caballero.piso()).cambiaHabitacion(destino)
 	//nuevaPosicionPersonaje
   }
 }
