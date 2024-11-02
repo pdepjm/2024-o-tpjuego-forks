@@ -29,13 +29,9 @@ object caballero {
     nuevaDireccion.direc(self)
     nuevaDireccion.image(self)
   }
-
-
-
-  method pasaPorPuerta(puerta) {
-    
-  }
   
+
+
   method puedeAgarrar(objeto) =
     objeto.estaEnRango(self)
   

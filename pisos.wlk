@@ -70,7 +70,6 @@ class Puerta {
   }
 }
 
-
 const puerta1a3 = new Puerta (puerta = 1, position = game.at(10,1), destino = 3)
 const puerta3a1 = new Puerta (puerta = 1, position = game.at(11,1), destino = 1)
 const puerta3a2 = new Puerta (puerta = 2, position = game.at(1,7), destino = 2)

@@ -21,6 +21,10 @@ object configuracionesIniciales {
 	game.addVisual(esqueleto1)
 	game.addVisual(esqueleto2)
 	game.addVisual(esqueleto3)
+	game.addVisual(esqueleto4)
+	game.addVisual(esqueleto5)
+	game.addVisual(esqueleto6)
+	game.addVisual(esqueleto7)
 	game.addVisual(arco)
 	game.addVisual(barraDeVida)
 	game.addVisual(habitacion)
@@ -43,9 +47,9 @@ object configuracionesIniciales {
   }
 
   method movimiento() {
-	game.onTick(2000, "movimiento random", { esqueleto1.movimiento(esqueleto1.position().x(),esqueleto1.position().y()) })
-	game.onTick(2000, "movimiento random", { esqueleto2.movimiento(esqueleto2.position().x(),esqueleto2.position().y()) })
-	game.onTick(2000, "movimiento random", { esqueleto3.movimiento(esqueleto3.position().x(),esqueleto3.position().y()) })
+	//game.onTick(2000, "movimiento random", {esqueleto1.movimientoV2(Number.randomUpTo(4))})
+	//game.onTick(2000, "movimiento random", {esqueleto2.movimientoV2(Number.randomUpTo(4))})
+	//game.onTick(2000, "movimiento random", {esqueleto3.movimientoV2(Number.randomUpTo(4))})
   }
 
   method colisiones() {
@@ -55,6 +59,6 @@ object configuracionesIniciales {
 	game.whenCollideDo(esqueleto1, {personaje => personaje.cambiaVida(-1)
 	personaje.moverse(abajo)})
 
-	puertasPiso1.forEach {puerta => game.whenCollideDo(puerta,{personaje => personaje.pasaPorPuerta(puerta)})}
+	puertasPiso1.forEach {puerta => game.whenCollideDo(puerta,{personaje => puerta.pasaElCaballero()})}
   }
 }
