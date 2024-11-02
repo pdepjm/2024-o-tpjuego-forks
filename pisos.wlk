@@ -61,25 +61,26 @@ class Puerta {
   const image = ""
   const puerta
   var property position
+  const direccion
   const destino
   //const nuevaPosicionPersonaje
   method pasaElCaballero() {
 	paredesPiso1.cambiaHabitacion(destino)
 	//(paredesPiso + caballero.piso()).cambiaHabitacion(destino)
-	//nuevaPosicionPersonaje
+	game.onTick(1, "Cambia Habitación", { caballero.moverse(direccion) })
   }
 }
 
-const puerta1a3 = new Puerta (puerta = 1, position = game.at(10,1), destino = 3)
-const puerta3a1 = new Puerta (puerta = 1, position = game.at(11,1), destino = 1)
-const puerta3a2 = new Puerta (puerta = 2, position = game.at(1,7), destino = 2)
-const puerta2a3 = new Puerta (puerta = 2, position = game.at(1,8), destino = 3)
-const puerta1a4 = new Puerta (puerta = 3, position = game.at(37,11), destino = 4) //nuevaPosicionPersonaje = caballero.position.right(3))
-const puerta4a1 = new Puerta (puerta = 3, position = game.at(39,11), destino = 1) //nuevaPosicionPersonaje = caballero.position.left(3))
-const puerta1a5 = new Puerta (puerta = 4, position = game.at(37,25), destino = 5)
-const puerta5a1 = new Puerta (puerta = 4, position = game.at(39,25), destino = 1)
-const puerta4a6 = new Puerta (puerta = 4, position = game.at(59,19), destino = 6)
-const puerta6a4 = new Puerta (puerta = 4, position = game.at(59,21), destino = 4)
+const puerta1a3 = new Puerta (puerta = 1, position = game.at(10,1), destino = 3, direccion = izquierda)
+const puerta3a1 = new Puerta (puerta = 1, position = game.at(11,1), destino = 1, direccion = derecha)
+const puerta3a2 = new Puerta (puerta = 2, position = game.at(1,7), destino = 2, direccion = arriba)
+const puerta2a3 = new Puerta (puerta = 2, position = game.at(1,8), destino = 3, direccion = abajo)
+const puerta1a4 = new Puerta (puerta = 3, position = game.at(37,11), destino = 4, direccion = derecha) //nuevaPosicionPersonaje = caballero.position.right(3))
+const puerta4a1 = new Puerta (puerta = 3, position = game.at(39,11), destino = 1,direccion = izquierda ) //nuevaPosicionPersonaje = caballero.position.left(3))
+const puerta1a5 = new Puerta (puerta = 4, position = game.at(37,25), destino = 5, direccion = derecha)
+const puerta5a1 = new Puerta (puerta = 4, position = game.at(39,25), destino = 1, direccion = izquierda)
+const puerta4a6 = new Puerta (puerta = 4, position = game.at(59,19), destino = 6, direccion = arriba)
+const puerta6a4 = new Puerta (puerta = 4, position = game.at(59,21), destino = 4, direccion = abajo)
 
 const puertasPiso1 = [puerta1a3,puerta3a1,puerta3a2,puerta2a3,puerta1a4,puerta4a1,puerta1a5,puerta5a1,puerta4a6,puerta6a4]
 
