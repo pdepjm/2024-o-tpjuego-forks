@@ -55,7 +55,6 @@ object configuracionesIniciales {
 	game.whenCollideDo(esqueleto1, {personaje => personaje.cambiaVida(-1)
 	personaje.moverse(abajo)})
 
-	game.whenCollideDo(puerta1a4, {personaje => personaje.pasaPorPuerta(puerta1a4)})
-
+	puertasPiso1.forEach {puerta => game.whenCollideDo(puerta,{personaje => personaje.pasaPorPuerta(puerta)})}
   }
 }
