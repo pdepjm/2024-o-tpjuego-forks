@@ -41,17 +41,17 @@ class Esqueleto {
     nuevaDireccion.image(self)
   }
 
-  method movimientoV3(){
-    if(position == game.at(17,16)){
+  method movimientoV3(x, y){
+    if(position == game.at(x, y)){
     self.moverse(derecha)
     }
-    else if (position == game.at(19,16)) {
+    else if (position == game.at(x+2, y)) {
       self.moverse(abajo)
     }
-    else if (position == game.at(19,14)){
+    else if (position == game.at(x+2, y-2)){
       self.moverse(izquierda)
     }
-    else if (position == game.at(17,14)){
+    else if (position == game.at(x, y-2)){
       self.moverse(arriba)
     }
     else {

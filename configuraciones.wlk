@@ -47,8 +47,9 @@ object configuracionesIniciales {
   }
 
   method movimiento() {
-	game.onTick(2000, "movimiento random", {esqueleto1.movimientoV3()})
-	//game.onTick(2000, "movimiento random", {esqueleto2.movimientoV2(Number.randomUpTo(4))})
+	game.onTick(2000, "movimiento random", {esqueleto1.movimientoV3(17, 16)})
+	game.onTick(2000, "movimiento random", {esqueleto2.movimientoV3(30, 25)})
+	game.onTick(2000, "movimiento random", {esqueleto3.movimientoV3(34, 8)})
 	//game.onTick(2000, "movimiento random", {esqueleto3.movimientoV2(Number.randomUpTo(4))})
   }
 
