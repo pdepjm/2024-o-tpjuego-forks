@@ -42,16 +42,16 @@ class Esqueleto {
   }
 
   method movimientoV3(x, y){
-    if(position == game.at(x, y)){
+    if(self.position() == game.at(x, y)){
     self.moverse(derecha)
     }
-    else if (position == game.at(x+2, y)) {
+    else if (self.position() == game.at(x+2, y)) {
       self.moverse(abajo)
     }
-    else if (position == game.at(x+2, y-2)){
+    else if (self.position() == game.at(x+2, y-2)){
       self.moverse(izquierda)
     }
-    else if (position == game.at(x, y-2)){
+    else if (self.position() == game.at(x, y-2)){
       self.moverse(arriba)
     }
     else {

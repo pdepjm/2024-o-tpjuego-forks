@@ -29,6 +29,37 @@ object caballero {
     nuevaDireccion.direc(self)
     nuevaDireccion.image(self)
   }
+
+  method rebote(d){
+    if (d == derecha){
+      self.moverse(izquierda)
+    }
+    else if (d == izquierda){
+      self.moverse(derecha)
+    }
+    else if (d == arriba){
+      self.moverse(abajo)
+    }
+    else if (d == abajo){
+      self.moverse(arriba)
+    }
+    game.schedule(0000, {self.recibeDanio(self.image())})
+  }
+
+  method recibeDanio(im){
+    if (self.image() == "caballeroFrente.png"){
+      self.image("caballeroFrenteRojo.png")
+    }
+    else if (self.image() == "caballeroEspalda.png"){
+      self.image("caballeroEspaldaRojo.png")
+    }
+    else if (self.image() == "caballeroDerecha.png"){
+      self.image("caballeroDerechaRojo.png")
+    }
+    else if (self.image() == "caballeroIzquierda.png"){
+      self.image("caballeroIzquierdaRojo.png")
+    }
+  }
   
 
 
@@ -49,7 +80,7 @@ object caballero {
   method cambiaVida(cantidad) {
     vida += cantidad
     barraDeVida.cambiaVida(cantidad)
-    if (vida == 0) {
+    if (self.vida() == 0) {
       self.perder()
     }
   }
@@ -62,7 +93,7 @@ object caballero {
 
   method perder() {
     self.image("caballeroTiradito.png")
-    game.schedule(1000, {game.removeVisual(self)})
+    game.schedule(2000, {game.removeVisual(self)})
     // El personaje se cae al piso (se gira)
     // Sale una nota que moriste
     // Se detiene el juego

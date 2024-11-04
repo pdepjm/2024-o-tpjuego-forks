@@ -58,7 +58,11 @@ object configuracionesIniciales {
 	game.onCollideDo(flecha, {esq => esq.muerto()
 	game.removeVisual(flecha)})
 	game.whenCollideDo(esqueleto1, {personaje => personaje.cambiaVida(-1)
-	personaje.moverse(abajo)})
+	personaje.rebote(personaje.direccion())})
+	game.whenCollideDo(esqueleto2, {personaje => personaje.cambiaVida(-1)
+	personaje.rebote(personaje.direccion())})
+	game.whenCollideDo(esqueleto3, {personaje => personaje.cambiaVida(-1)
+	personaje.rebote(personaje.direccion())})
 
 	puertasPiso1.forEach {puerta => game.whenCollideDo(puerta,{personaje => puerta.pasaElCaballero()})}
   }
