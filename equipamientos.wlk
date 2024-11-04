@@ -49,4 +49,13 @@ method tocaBorde() {
 } 
 }
 
+// object mensaje {
+//   method image() = "TECLAE.png"
+//   method position() = game.center()
+//   method text() = "TOCA E PARA AGARRAR" 
+// }
+
+// object invisible {
+//   method position() = game.at(15, 15)
+// }
 

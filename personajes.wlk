@@ -13,6 +13,7 @@ object caballero {
   var property vida = 10
   var property danio = 2
   var property piso = 1
+  const property verde = "00FF00FF"
 
   const equipamiento = #{}
 
@@ -24,6 +25,11 @@ object caballero {
         }
     }
 */
+
+  // method text() = "TOCA E PARA AGARRAR"
+
+
+  // method textColor() = self.verde()
 
   method moverse(nuevaDireccion) {
     self.direccion(nuevaDireccion)
@@ -124,3 +130,5 @@ object habitacion {
 	var property image = "habitacion1-Photoroom.png"
   var property position = game.origin() 
   }
+
+  

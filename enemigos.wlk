@@ -66,8 +66,8 @@ class Esqueleto {
     }
   }
   method muerto() {
-    self.image("esqueletoMuerto.png")
-    game.schedule(1000, {game.removeVisual(self)} )
+    self.image("esqueletoFrenteMuerto.png")
+    game.schedule(500, {game.removeVisual(self)} )
   }
 
   method atacado(arma){

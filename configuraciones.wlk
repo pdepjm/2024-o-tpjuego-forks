@@ -18,6 +18,7 @@ object configuracionesIniciales {
 
   method visuales() {
 	game.addVisualCharacter(caballero)
+	//game.addVisual(invisible)
 	game.addVisual(esqueleto1)
 	game.addVisual(esqueleto2)
 	game.addVisual(esqueleto3)
@@ -57,6 +58,7 @@ object configuracionesIniciales {
 	//game.whenCollideDo(caballero, {cosa => cosa.volverAlOrigen(caballero)})
 	game.onCollideDo(flecha, {esq => esq.muerto()
 	game.removeVisual(flecha)})
+	//game.whenCollideDo(invisible, {caballero => game.say(invisible, "¡Cuidado!")})
 	game.whenCollideDo(esqueleto1, {personaje => personaje.cambiaVida(-1)
 	personaje.rebote(personaje.direccion())})
 	game.whenCollideDo(esqueleto2, {personaje => personaje.cambiaVida(-1)
