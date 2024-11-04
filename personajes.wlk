@@ -1,3 +1,4 @@
+import configuraciones.*
 import wollok.game.*
 import enemigos.*
 import equipamientos.*
@@ -43,7 +44,9 @@ object caballero {
     else if (d == abajo){
       self.moverse(arriba)
     }
+    if (self.vida() > 0){
     game.schedule(0000, {self.recibeDanio(self.image())})
+    }
   }
 
   method recibeDanio(im){
@@ -92,14 +95,13 @@ object caballero {
   }
 
   method perder() {
-    self.image("caballeroTiradito.png")
+    game.schedule(0000, {self.image("caballeroTiraditoRojo.png")})
     game.schedule(2000, {game.removeVisual(self)})
     // El personaje se cae al piso (se gira)
     // Sale una nota que moriste
     // Se detiene el juego
   }
 
-  method muerto(){}
 }
 
 
