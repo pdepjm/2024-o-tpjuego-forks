@@ -70,7 +70,7 @@ object caballero {
     }
   }
   
-
+  method agregarEquipo(e) { equipamiento.add(e) }
 
   method puedeAgarrar(objeto) =
     objeto.estaEnRango(self)
@@ -78,7 +78,7 @@ object caballero {
   method agarrar(equipo) {
     if (self.puedeAgarrar(equipo)){
     game.removeVisual(equipo)
-    equipamiento.add(equipo)
+    equipamiento.agregarEquipo(equipo)
     }
   }
 
@@ -131,4 +131,4 @@ object habitacion {
   var property position = game.origin() 
   }
 
-  
+

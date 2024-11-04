@@ -1,0 +1,28 @@
+import main.*
+import wollok.game.*
+import configuraciones.*
+import personajes.*
+import enemigos.*
+import equipamientos.*
+import direcciones.*
+import pisos.*
+
+describe "Primeros tests" {
+    method initialize(){
+    game.clear()
+    
+  }
+
+  test "El caballero agrega el arco a su inventario" {
+    caballero.agarrar(arco)
+    assert.that(caballero.equipamiento.contains(arco))
+  }
+
+  test "El método cambiaVida() hace que le restes una cantidad de vida al caballero" {
+    const vidaAlPrincipio = caballero.vida()
+    caballero.cambiaVida(-1)
+    assert.equals(vidaAlPrincipio-1, caballero.vida())
+  }
+
+
+}
