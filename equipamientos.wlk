@@ -5,24 +5,28 @@ import direcciones.*
 import pisos.*
 
 
-object arco {
-  method position() = game.at(13,15)
-  method image() = "arco.png"
+class Objeto {
+  var property position
+  var property image
 
   method estaEnRango(objeto) {
     const diferenciaX = (self.position().x() - objeto.position().x()).abs()
     const diferenciaY = (self.position().y() - objeto.position().y()).abs()
 
-    return diferenciaX <= 1 and diferenciaY <= 1
+    return (diferenciaX <= 1 && diferenciaY <= 1)
   }
 }
 
+const arco = new Objeto (position = game.at(5.3, 30.3), image = "arco.png")
+const llave = new Objeto (position = game.at(24,2), image = "llave.png")
+const pocion = new Objeto (position = game.at(0,0), image = "pocion.png")
 
+const objetos = [arco,llave,pocion]
 
 class Flecha {
-var property position = caballero.position()
-var property direccion = caballero.direccion()
-var property image = "flechaAbajo.png"
+var property position
+var property direccion
+var property image = ""
 var property nombre = "flecha"
 var property tirador = null 
 
@@ -33,26 +37,10 @@ method disparar(personaje) {
   position = personaje.position()
   direccion.image(self)
   game.addVisual(self)
-  game.removeTickEvent("vuela")
-  game.onTick(50, "vuela", {direccion.direc(self)})
+  game.removeTickEvent("vuela" + personaje)
+  game.onTick(50, "vuela" + personaje , {direccion.direc(self)})
   }
 } 
-
-// method arqueroDispara(personaje){
-//   self.fueDisparada(personaje)
-//   direccion = personaje.direccion()
-//   position = personaje.position()
-//   direccion.image(self)
-//   game.addVisual(self)
-//   game.removeTickEvent("vuelaa")
-//   game.onTick(50, "vuelaa", {direccion.direc(self)})
-// }
-
-// method atacar(enemigo){
-//   if (enemigo.estaEnRango(self)){
-//     enemigo.muerto()
-//     }
-// }
 
 method tocaBorde() {
   game.removeTickEvent("vuela")
@@ -60,16 +48,22 @@ method tocaBorde() {
 } 
 }
 
-const flecha1 = new Flecha(position = caballero.position(), tirador = caballero)
+const flecha1 = new Flecha(position = caballero.position(), direccion = caballero.direccion(), tirador = caballero)
 const flecha2 = new Flecha(position = arquero1.position(), direccion = arquero1.direccion(), tirador = arquero1)
 
-// object mensaje {
-//   method image() = "TECLAE.png"
-//   method position() = game.center()
-//   method text() = "TOCA E PARA AGARRAR" 
-// }
+const flechas = [flecha1,flecha2]
 
-// object invisible {
-//   method position() = game.at(15, 15)
-// }
+object mensaje {
+  method image() = "TECLAE.png"
+  method position() = arco.position()
+  method text() = "TOCA E PARA AGARRAR"
+  method letraGrande(arco){
+  if (caballero.puedeAgarrar(arco)){
+      game.addVisual(self)
+    }
+    else{
+      game.removeVisual(self)
+    }
+  }
+}
 

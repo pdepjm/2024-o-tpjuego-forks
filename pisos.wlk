@@ -8,6 +8,10 @@ class Piso {
 	var numero
 	var paredes
 	var zonaProhibida
+
+	//if (caballero.tieneElElemento(llave)) {
+//		zonaProhibida = puertaCerrada
+//	}
 }
 
 class ZonaProhibida {
@@ -25,10 +29,10 @@ const piso1 = new Piso (numero=1,paredes=paredesPiso1,zonaProhibida=zonasPiso1)
 
 object paredesPiso1 {
 	var property position = game.at(0,0) 
-	var property image = "habitacion1.png"  
+	var property image = "habitacion1.jpg"  
 
 	method cambiaHabitacion(habitacion) {
-		self.image("habitacion" + habitacion + ".png")
+		self.image("habitacion" + habitacion + ".jpg")
 	}
 }
 
@@ -45,7 +49,7 @@ const pared4 = new ZonaProhibida(xMin=37,xMax=39,yMin=27,yMax=33)
 const pared5 = new ZonaProhibida(xMin=40,xMax=58,yMin=18,yMax=21)
 const pared6 = new ZonaProhibida(xMin=60,xMax=69,yMin=18,yMax=21)
 const pared7 = new ZonaProhibida(xMin=49,xMax=51,yMin=21,yMax=33)
-
+const puertaCerrada = new ZonaProhibida(xMin=59,xMax=59,yMin=18,yMax=21) 
 const zonasPiso1 = [limiteInferior,limiteSuperior,limiteDerecho,limiteIzquierdo,hueco1,pared1,pared2,pared3,pared4,pared5,pared6,pared7]
 
 object limitesDelMapa {
@@ -58,16 +62,14 @@ object limitesDelMapa {
 }
 
 class Puerta {
-  const image = ""
   const puerta
   var property position
   const direccion
   const destino
-  //const nuevaPosicionPersonaje
   method pasaElCaballero() {
 	paredesPiso1.cambiaHabitacion(destino)
-	//(paredesPiso + caballero.piso()).cambiaHabitacion(destino)
-	game.onTick(1, "Cambia Habitación", { caballero.moverse(direccion) })
+	game.onTick(1, "Cambia Habitación", {caballero.moverse(direccion)})
+	game.schedule(3, {game.removeTickEvent("Cambia Habitación")})
   }
 }
 
@@ -75,12 +77,11 @@ const puerta1a3 = new Puerta (puerta = 1, position = game.at(10,1), destino = 3,
 const puerta3a1 = new Puerta (puerta = 1, position = game.at(11,1), destino = 1, direccion = derecha)
 const puerta3a2 = new Puerta (puerta = 2, position = game.at(1,7), destino = 2, direccion = arriba)
 const puerta2a3 = new Puerta (puerta = 2, position = game.at(1,8), destino = 3, direccion = abajo)
-const puerta1a4 = new Puerta (puerta = 3, position = game.at(37,11), destino = 4, direccion = derecha) //nuevaPosicionPersonaje = caballero.position.right(3))
-const puerta4a1 = new Puerta (puerta = 3, position = game.at(39,11), destino = 1,direccion = izquierda ) //nuevaPosicionPersonaje = caballero.position.left(3))
+const puerta1a4 = new Puerta (puerta = 3, position = game.at(37,11), destino = 4, direccion = derecha)
+const puerta4a1 = new Puerta (puerta = 3, position = game.at(39,11), destino = 1,direccion = izquierda )
 const puerta1a5 = new Puerta (puerta = 4, position = game.at(37,25), destino = 5, direccion = derecha)
 const puerta5a1 = new Puerta (puerta = 4, position = game.at(39,25), destino = 1, direccion = izquierda)
 const puerta4a6 = new Puerta (puerta = 4, position = game.at(59,19), destino = 6, direccion = arriba)
 const puerta6a4 = new Puerta (puerta = 4, position = game.at(59,21), destino = 4, direccion = abajo)
 
 const puertasPiso1 = [puerta1a3,puerta3a1,puerta3a2,puerta2a3,puerta1a4,puerta4a1,puerta1a5,puerta5a1,puerta4a6,puerta6a4]
-

@@ -14,6 +14,7 @@ object caballero {
   var property danio = 2
   var property piso = 1
   const property verde = "00FF00FF"
+  var property estaVivo = true
 
   const equipamiento = #{}
 
@@ -47,29 +48,13 @@ object caballero {
       self.moverse(arriba)
     }
     if (self.vida() > 0){
-    game.schedule(0000, {self.recibeDanio(self.image())})
+    game.schedule(0, {self.image("rojo" + self.image())})
     }
   }
 
-  method recibeDanio(im){
-    if (self.image() == "caballeroFrente.png"){
-      self.image("caballeroFrenteRojo.png")
-    }
-    else if (self.image() == "caballeroEspalda.png"){
-      self.image("caballeroEspaldaRojo.png")
-    }
-    else if (self.image() == "caballeroDerecha.png"){
-      self.image("caballeroDerechaRojo.png")
-    }
-    else if (self.image() == "caballeroIzquierda.png"){
-      self.image("caballeroIzquierdaRojo.png")
-    }
-  }
-  
   method agregarEquipo(e) { equipamiento.add(e) }
 
-  method puedeAgarrar(objeto) =
-    objeto.estaEnRango(self)
+  method puedeAgarrar(objeto) = objeto.estaEnRango(self)
   
   method agarrar(equipo) {
     if (self.puedeAgarrar(equipo)){
@@ -98,6 +83,7 @@ object caballero {
 
   method muerto(flecha){
     if(!(flecha.tirador() == self)){
+      self.estaVivo(false) 
       self.image(self.nombre() + "Muerto.png")
       game.removeVisual(flecha1)
       game.schedule(500, {game.removeVisual(self)})
@@ -105,9 +91,9 @@ object caballero {
   }
 
   method perder() {
-    game.schedule(0000, {self.image("caballeroMuerto.png")})
+    self.estaVivo(false) 
+    game.schedule(0, {self.image("caballeroMuerto.png")})
     game.schedule(2000, {game.removeVisual(self)})
-    // El personaje se cae al piso (se gira)
     // Sale una nota que moriste
     // Se detiene el juego
   }
@@ -130,9 +116,6 @@ object barraDeVida {
   } 
 }
 
-object habitacion {
-	var property image = "habitacion1-Photoroom.png"
-  var property position = game.origin() 
-  }
+
 
 
