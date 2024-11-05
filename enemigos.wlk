@@ -66,8 +66,15 @@ class Esqueleto {
     }
   }
   method muerto() {
-    self.image("esqueletoFrenteMuerto.png")
+    self.image(self.nombre() + "Muerto.png")
     game.schedule(500, {game.removeVisual(self)} )
+  }
+
+  method muerto(flecha){
+    if(!(flecha.tirador() == self)){
+      self.image(self.nombre()+"Muerto.png")
+      game.schedule(500, {game.removeVisual(self)})
+    }
   }
 
   method atacado(arma){
@@ -84,10 +91,33 @@ class Esqueleto {
   }
 }
 
+class Arquero {
+  var property position  
+  var property image = "arqueroFrente.png"
+  var property nombre = "arquero"
+  var property vida = 5
+  //const danio = 1 
+  var property direccion = abajo
+
+  const equipamientoArquero = #{arco}
+
+  method muerto(flecha) {
+    if(!(flecha.tirador() == self)){
+    self.image(self.nombre() + "Muerto.png")
+    game.schedule(500, {game.removeVisual(self)})
+    }
+  }
+
+  method tieneElElemento(elem) = equipamientoArquero.contains(elem)
+
+}
+
+const arquero1 = new Arquero (position = game.at(15, 23))
+
 const esqueleto1 = new Esqueleto (position= game.at(17,16))
 const esqueleto2 = new Esqueleto (position= game.at(30,25))
 const esqueleto3 = new Esqueleto (position= game.at(34,8))
-const esqueleto4 = new Esqueleto (position= game.at(7,20))
-const esqueleto5 = new Esqueleto (position= game.at(45,23))
-const esqueleto6 = new Esqueleto (position= game.at(50,8))
-const esqueleto7 = new Esqueleto (position= game.at(60,12))
+// const esqueleto4 = new Esqueleto (position= game.at(7,20))
+// const esqueleto5 = new Esqueleto (position= game.at(45,23))
+// const esqueleto6 = new Esqueleto (position= game.at(50,8))
+// const esqueleto7 = new Esqueleto (position= game.at(60,12))

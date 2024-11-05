@@ -26,10 +26,6 @@ object caballero {
     }
 */
 
-  // method text() = "TOCA E PARA AGARRAR"
-
-
-  // method textColor() = self.verde()
 
   method moverse(nuevaDireccion) {
     self.direccion(nuevaDireccion)
@@ -78,7 +74,7 @@ object caballero {
   method agarrar(equipo) {
     if (self.puedeAgarrar(equipo)){
     game.removeVisual(equipo)
-    equipamiento.agregarEquipo(equipo)
+    self.agregarEquipo(equipo)
     }
   }
 
@@ -100,8 +96,15 @@ object caballero {
     }
   }
 
+  method muerto(flecha){
+    if(!(flecha.tirador() == self)){
+      self.image(self.nombre() + "Muerto.png")
+      game.schedule(500, {game.removeVisual(self)})
+    }
+  }
+
   method perder() {
-    game.schedule(0000, {self.image("caballeroTiraditoRojo.png")})
+    game.schedule(0000, {self.image("caballeroMuerto.png")})
     game.schedule(2000, {game.removeVisual(self)})
     // El personaje se cae al piso (se gira)
     // Sale una nota que moriste

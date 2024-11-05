@@ -6,7 +6,7 @@ import pisos.*
 
 
 object arco {
-  method position() = game.at(15,15)
+  method position() = game.at(13,15)
   method image() = "arco.png"
 
   method estaEnRango(objeto) {
@@ -19,15 +19,17 @@ object arco {
 
 
 
-object flecha {
+class Flecha {
 var property position = caballero.position()
 var property direccion = caballero.direccion()
 var property image = "flechaAbajo.png"
 var property nombre = "flecha"
+var property tirador = null 
 
 method disparar(personaje) {
   if (personaje.tieneElElemento(arco)){
   //game.removeTickEvent("vuela")
+  self.tirador(personaje)
   direccion = personaje.direccion()
   position = personaje.position()
   direccion.image(self)
@@ -37,17 +39,30 @@ method disparar(personaje) {
   }
 } 
 
-method atacar(enemigo){
-  if (enemigo.estaEnRango(self)){
-    enemigo.muerto()
-    }
-}
+// method arqueroDispara(personaje){
+//   self.fueDisparada(personaje)
+//   direccion = personaje.direccion()
+//   position = personaje.position()
+//   direccion.image(self)
+//   game.addVisual(self)
+//   game.removeTickEvent("vuelaa")
+//   game.onTick(50, "vuelaa", {direccion.direc(self)})
+// }
+
+// method atacar(enemigo){
+//   if (enemigo.estaEnRango(self)){
+//     enemigo.muerto()
+//     }
+// }
 
 method tocaBorde() {
   game.removeTickEvent("vuela")
   game.removeVisual(self)
 } 
 }
+
+const flecha1 = new Flecha(position= caballero.position(), direccion = caballero.direccion(), tirador = caballero)
+const flecha2 = new Flecha(position= arquero1.position(), direccion = arquero1.direccion(), tirador = arquero1)
 
 // object mensaje {
 //   method image() = "TECLAE.png"
