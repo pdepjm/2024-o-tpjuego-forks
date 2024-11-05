@@ -110,7 +110,7 @@ class Arquero {
     }
   }
 
-  method tieneElElemento(elem) = equipamiento.contains(elem)
+  method tieneElElemento(elem) = equipamiento.contains(elem) 
 
 }
 
