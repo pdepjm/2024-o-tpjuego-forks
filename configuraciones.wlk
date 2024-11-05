@@ -12,12 +12,11 @@ object configuracionesIniciales {
 	game.height(34)
 	game.width(70)
 	game.cellSize(100)
-	game.boardGround("fondoPiso.jpg")
+	game.boardGround("fondo3.jpg")
   }
 
   method visuales() {
 	game.addVisualCharacter(caballero)
-	//game.addVisual(invisible)
 	esqueletosPiso1.forEach{esqueleto => game.addVisual(esqueleto)}
 	puertasPiso1.forEach{puerta => game.addVisual(puerta)}
 	game.addVisual(arco)
@@ -57,6 +56,6 @@ object configuracionesIniciales {
 	//Cambio de habitación
 	puertasPiso1.forEach {puerta => game.whenCollideDo(puerta,{personaje => puerta.pasaElCaballero()})}
 
-	game.whenCollideDo(mensaje, {caballero => mensaje.letraGrande(arco)})
+	game.whenCollideDo(agarrarConLaE, {caballero => agarrarConLaE.letraGrande(arco)})
   }
 }
