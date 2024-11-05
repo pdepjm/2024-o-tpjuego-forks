@@ -20,9 +20,9 @@ object arco {
 
 
 class Flecha {
-var property position = caballero.position()
-var property direccion = caballero.direccion()
-var property image = "flechaAbajo.png"
+var property position
+var property direccion
+var property image = ""
 var property nombre = "flecha"
 var property tirador = null 
 
@@ -33,26 +33,10 @@ method disparar(personaje) {
   position = personaje.position()
   direccion.image(self)
   game.addVisual(self)
-  game.removeTickEvent("vuela")
-  game.onTick(50, "vuela", {direccion.direc(self)})
+  game.removeTickEvent("vuela" + personaje)
+  game.onTick(50, "vuela" + personaje , {direccion.direc(self)})
   }
 } 
-
-// method arqueroDispara(personaje){
-//   self.fueDisparada(personaje)
-//   direccion = personaje.direccion()
-//   position = personaje.position()
-//   direccion.image(self)
-//   game.addVisual(self)
-//   game.removeTickEvent("vuelaa")
-//   game.onTick(50, "vuelaa", {direccion.direc(self)})
-// }
-
-// method atacar(enemigo){
-//   if (enemigo.estaEnRango(self)){
-//     enemigo.muerto()
-//     }
-// }
 
 method tocaBorde() {
   game.removeTickEvent("vuela")
@@ -60,7 +44,7 @@ method tocaBorde() {
 } 
 }
 
-const flecha1 = new Flecha(position = caballero.position(), tirador = caballero)
+const flecha1 = new Flecha(position = caballero.position(), direccion = caballero.direccion(), tirador = caballero)
 const flecha2 = new Flecha(position = arquero1.position(), direccion = arquero1.direccion(), tirador = arquero1)
 
 const flechas = [flecha1,flecha2]
