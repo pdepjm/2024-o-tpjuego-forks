@@ -53,7 +53,7 @@ class Esqueleto {
       self.image(self.nombre()+"Muerto.png")
       game.removeVisual(flecha)
       game.schedule(500, {game.removeVisual(self)})
-      game.removeTickEvent("movimiento random")
+      game.removeTickEvent("movimiento" + self)
     }
   }
 

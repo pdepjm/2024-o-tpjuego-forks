@@ -8,6 +8,10 @@ class Piso {
 	var numero
 	var paredes
 	var zonaProhibida
+
+	//if (caballero.tieneElElemento(llave)) {
+//		zonaProhibida = puertaCerrada
+//	}
 }
 
 class ZonaProhibida {
@@ -25,10 +29,10 @@ const piso1 = new Piso (numero=1,paredes=paredesPiso1,zonaProhibida=zonasPiso1)
 
 object paredesPiso1 {
 	var property position = game.at(0,0) 
-	var property image = "habitacion1.png"  
+	var property image = "habitacion1.jpg"  
 
 	method cambiaHabitacion(habitacion) {
-		self.image("habitacion" + habitacion + ".png")
+		self.image("habitacion" + habitacion + ".jpg")
 	}
 }
 
@@ -45,7 +49,7 @@ const pared4 = new ZonaProhibida(xMin=37,xMax=39,yMin=27,yMax=33)
 const pared5 = new ZonaProhibida(xMin=40,xMax=58,yMin=18,yMax=21)
 const pared6 = new ZonaProhibida(xMin=60,xMax=69,yMin=18,yMax=21)
 const pared7 = new ZonaProhibida(xMin=49,xMax=51,yMin=21,yMax=33)
-
+const puertaCerrada = new ZonaProhibida(xMin=59,xMax=59,yMin=18,yMax=21) 
 const zonasPiso1 = [limiteInferior,limiteSuperior,limiteDerecho,limiteIzquierdo,hueco1,pared1,pared2,pared3,pared4,pared5,pared6,pared7]
 
 object limitesDelMapa {

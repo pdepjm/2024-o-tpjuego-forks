@@ -52,7 +52,6 @@ object caballero {
     }
   }
 
-
   method agregarEquipo(e) { equipamiento.add(e) }
 
   method puedeAgarrar(objeto) = objeto.estaEnRango(self)

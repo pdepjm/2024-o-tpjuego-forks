@@ -6,7 +6,7 @@ import pisos.*
 
 
 object arco {
-  method position() = game.at(13,15)
+  method position() = game.at(5.3, 30.3)
   method image() = "arco.png"
 
   method estaEnRango(objeto) {
@@ -49,11 +49,14 @@ const flecha2 = new Flecha(position = arquero1.position(), direccion = arquero1.
 
 const flechas = [flecha1,flecha2]
 
-// object mensaje {
-//   method image() = "TECLAE.png"
-//   method position() = game.center()
-//   method text() = "TOCA E PARA AGARRAR" 
-// }
+object mensaje {
+  method image() = "TECLAE.png"
+  method position() = game.center()
+  method text() = "TOCA E PARA AGARRAR"
+    if (arco.estaEnRango(self)){
+      game.addVisual(self)
+    }
+}
 
 // object invisible {
 //   method position() = game.at(15, 15)
