@@ -65,13 +65,12 @@ object configuracionesIniciales {
 	// game.onCollideDo(flecha, {cab => cab.perder()
 	// game.removeVisual(flecha)})
 	//game.whenCollideDo(invisible, {caballero => game.say(invisible, "¡Cuidado!")})
-	game.whenCollideDo(esqueleto1, {personaje => personaje.cambiaVida(-1)
-	personaje.rebote(personaje.direccion())})
-	game.whenCollideDo(esqueleto2, {personaje => personaje.cambiaVida(-1)
-	personaje.rebote(personaje.direccion())})
-	game.whenCollideDo(esqueleto3, {personaje => personaje.cambiaVida(-1)
-	personaje.rebote(personaje.direccion())})
+	
+	//Colisión con cualquier esqueleto
+	esqueletosPiso1.forEach {esqueleto => game.whenCollideDo(esqueleto, {personaje => personaje.cambiaVida(-1)
+	personaje.rebote(personaje.direccion())})}
 
+	//Cambio de habitación
 	puertasPiso1.forEach {puerta => game.whenCollideDo(puerta,{personaje => puerta.pasaElCaballero()})}
   }
 }

@@ -33,17 +33,17 @@ object caballero {
     nuevaDireccion.image(self)
   }
 
-  method rebote(d){
-    if (d == derecha){
+  method rebote(direc){
+    if (direc == derecha){
       self.moverse(izquierda)
     }
-    else if (d == izquierda){
+    else if (direc == izquierda){
       self.moverse(derecha)
     }
-    else if (d == arriba){
+    else if (direc == arriba){
       self.moverse(abajo)
     }
-    else if (d == abajo){
+    else if (direc == abajo){
       self.moverse(arriba)
     }
     if (self.vida() > 0){
