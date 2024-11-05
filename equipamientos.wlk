@@ -5,7 +5,7 @@ import direcciones.*
 import pisos.*
 
 
-class Objeto {
+class Elemento {
   var property position
   var property image
 
@@ -13,13 +13,13 @@ class Objeto {
     const diferenciaX = (self.position().x() - objeto.position().x()).abs()
     const diferenciaY = (self.position().y() - objeto.position().y()).abs()
 
-    return (diferenciaX <= 1 && diferenciaY <= 1)
+    return diferenciaX <= 1 and diferenciaY <= 1
   }
 }
 
-const arco = new Objeto (position = game.at(5.3, 30.3), image = "arco.png")
-const llave = new Objeto (position = game.at(24,2), image = "llave.png")
-const pocion = new Objeto (position = game.at(0,0), image = "pocion.png")
+const arco = new Elemento (position = game.at(5, 30), image = "arco.png")
+const llave = new Elemento (position = game.at(24,2), image = "llave.png")
+const pocion = new Elemento (position = game.at(0,0), image = "pocion.png")
 
 const objetos = [arco,llave,pocion]
 
@@ -53,10 +53,10 @@ const flecha2 = new Flecha(position = arquero1.position(), direccion = arquero1.
 
 const flechas = [flecha1,flecha2]
 
-object mensaje {
-  method image() = "TECLAE.png"
-  method position() = arco.position()
-  method text() = "TOCA E PARA AGARRAR"
+ object agarrarConLaE {
+   method image() = "TECLAE.png"
+   method position() = arco.position()
+   method text() = "TOCA E PARA AGARRAR"
   method letraGrande(arco){
   if (caballero.puedeAgarrar(arco)){
       game.addVisual(self)

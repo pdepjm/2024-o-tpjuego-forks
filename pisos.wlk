@@ -67,9 +67,13 @@ class Puerta {
   const direccion
   const destino
   method pasaElCaballero() {
-	paredesPiso1.cambiaHabitacion(destino)
-	game.onTick(1, "Cambia Habitación", {caballero.moverse(direccion)})
-	game.schedule(3, {game.removeTickEvent("Cambia Habitación")})
+	if(direccion == caballero.direccion()) { 
+		paredesPiso1.cambiaHabitacion(destino)
+	3.times({numero => caballero.moverse(direccion)})
+	//game.onTick(1, "Cambia Habitación", {caballero.moverse(direccion)})
+	//game.schedule(3, {game.removeTickEvent("Cambia Habitación")})
+	}
+	
   }
 }
 

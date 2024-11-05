@@ -59,6 +59,7 @@ object caballero {
   method agarrar(equipo) {
     if (self.puedeAgarrar(equipo)){
     game.removeVisual(equipo)
+    game.removeVisual(agarrarConLaE)
     self.agregarEquipo(equipo)
     }
   }
