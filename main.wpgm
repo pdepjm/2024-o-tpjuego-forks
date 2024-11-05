@@ -10,7 +10,7 @@ program DungeonGame {
 	configuracionesIniciales.pantalla()
 	configuracionesIniciales.visuales()
 	configuracionesIniciales.teclas()
-	configuracionesIniciales.movimiento()
+	configuracionesIniciales.enemigos()
 	configuracionesIniciales.colisiones()
 	game.start()
 }

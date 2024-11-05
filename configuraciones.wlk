@@ -19,9 +19,11 @@ object configuracionesIniciales {
   method visuales() {
 	game.addVisualCharacter(caballero)
 	//game.addVisual(invisible)
-	game.addVisual(esqueleto1)
-	game.addVisual(esqueleto2)
-	game.addVisual(esqueleto3)
+	esqueletosPiso1.forEach{esqueleto => game.addVisual(esqueleto)}
+	puertasPiso1.forEach{puerta => game.addVisual(puerta)}
+	// game.addVisual(esqueleto1)
+	// game.addVisual(esqueleto2)
+	// game.addVisual(esqueleto3)
 	// game.addVisual(esqueleto4)
 	// game.addVisual(esqueleto5)
 	// game.addVisual(esqueleto6)
@@ -48,8 +50,8 @@ object configuracionesIniciales {
 	  //game.onCollideDo(caballero, {arco => caballero.agarrar(arco)})
   }
 
-  method movimiento() {
-	game.onTick(4000, "disparar flecha", {flecha2.disparar(arquero1)})
+  method enemigos() {
+	game.onTick(4000, "disparar", {flecha2.disparar(arquero1)})
 	game.onTick(2000, "movimiento random", {esqueleto1.movimientoV3(17, 16)})
 	game.onTick(2000, "movimiento random", {esqueleto2.movimientoV3(30, 25)})
 	game.onTick(2000, "movimiento random", {esqueleto3.movimientoV3(34, 8)})
