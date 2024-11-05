@@ -12,36 +12,13 @@ class Esqueleto {
   //const danio = 1 
   var property direccion = abajo
 
-  method movimiento(x,y) {
-    position = game.at(x.randomUpTo(x-2), y.randomUpTo(y+2)) 
-  }
-
-  method movimientoV2(direccionn) {
-    if (direccionn==1) {
-      arriba.image(self)
-      arriba.direc(self)
-    }
-    else if (direccionn==2) {
-      abajo.image(self)
-      abajo.direc(self)
-    }
-    else if (direccionn==3) {
-      izquierda.image(self)
-      izquierda.direc(self)
-    }
-    else if (direccionn==4) {
-      derecha.image(self)
-      derecha.direc(self)
-    }
-  }
-
   method moverse(nuevaDireccion) {
     self.direccion(nuevaDireccion)
     nuevaDireccion.direc(self)
     nuevaDireccion.image(self)
   }
 
-  method movimientoV3(x, y){
+  method movimiento(x, y){
     if(self.position() == game.at(x, y)){
     self.moverse(derecha)
     }

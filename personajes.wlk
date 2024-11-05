@@ -68,8 +68,7 @@ object caballero {
   
   method agregarEquipo(e) { equipamiento.add(e) }
 
-  method puedeAgarrar(objeto) =
-    objeto.estaEnRango(self)
+  method puedeAgarrar(objeto) = objeto.estaEnRango(self)
   
   method agarrar(equipo) {
     if (self.puedeAgarrar(equipo)){
@@ -130,9 +129,6 @@ object barraDeVida {
   } 
 }
 
-object habitacion {
-	var property image = "habitacion1-Photoroom.png"
-  var property position = game.origin() 
-  }
+
 
 

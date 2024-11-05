@@ -58,7 +58,6 @@ object limitesDelMapa {
 }
 
 class Puerta {
-  const image = ""
   const puerta
   var property position
   const direccion
@@ -66,8 +65,7 @@ class Puerta {
   //const nuevaPosicionPersonaje
   method pasaElCaballero() {
 	paredesPiso1.cambiaHabitacion(destino)
-	//(paredesPiso + caballero.piso()).cambiaHabitacion(destino)
-	game.onTick(1, "Cambia Habitación", { caballero.moverse(direccion) })
+	game.onTick(1, "Cambia Habitación", {caballero.moverse(direccion)})
   }
 }
 
@@ -83,4 +81,3 @@ const puerta4a6 = new Puerta (puerta = 4, position = game.at(59,19), destino = 6
 const puerta6a4 = new Puerta (puerta = 4, position = game.at(59,21), destino = 4, direccion = abajo)
 
 const puertasPiso1 = [puerta1a3,puerta3a1,puerta3a2,puerta2a3,puerta1a4,puerta4a1,puerta1a5,puerta5a1,puerta4a6,puerta6a4]
-
