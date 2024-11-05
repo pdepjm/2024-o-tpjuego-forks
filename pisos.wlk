@@ -66,7 +66,6 @@ class Puerta {
   var property position
   const direccion
   const destino
-  //const nuevaPosicionPersonaje
   method pasaElCaballero() {
 	paredesPiso1.cambiaHabitacion(destino)
 	game.onTick(1, "Cambia Habitación", {caballero.moverse(direccion)})
@@ -78,8 +77,8 @@ const puerta1a3 = new Puerta (puerta = 1, position = game.at(10,1), destino = 3,
 const puerta3a1 = new Puerta (puerta = 1, position = game.at(11,1), destino = 1, direccion = derecha)
 const puerta3a2 = new Puerta (puerta = 2, position = game.at(1,7), destino = 2, direccion = arriba)
 const puerta2a3 = new Puerta (puerta = 2, position = game.at(1,8), destino = 3, direccion = abajo)
-const puerta1a4 = new Puerta (puerta = 3, position = game.at(37,11), destino = 4, direccion = derecha) //nuevaPosicionPersonaje = caballero.position.right(3))
-const puerta4a1 = new Puerta (puerta = 3, position = game.at(39,11), destino = 1,direccion = izquierda ) //nuevaPosicionPersonaje = caballero.position.left(3))
+const puerta1a4 = new Puerta (puerta = 3, position = game.at(37,11), destino = 4, direccion = derecha)
+const puerta4a1 = new Puerta (puerta = 3, position = game.at(39,11), destino = 1,direccion = izquierda )
 const puerta1a5 = new Puerta (puerta = 4, position = game.at(37,25), destino = 5, direccion = derecha)
 const puerta5a1 = new Puerta (puerta = 4, position = game.at(39,25), destino = 1, direccion = izquierda)
 const puerta4a6 = new Puerta (puerta = 4, position = game.at(59,19), destino = 6, direccion = arriba)

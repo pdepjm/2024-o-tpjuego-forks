@@ -5,19 +5,23 @@ import direcciones.*
 import pisos.*
 
 
-object arco {
-  method position() = game.at(5.3, 30.3)
-  method image() = "arco.png"
+class Objeto {
+  var property position
+  var property image
 
   method estaEnRango(objeto) {
     const diferenciaX = (self.position().x() - objeto.position().x()).abs()
     const diferenciaY = (self.position().y() - objeto.position().y()).abs()
 
-    return diferenciaX <= 1 and diferenciaY <= 1
+    return (diferenciaX <= 1 && diferenciaY <= 1)
   }
 }
 
+const arco = new Objeto (position = game.at(5.3, 30.3), image = "arco.png")
+const llave = new Objeto (position = game.at(24,2), image = "llave.png")
+const pocion = new Objeto (position = game.at(0,0), image = "pocion.png")
 
+const objetos = [arco,llave,pocion]
 
 class Flecha {
 var property position
@@ -51,14 +55,15 @@ const flechas = [flecha1,flecha2]
 
 object mensaje {
   method image() = "TECLAE.png"
-  method position() = game.center()
+  method position() = arco.position()
   method text() = "TOCA E PARA AGARRAR"
-    if (arco.estaEnRango(self)){
+  method letraGrande(arco){
+  if (caballero.puedeAgarrar(arco)){
       game.addVisual(self)
     }
+    else{
+      game.removeVisual(self)
+    }
+  }
 }
-
-// object invisible {
-//   method position() = game.at(15, 15)
-// }
 

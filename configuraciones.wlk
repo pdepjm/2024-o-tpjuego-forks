@@ -12,7 +12,7 @@ object configuracionesIniciales {
 	game.height(34)
 	game.width(70)
 	game.cellSize(100)
-	game.boardGround("fondoPiso1.jpg")
+	game.boardGround("fondoPiso.jpg")
   }
 
   method visuales() {
@@ -32,12 +32,13 @@ object configuracionesIniciales {
 	  keyboard.a().onPressDo {if(caballero.estaVivo()){caballero.moverse(izquierda)}}
 	  keyboard.s().onPressDo {if(caballero.estaVivo()){caballero.moverse(abajo)}}
 	  keyboard.d().onPressDo {if(caballero.estaVivo()){caballero.moverse(derecha)}}
-
+      
 	// Acciones
 	  keyboard.space().onPressDo {flecha1.disparar(caballero)}
-	  keyboard.e().onPressDo {caballero.agarrar(arco)}
+	  objetos.forEach {objeto => keyboard.e().onPressDo {caballero.agarrar(objeto)}}
 	  keyboard.r().onPressDo {caballero.atacar(esqueleto1)}
 }
+
   method enemigos() {
 	game.onTick(4000, "disparar", {flecha2.disparar(arquero1)})
 	game.onTick(2000, "movimiento" + esqueleto1, {esqueleto1.movimiento(17, 16)})
@@ -55,5 +56,7 @@ object configuracionesIniciales {
 
 	//Cambio de habitación
 	puertasPiso1.forEach {puerta => game.whenCollideDo(puerta,{personaje => puerta.pasaElCaballero()})}
+
+	game.whenCollideDo(mensaje, {caballero => mensaje.letraGrande(arco)})
   }
 }
