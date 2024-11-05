@@ -61,9 +61,9 @@ object configuracionesIniciales {
   method colisiones() {
 	//game.whenCollideDo(caballero, {cosa => cosa.volverAlOrigen(caballero)})
 	game.onCollideDo(flecha1, {pers => pers.muerto(flecha1)
-	game.removeVisual(flecha1)})
+	})
 	game.onCollideDo(flecha2, {pers => pers.muerto(flecha2)
-	game.removeVisual(flecha2)})
+	})
 	// game.onCollideDo(flecha, {cab => cab.perder()
 	// game.removeVisual(flecha)})
 	//game.whenCollideDo(invisible, {caballero => game.say(invisible, "¡Cuidado!")})

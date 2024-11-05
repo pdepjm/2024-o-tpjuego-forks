@@ -99,6 +99,7 @@ object caballero {
   method muerto(flecha){
     if(!(flecha.tirador() == self)){
       self.image(self.nombre() + "Muerto.png")
+      game.removeVisual(flecha1)
       game.schedule(500, {game.removeVisual(self)})
     }
   }

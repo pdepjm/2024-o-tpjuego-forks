@@ -73,6 +73,7 @@ class Esqueleto {
   method muerto(flecha){
     if(!(flecha.tirador() == self)){
       self.image(self.nombre()+"Muerto.png")
+      game.removeVisual(flecha)
       game.schedule(500, {game.removeVisual(self)})
     }
   }
@@ -99,20 +100,21 @@ class Arquero {
   //const danio = 1 
   var property direccion = abajo
 
-  const equipamientoArquero = #{arco}
+  const equipamiento = #{arco}
 
   method muerto(flecha) {
     if(!(flecha.tirador() == self)){
     self.image(self.nombre() + "Muerto.png")
+    game.removeVisual(flecha)
     game.schedule(500, {game.removeVisual(self)})
     }
   }
 
-  method tieneElElemento(elem) = equipamientoArquero.contains(elem)
+  method tieneElElemento(elem) = equipamiento.contains(elem)
 
 }
 
-const arquero1 = new Arquero (position = game.at(15, 23))
+const arquero1 = new Arquero (position = game.at(15, 23), equipamiento = #{arco})
 
 const esqueleto1 = new Esqueleto (position= game.at(17,16))
 const esqueleto2 = new Esqueleto (position= game.at(30,25))

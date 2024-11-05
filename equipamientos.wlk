@@ -27,8 +27,7 @@ var property nombre = "flecha"
 var property tirador = null 
 
 method disparar(personaje) {
-  if (personaje.tieneElElemento(arco)){
-  //game.removeTickEvent("vuela")
+  if(personaje.tieneElElemento(arco)){
   self.tirador(personaje)
   direccion = personaje.direccion()
   position = personaje.position()
@@ -61,8 +60,8 @@ method tocaBorde() {
 } 
 }
 
-const flecha1 = new Flecha(position= caballero.position(), direccion = caballero.direccion(), tirador = caballero)
-const flecha2 = new Flecha(position= arquero1.position(), direccion = arquero1.direccion(), tirador = arquero1)
+const flecha1 = new Flecha(position = caballero.position(), tirador = caballero)
+const flecha2 = new Flecha(position = arquero1.position(), direccion = arquero1.direccion(), tirador = arquero1)
 
 // object mensaje {
 //   method image() = "TECLAE.png"
