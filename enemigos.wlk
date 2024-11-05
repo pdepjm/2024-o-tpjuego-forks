@@ -45,6 +45,7 @@ class Esqueleto {
   method muerto() {
     self.image(self.nombre() + "Muerto.png")
     game.schedule(500, {game.removeVisual(self)} )
+
   }
 
   method muerto(flecha){
@@ -52,6 +53,7 @@ class Esqueleto {
       self.image(self.nombre()+"Muerto.png")
       game.removeVisual(flecha)
       game.schedule(500, {game.removeVisual(self)})
+      game.removeTickEvent("movimiento random")
     }
   }
 
@@ -84,6 +86,7 @@ class Arquero {
     self.image(self.nombre() + "Muerto.png")
     game.removeVisual(flecha)
     game.schedule(500, {game.removeVisual(self)})
+    game.removeTickEvent("disparar")
     }
   }
 

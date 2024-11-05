@@ -66,6 +66,7 @@ class Puerta {
   method pasaElCaballero() {
 	paredesPiso1.cambiaHabitacion(destino)
 	game.onTick(1, "Cambia Habitación", {caballero.moverse(direccion)})
+	game.schedule(3, {game.removeTickEvent("Cambia Habitación")})
   }
 }
 
