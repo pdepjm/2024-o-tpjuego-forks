@@ -58,7 +58,6 @@ const flechas = [flecha1,flecha2]
   var property position = arco.position()
   method letraGrande(arco){
   if (caballero.puedeAgarrar(arco)){
-      position = game.at(3, 29)
       game.addVisual(self)
   }
     else{
