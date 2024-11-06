@@ -23,9 +23,9 @@ object configuracionesIniciales {
 	  keyboard.d().onPressDo {if(caballero.estaVivo()){caballero.moverse(derecha)}}
       
 	// Acciones
-	  keyboard.space().onPressDo {flecha1.disparar(caballero)}
+	  keyboard.space().onPressDo {if(caballero.estaVivo()){flecha1.disparar(caballero)}}
 	  elementos.forEach {objeto => keyboard.e().onPressDo {caballero.agarrar(objeto)}}
-	  keyboard.r().onPressDo {caballero.atacar(esqueleto1)}
+	  keyboard.r().onPressDo {if(caballero.estaVivo()){caballero.atacar(esqueleto1)}}
 }
 
   method enemigos() {
