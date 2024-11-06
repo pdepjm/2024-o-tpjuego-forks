@@ -61,6 +61,7 @@ object caballero {
     game.removeVisual(equipo)
     botonesE.forEach {boton => game.removeVisual(boton)}
     self.agregarEquipo(equipo)
+    mapa.verificaLlave()
     }
   }
 

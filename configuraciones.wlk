@@ -15,17 +15,6 @@ object configuracionesIniciales {
 	game.boardGround("fondo3.jpg")
   }
 
-  method visuales() {
-	game.addVisualCharacter(caballero)
-	esqueletosPiso1.forEach{esqueleto => game.addVisual(esqueleto)}
-	puertasPiso1.forEach{puerta => game.addVisual(puerta)}
-	game.addVisual(arco)
-	game.addVisual(barraDeVida)
-	game.addVisual(arquero1)
-	game.addVisual(llave)
-	//game.addVisual(paredesPiso1)
-  }
-
   method teclas() {
     // Movimiento
 	  keyboard.w().onPressDo {if(caballero.estaVivo()){caballero.moverse(arriba)}}
@@ -44,10 +33,10 @@ object configuracionesIniciales {
 	game.onTick(2000, "movimiento" + esqueleto1, {esqueleto1.movimiento(17, 16)})
 	game.onTick(2000, "movimiento" + esqueleto2, {esqueleto2.movimiento(30, 25)})
 	game.onTick(2000, "movimiento" + esqueleto3, {esqueleto3.movimiento(34, 8)})
-	game.onTick(2000, "movimiento" + esqueleto4, {esqueleto4.movimiento(8,17)})
+	game.onTick(2000, "movimiento" + esqueleto4, {esqueleto4.movimiento(6,22)})
 	game.onTick(2000, "movimiento" + esqueleto5, {esqueleto5.movimiento(50,8)})
 	game.onTick(2000, "movimiento" + esqueleto6, {esqueleto6.movimiento(60,12)})
-	game.onTick(2000, "movimiento" + esqueleto7, {esqueleto7.movimiento(6,15)})
+	game.onTick(2000, "movimiento" + esqueleto7, {esqueleto7.movimiento(4,16)})
 	game.onTick(2000, "movimiento" + esqueleto8, {esqueleto8.movimiento(45,13)})
   }
 
@@ -60,7 +49,7 @@ object configuracionesIniciales {
 	if(esqueleto.estaVivo()){personaje.rebote(personaje.direccion())}})}
 
 	//Cambio de habitación
-	puertasPiso1.forEach {puerta => game.whenCollideDo(puerta,{personaje => puerta.pasaElCaballero()})}
+	mapa.puertas().forEach {puerta => game.whenCollideDo(puerta,{personaje => puerta.pasaElCaballero()})}
 
 	//Colisión con los elementos
 	botonesE.forEach {boton => game.whenCollideDo(boton, {caballero => boton.letraGrande(boton.elemento())})}

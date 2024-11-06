@@ -10,7 +10,7 @@ object arriba {
   method direc(obj) {
     const nuevaPosicion = obj.position().up(1)  
     
-    if (limitesDelMapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
+    if (mapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
       obj.position(nuevaPosicion)
     }
     else {
@@ -24,7 +24,7 @@ object abajo {
   method direc(obj) {
     const nuevaPosicion = obj.position().down(1)  
     
-    if (limitesDelMapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
+    if (mapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
       obj.position(nuevaPosicion)
     }
     else {
@@ -39,7 +39,7 @@ object izquierda {
    method direc(obj) {
     const nuevaPosicion = obj.position().left(1)  
 
-    if (limitesDelMapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
+    if (mapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
       obj.position(nuevaPosicion)
     }
     else {
@@ -55,7 +55,7 @@ object derecha {
    method direc(obj) {
     const nuevaPosicion = obj.position().right(1)  
   
-    if (limitesDelMapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
+    if (mapa.puedePasar(nuevaPosicion.x(),nuevaPosicion.y())) {
       obj.position(nuevaPosicion)
     }
     else {
