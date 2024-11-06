@@ -106,7 +106,7 @@ class Arquero {
 
 }
 
-const arquero1 = new Arquero (position = game.at(36, 28), direccion = abajo, equipamiento = #{arco})
+const arquero1 = new Arquero (position = game.at(37, 28), direccion = abajo, equipamiento = #{arco})
 const arquero2 = new Arquero (position = game.at(2, 28), direccion = abajo, equipamiento = #{arco})
 
 const esqueleto1 = new Esqueleto (position= game.at(17,16))

@@ -84,6 +84,7 @@ object mapa {
 		game.addVisual(barraDeVida)
 		arquerosPiso1.forEach{arquero => game.addVisual(arquero)}
 		game.addVisual(llave)
+		game.addVisual(pocion)
   }
 }
 
