@@ -31,7 +31,6 @@ var property nombre = "flecha"
 var property tirador = null 
 
 method disparar(personaje) {
-  if(personaje.tieneElElemento(arco)){
   self.tirador(personaje)
   direccion = personaje.direccion()
   position = personaje.position()
@@ -39,7 +38,6 @@ method disparar(personaje) {
   game.addVisual(self)
   game.removeTickEvent("vuela"+personaje)
   game.onTick(50, "vuela"+personaje, {direccion.direc(self)})
-  }
 } 
 
 method tocaBorde() {

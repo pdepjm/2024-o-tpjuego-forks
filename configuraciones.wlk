@@ -23,7 +23,9 @@ object configuracionesIniciales {
 	  keyboard.d().onPressDo {if(caballero.estaVivo()){caballero.moverse(derecha)}}
       
 	// Acciones
-	  keyboard.space().onPressDo {if(caballero.estaVivo()){flecha1.disparar(caballero)}}
+	  keyboard.space().onPressDo {if(caballero.estaVivo() && caballero.tieneElElemento(arco)){
+	  flecha1.disparar(caballero)
+	  game.sound("bowSound.mp3").play()}}
 	  elementos.forEach {objeto => keyboard.e().onPressDo {caballero.agarrar(objeto)}}
 	  keyboard.r().onPressDo {if(caballero.estaVivo()){caballero.atacar(esqueleto1)}}
 }
@@ -47,7 +49,8 @@ object configuracionesIniciales {
 	
 	//Colisión con cualquier esqueleto
 	esqueletosPiso1.forEach {esqueleto => game.whenCollideDo(esqueleto, {personaje => esqueleto.ataca(personaje)
-	if(esqueleto.estaVivo() && personaje.estaVivo()){personaje.rebote(personaje.direccion())}})}
+	if(esqueleto.estaVivo() && personaje.estaVivo()){game.sound("hitSound.mp3").play()
+		personaje.rebote(personaje.direccion())}})}
 
 	//Cambio de habitación
 	mapa.puertas().forEach {puerta => game.whenCollideDo(puerta,{personaje => puerta.pasaElCaballero()})}
