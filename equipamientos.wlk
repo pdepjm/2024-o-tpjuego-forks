@@ -14,7 +14,16 @@ class Elemento {
     const diferenciaY = (self.position().y() - objeto.position().y()).abs()
 
     return diferenciaX <= 1 and diferenciaY <= 1
-  }
+}
+
+/*
+method estaEnRango(objeto) {
+    const diferenciaX = (self.position().x() - objeto.position().x()).abs()
+    const diferenciaY = (self.position().y() - objeto.position().y()).abs()
+
+    return diferenciaX <= 3 and diferenciaY <= 3
+}
+*/
 }
 
 const arco = new Elemento (position = game.at(5, 30), image = "arco.png")
@@ -33,12 +42,10 @@ class Flecha {
 method disparar(personaje) {
     self.tirador(personaje)
     direccion = personaje.direccion()
-    // Ajuste en la posición para centrar la flecha respecto al tirador
-    position = personaje.position().right(1) // Ajuste para centrar
+    position = personaje.position().right(1)
     direccion.image(self)
     game.addVisual(self)
 
-    // Agregar un identificador único para el evento de cada flecha
     game.removeTickEvent("vuela_" + personaje.nombre())
     game.onTick(50, "vuela_" + personaje.nombre(), {
         direccion.direc(self)
