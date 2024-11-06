@@ -45,7 +45,7 @@ const hueco1 = new ZonaProhibida(xMin=2,xMax=11,yMin=3,yMax=8)
 const pared1 = new ZonaProhibida(xMin=10,xMax=11,yMin=6,yMax=33)
 const pared2 = new ZonaProhibida(xMin=37,xMax=39,yMin=1,yMax=10)
 const pared3 = new ZonaProhibida(xMin=37,xMax=39,yMin=13,yMax=24)
-const pared4 = new ZonaProhibida(xMin=37,xMax=39,yMin=27,yMax=33)
+const pared4 = new ZonaProhibida(xMin=37,xMax=39,yMin=26,yMax=33)
 const pared5 = new ZonaProhibida(xMin=40,xMax=58,yMin=18,yMax=21)
 const pared6 = new ZonaProhibida(xMin=60,xMax=69,yMin=18,yMax=21)
 const pared7 = new ZonaProhibida(xMin=49,xMax=51,yMin=21,yMax=33)
@@ -69,17 +69,15 @@ class Puerta {
   method pasaElCaballero() {
 	if(direccion == caballero.direccion()) { 
 		paredesPiso1.cambiaHabitacion(destino)
-	3.times({numero => caballero.moverse(direccion)})
-	//game.onTick(1, "Cambia Habitación", {caballero.moverse(direccion)})
-	//game.schedule(3, {game.removeTickEvent("Cambia Habitación")})
+	4.times({numero => caballero.moverse(direccion)})
 	}
 	
   }
 }
 
-const puerta1a3 = new Puerta (puerta = 1, position = game.at(10,1), destino = 3, direccion = izquierda)
-const puerta3a1 = new Puerta (puerta = 1, position = game.at(11,1), destino = 1, direccion = derecha)
-const puerta3a2 = new Puerta (puerta = 2, position = game.at(1,7), destino = 2, direccion = arriba)
+const puerta1a3 = new Puerta (puerta = 1, position = game.at(13,2), destino = 3, direccion = izquierda)
+const puerta3a1 = new Puerta (puerta = 1, position = game.at(9,2), destino = 1, direccion = derecha)
+const puerta3a2 = new Puerta (puerta = 2, position = game.at(1,5), destino = 2, direccion = arriba)
 const puerta2a3 = new Puerta (puerta = 2, position = game.at(1,8), destino = 3, direccion = abajo)
 const puerta1a4 = new Puerta (puerta = 3, position = game.at(37,11), destino = 4, direccion = derecha)
 const puerta4a1 = new Puerta (puerta = 3, position = game.at(39,11), destino = 1,direccion = izquierda )
