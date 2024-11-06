@@ -11,6 +11,13 @@ class Esqueleto {
   var property vida = 5
   //const danio = 1 
   var property direccion = abajo
+  var property estaVivo = true
+
+  method ataca(personaje){
+    if(self.estaVivo()){
+    personaje.cambiaVida(-1)
+    }
+  }
 
   method moverse(nuevaDireccion) {
     self.direccion(nuevaDireccion)
@@ -45,7 +52,7 @@ class Esqueleto {
   method muerto() {
     self.image(self.nombre() + "Muerto.png")
     game.schedule(500, {game.removeVisual(self)} )
-
+    self.estaVivo(false) 
   }
 
   method muerto(flecha){
@@ -54,12 +61,14 @@ class Esqueleto {
       game.removeVisual(flecha)
       game.schedule(500, {game.removeVisual(self)})
       game.removeTickEvent("movimiento" + self)
+      self.estaVivo(false) 
     }
   }
 
   method atacado(arma){
     if (self.estaEnRango(arma)){
       self.muerto()
+      self.estaVivo(false) 
     }
   }
 
