@@ -54,13 +54,13 @@ const flecha2 = new Flecha(position = arquero1.position(), direccion = arquero1.
 const flechas = [flecha1,flecha2]
 
  object agarrarConLaE {
-   method image() = "TECLAE.png"
-   method position() = arco.position()
-   method text() = "TOCA E PARA AGARRAR"
+  method image() = "tecla.jpg"
+  var property position = arco.position()
   method letraGrande(arco){
   if (caballero.puedeAgarrar(arco)){
+      position = game.at(3, 29)
       game.addVisual(self)
-    }
+  }
     else{
       game.removeVisual(self)
     }
