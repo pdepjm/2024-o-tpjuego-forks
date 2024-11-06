@@ -24,26 +24,35 @@ const pocion = new Elemento (position = game.at(54,10), image = "pocion.png")
 const elementos = [arco,llave,pocion]
 
 class Flecha {
-var property position
-var property direccion
-var property image = ""
-var property nombre = "flecha"
-var property tirador = null 
+    var property position
+    var property direccion
+    var property image = ""
+    var property nombre = "flecha"
+    var property tirador = null 
 
 method disparar(personaje) {
-  self.tirador(personaje)
-  direccion = personaje.direccion()
-  position = personaje.position()
-  direccion.image(self)
-  game.addVisual(self)
-  game.removeTickEvent("vuela"+personaje)
-  game.onTick(50, "vuela"+personaje, {direccion.direc(self)})
-} 
+    self.tirador(personaje)
+    direccion = personaje.direccion()
+    // Ajuste en la posición para centrar la flecha respecto al tirador
+    position = personaje.position().right(1) // Ajuste para centrar
+    direccion.image(self)
+    game.addVisual(self)
 
-method tocaBorde() {
-  game.removeTickEvent("vuela")
-  game.removeVisual(self)
-} 
+    // Agregar un identificador único para el evento de cada flecha
+    game.removeTickEvent("vuela_" + personaje.nombre())
+    game.onTick(50, "vuela_" + personaje.nombre(), {
+        direccion.direc(self)
+        if (self.position().x() < 0 || self.position().x() >= game.width() ||
+            self.position().y() < 0 || self.position().y() >= game.height()) {
+            self.tocaBorde()
+        }
+    })
+}
+
+    method tocaBorde() {
+        game.removeTickEvent("vuela_" + tirador.nombre())
+        game.removeVisual(self)
+    }
 }
 
 const flecha1 = new Flecha(position = caballero.position(), direccion = caballero.direccion(), tirador = caballero)
