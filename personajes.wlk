@@ -93,6 +93,7 @@ object caballero {
       self.image(self.nombre() + "Muerto.png")
       game.removeVisual(flecha1)
       game.schedule(500, {game.removeVisual(self)})
+      game.schedule(2000, {game.stop()})
     }
   }
 
@@ -101,7 +102,7 @@ object caballero {
     game.schedule(0, {self.image("caballeroMuerto.png")})
     game.schedule(2000, {game.removeVisual(self)})
      // Sale una nota que moriste
-    game.stop()
+    game.schedule(2100, {game.stop()})
   }
 
 }

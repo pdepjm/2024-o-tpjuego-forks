@@ -47,7 +47,7 @@ object configuracionesIniciales {
 	
 	//Colisión con cualquier esqueleto
 	esqueletosPiso1.forEach {esqueleto => game.whenCollideDo(esqueleto, {personaje => esqueleto.ataca(personaje)
-	if(esqueleto.estaVivo()){personaje.rebote(personaje.direccion())}})}
+	if(esqueleto.estaVivo() && personaje.estaVivo()){personaje.rebote(personaje.direccion())}})}
 
 	//Cambio de habitación
 	mapa.puertas().forEach {puerta => game.whenCollideDo(puerta,{personaje => puerta.pasaElCaballero()})}
