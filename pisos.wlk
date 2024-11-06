@@ -82,7 +82,7 @@ object mapa {
 		self.puertas().forEach{puerta => game.addVisual(puerta)}
 		game.addVisual(arco)
 		game.addVisual(barraDeVida)
-		game.addVisual(arquero1)
+		arquerosPiso1.forEach{arquero => game.addVisual(arquero)}
 		game.addVisual(llave)
   }
 }

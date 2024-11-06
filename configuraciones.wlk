@@ -29,15 +29,16 @@ object configuracionesIniciales {
 }
 
   method enemigos() {
-	game.onTick(4000, "disparar", {flecha2.disparar(arquero1)})
-	game.onTick(2000, "movimiento" + esqueleto1, {esqueleto1.movimiento(17, 16)})
-	game.onTick(2000, "movimiento" + esqueleto2, {esqueleto2.movimiento(30, 25)})
-	game.onTick(2000, "movimiento" + esqueleto3, {esqueleto3.movimiento(34, 8)})
-	game.onTick(2000, "movimiento" + esqueleto4, {esqueleto4.movimiento(6,22)})
-	game.onTick(2000, "movimiento" + esqueleto5, {esqueleto5.movimiento(50,8)})
-	game.onTick(2000, "movimiento" + esqueleto6, {esqueleto6.movimiento(60,12)})
-	game.onTick(2000, "movimiento" + esqueleto7, {esqueleto7.movimiento(4,16)})
-	game.onTick(2000, "movimiento" + esqueleto8, {esqueleto8.movimiento(45,13)})
+	game.onTick(4000, "disparar"+arquero1, {flecha2.disparar(arquero1)})
+	game.onTick(4000, "disparar"+arquero2, {flecha3.disparar(arquero2)})
+	game.onTick(2000, "movimiento"+esqueleto1, {esqueleto1.movimiento(17, 16)})
+	game.onTick(2000, "movimiento"+esqueleto2, {esqueleto2.movimiento(30, 25)})
+	game.onTick(2000, "movimiento"+esqueleto3, {esqueleto3.movimiento(34, 8)})
+	game.onTick(2000, "movimiento"+esqueleto4, {esqueleto4.movimiento(6,22)})
+	game.onTick(2000, "movimiento"+esqueleto5, {esqueleto5.movimiento(50,8)})
+	game.onTick(2000, "movimiento"+esqueleto6, {esqueleto6.movimiento(60,12)})
+	game.onTick(2000, "movimiento"+esqueleto7, {esqueleto7.movimiento(4,16)})
+	game.onTick(2000, "movimiento"+esqueleto8, {esqueleto8.movimiento(45,13)})
   }
 
   method colisiones() {

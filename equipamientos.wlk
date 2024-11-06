@@ -37,8 +37,8 @@ method disparar(personaje) {
   position = personaje.position()
   direccion.image(self)
   game.addVisual(self)
-  game.removeTickEvent("vuela" + personaje)
-  game.onTick(50, "vuela" + personaje , {direccion.direc(self)})
+  game.removeTickEvent("vuela"+personaje)
+  game.onTick(50, "vuela"+personaje, {direccion.direc(self)})
   }
 } 
 
@@ -50,8 +50,9 @@ method tocaBorde() {
 
 const flecha1 = new Flecha(position = caballero.position(), direccion = caballero.direccion(), tirador = caballero)
 const flecha2 = new Flecha(position = arquero1.position(), direccion = arquero1.direccion(), tirador = arquero1)
+const flecha3 = new Flecha(position = arquero2.position(), direccion = arquero2.direccion(), tirador = arquero2)
 
-const flechas = [flecha1,flecha2]
+const flechas = [flecha1, flecha2, flecha3]
 
  class AgarrarConLaE {
   method image() = "tecla.jpg"

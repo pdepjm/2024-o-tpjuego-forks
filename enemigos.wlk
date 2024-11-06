@@ -26,6 +26,7 @@ class Esqueleto {
   }
 
   method movimiento(x, y){
+    if(self.estaVivo()){
     if(self.position() == game.at(x, y)){
     self.moverse(derecha)
     }
@@ -41,6 +42,7 @@ class Esqueleto {
     else {
       self.moverse(direccion)
     }
+    }
   }
 
   method cambiaVida(cantidad) {
@@ -50,18 +52,17 @@ class Esqueleto {
     }
   }
   method muerto() {
+    self.estaVivo(false)
     self.image(self.nombre() + "Muerto.png")
-    game.schedule(500, {game.removeVisual(self)} )
-    self.estaVivo(false) 
+    game.schedule(500, {game.removeVisual(self)} ) 
   }
 
   method muerto(flecha){
     if(!(flecha.tirador() == self)){
+      self.estaVivo(false)
       self.image(self.nombre()+"Muerto.png")
       game.removeVisual(flecha)
       game.schedule(500, {game.removeVisual(self)})
-      game.removeTickEvent("movimiento" + self)
-      self.estaVivo(false) 
     }
   }
 
@@ -93,11 +94,11 @@ class Arquero {
   const equipamiento = #{arco}
 
   method muerto(flecha) {
-    if(!(flecha.tirador() == self)){
+    if(!(flecha.tirador() == self)){  
     self.image(self.nombre() + "Muerto.png")
     game.removeVisual(flecha)
+    game.removeTickEvent("disparar"+self)
     game.schedule(500, {game.removeVisual(self)})
-    game.removeTickEvent("disparar")
     }
   }
 
@@ -105,7 +106,8 @@ class Arquero {
 
 }
 
-const arquero1 = new Arquero (position = game.at(15, 23), equipamiento = #{arco})
+const arquero1 = new Arquero (position = game.at(36, 28), direccion = abajo, equipamiento = #{arco})
+const arquero2 = new Arquero (position = game.at(2, 28), direccion = abajo, equipamiento = #{arco})
 
 const esqueleto1 = new Esqueleto (position= game.at(17,16))
 const esqueleto2 = new Esqueleto (position= game.at(30,25))
@@ -117,4 +119,4 @@ const esqueleto7 = new Esqueleto (position= game.at(4,16))
 const esqueleto8 = new Esqueleto (position= game.at(45,13))
 
 const esqueletosPiso1 = [esqueleto1,esqueleto2,esqueleto3,esqueleto4,esqueleto5,esqueleto6,esqueleto7,esqueleto8]
-const arquerosPiso1 = [arquero1]
+const arquerosPiso1 = [arquero1, arquero2]
