@@ -19,7 +19,7 @@ class Elemento {
 
 const arco = new Elemento (position = game.at(5, 30), image = "arco.png")
 const llave = new Elemento (position = game.at(49,23), image = "llave.png")
-const pocion = new Elemento (position = game.at(49,7), image = "pocion.png")
+const pocion = new Elemento (position = game.at(54,10), image = "pocion.png")
 
 const elementos = [arco,llave,pocion]
 

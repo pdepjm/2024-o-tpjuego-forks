@@ -63,6 +63,9 @@ object caballero {
     self.agregarEquipo(equipo)
     mapa.verificaLlave()
     }
+    if(equipo == pocion){
+      self.cambiaVida(+3)
+    }
   }
 
   method tieneElElemento(elem) = equipamiento.contains(elem)
@@ -71,6 +74,7 @@ object caballero {
 
   method cambiaVida(cantidad) {
     vida += cantidad
+    vida = (vida).min(10)
     barraDeVida.cambiaVida(cantidad)
     if (self.vida() == 0) {
       self.perder()
@@ -106,7 +110,7 @@ object caballero {
 object barraDeVida {
   var image = "Vidas10.png"
   var property position = game.at(65,32)
-  method vidaActual() = caballero.vida()
+  method vidaActual() = caballero.vida().min(10)
   method image() = image
 
   method cambiaVida(cantidad) {
