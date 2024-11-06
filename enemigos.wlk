@@ -78,6 +78,8 @@ class Esqueleto {
 
     return diferenciaX <= 1 and diferenciaY <= 1
   }
+
+  method tocaBorde() {}
 }
 
 class Arquero {
@@ -108,10 +110,11 @@ const arquero1 = new Arquero (position = game.at(15, 23), equipamiento = #{arco}
 const esqueleto1 = new Esqueleto (position= game.at(17,16))
 const esqueleto2 = new Esqueleto (position= game.at(30,25))
 const esqueleto3 = new Esqueleto (position= game.at(34,8))
-const esqueleto4 = new Esqueleto (position= game.at(7,20))
-const esqueleto5 = new Esqueleto (position= game.at(45,23))
-const esqueleto6 = new Esqueleto (position= game.at(50,8))
-const esqueleto7 = new Esqueleto (position= game.at(60,12))
+const esqueleto4 = new Esqueleto (position= game.at(7,22))
+const esqueleto5 = new Esqueleto (position= game.at(50,8))
+const esqueleto6 = new Esqueleto (position= game.at(60,12))
+const esqueleto7 = new Esqueleto (position= game.at(4,16))
+const esqueleto8 = new Esqueleto (position= game.at(45,13))
 
-const esqueletosPiso1 = [esqueleto1,esqueleto2,esqueleto3,esqueleto4,esqueleto5,esqueleto6,esqueleto7]
+const esqueletosPiso1 = [esqueleto1,esqueleto2,esqueleto3,esqueleto4,esqueleto5,esqueleto6,esqueleto7,esqueleto8]
 const arquerosPiso1 = [arquero1]

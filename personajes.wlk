@@ -54,12 +54,12 @@ object caballero {
 
   method agregarEquipo(e) { equipamiento.add(e) }
 
-  method puedeAgarrar(objeto) = objeto.estaEnRango(self)
+  method puedeAgarrar(objeto) = objeto.estaEnRango(self) and !self.tieneElElemento(objeto)
   
   method agarrar(equipo) {
     if (self.puedeAgarrar(equipo)){
     game.removeVisual(equipo)
-    game.removeVisual(agarrarConLaE)
+    botonesE.forEach {boton => game.removeVisual(boton)}
     self.agregarEquipo(equipo)
     }
   }
@@ -95,13 +95,11 @@ object caballero {
     self.estaVivo(false) 
     game.schedule(0, {self.image("caballeroMuerto.png")})
     game.schedule(2000, {game.removeVisual(self)})
-    // Sale una nota que moriste
-    // Se detiene el juego
+     // Sale una nota que moriste
+    game.stop()
   }
 
 }
-
-
 
 
 object barraDeVida {

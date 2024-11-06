@@ -22,6 +22,7 @@ object configuracionesIniciales {
 	game.addVisual(arco)
 	game.addVisual(barraDeVida)
 	game.addVisual(arquero1)
+	game.addVisual(llave)
 	//game.addVisual(paredesPiso1)
   }
 
@@ -34,7 +35,7 @@ object configuracionesIniciales {
       
 	// Acciones
 	  keyboard.space().onPressDo {flecha1.disparar(caballero)}
-	  objetos.forEach {objeto => keyboard.e().onPressDo {caballero.agarrar(objeto)}}
+	  elementos.forEach {objeto => keyboard.e().onPressDo {caballero.agarrar(objeto)}}
 	  keyboard.r().onPressDo {caballero.atacar(esqueleto1)}
 }
 
@@ -43,6 +44,11 @@ object configuracionesIniciales {
 	game.onTick(2000, "movimiento" + esqueleto1, {esqueleto1.movimiento(17, 16)})
 	game.onTick(2000, "movimiento" + esqueleto2, {esqueleto2.movimiento(30, 25)})
 	game.onTick(2000, "movimiento" + esqueleto3, {esqueleto3.movimiento(34, 8)})
+	game.onTick(2000, "movimiento" + esqueleto4, {esqueleto4.movimiento(8,17)})
+	game.onTick(2000, "movimiento" + esqueleto5, {esqueleto5.movimiento(50,8)})
+	game.onTick(2000, "movimiento" + esqueleto6, {esqueleto6.movimiento(60,12)})
+	game.onTick(2000, "movimiento" + esqueleto7, {esqueleto7.movimiento(6,15)})
+	game.onTick(2000, "movimiento" + esqueleto8, {esqueleto8.movimiento(45,13)})
   }
 
   method colisiones() {
@@ -56,6 +62,7 @@ object configuracionesIniciales {
 	//Cambio de habitación
 	puertasPiso1.forEach {puerta => game.whenCollideDo(puerta,{personaje => puerta.pasaElCaballero()})}
 
-	game.whenCollideDo(agarrarConLaE, {caballero => agarrarConLaE.letraGrande(arco)})
+	//Colisión con los elementos
+	botonesE.forEach {boton => game.whenCollideDo(boton, {caballero => boton.letraGrande(boton.elemento())})}
   }
 }

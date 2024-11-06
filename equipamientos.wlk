@@ -18,10 +18,10 @@ class Elemento {
 }
 
 const arco = new Elemento (position = game.at(5, 30), image = "arco.png")
-const llave = new Elemento (position = game.at(24,2), image = "llave.png")
+const llave = new Elemento (position = game.at(49,23), image = "llave.png")
 const pocion = new Elemento (position = game.at(0,0), image = "pocion.png")
 
-const objetos = [arco,llave,pocion]
+const elementos = [arco,llave,pocion]
 
 class Flecha {
 var property position
@@ -53,11 +53,12 @@ const flecha2 = new Flecha(position = arquero1.position(), direccion = arquero1.
 
 const flechas = [flecha1,flecha2]
 
- object agarrarConLaE {
+ class AgarrarConLaE {
   method image() = "tecla.jpg"
-  var property position = arco.position()
-  method letraGrande(arco){
-  if (caballero.puedeAgarrar(arco)){
+  var property position
+  var property elemento
+  method letraGrande(_elemento){
+  if (caballero.puedeAgarrar(_elemento)){
       game.addVisual(self)
   }
     else{
@@ -66,3 +67,8 @@ const flechas = [flecha1,flecha2]
   }
 }
 
+const arcoE = new AgarrarConLaE (position = arco.position(),elemento = arco)
+const llaveE = new AgarrarConLaE (position = llave.position(),elemento = llave)
+const pocionE = new AgarrarConLaE (position = pocion.position(),elemento = pocion)
+
+const botonesE = [arcoE,llaveE,pocionE]
