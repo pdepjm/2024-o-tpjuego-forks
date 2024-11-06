@@ -24,5 +24,19 @@ describe "Primeros tests" {
     assert.equals(vidaAlPrincipio-1, caballero.vida())
   }
 
+   test "El esqueleto no hace daño si no se encuentra vivo, por lo tanto la vida del caballero no cambia" {
+    const vidaVieja = caballero.vida()
+    esqueleto1.estaVivo(false)
+    esqueleto1.ataca(caballero)
+    assert.equals(vidaVieja-1, caballero.vida())
+  }
+
+  test "La pocion le agrega 3 de vida al personaje o se queda en 10 como maximo" {
+    caballero.vida(6)
+    const vidaVieja = caballero.vida()
+    caballero.agarrar(pocion)
+    assert.equals(vidaVieja+3, caballero.vida())
+  }
+
 
 }
