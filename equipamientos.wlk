@@ -10,13 +10,6 @@ class Elemento {
   var property image
   var property nombre
 
-//   method estaEnRango(objeto) {
-//     const diferenciaX = (self.position().x() - objeto.position().x()).abs()
-//     const diferenciaY = (self.position().y() - objeto.position().y()).abs()
-
-//     return diferenciaX <= 1 and diferenciaY <= 1
-// }
-
 
 method estaEnRango(objeto) {
     const diferenciaX = (self.position().x() - objeto.position().x()).abs()

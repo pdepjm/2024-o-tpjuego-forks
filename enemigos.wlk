@@ -104,6 +104,7 @@ class Arquero {
 
     return diferenciaX <= 3 and diferenciaY <= 3
   }
+
 }
 
 const arquero1 = new Arquero (position = game.at(35, 28), direccion = abajo,nombre = arquero1)

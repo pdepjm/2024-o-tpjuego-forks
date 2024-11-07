@@ -18,14 +18,13 @@ object caballero {
 
   const equipamiento = #{}
 
-/*
-    // Nuevo método atacar, que depende solo del personaje y no del arma (no terminado)
+
     method atacar(enemigo) {
         if (enemigo.estaEnRango(self)) { 
             enemigo.cambiaVida(-danio)
         }
     }
-*/
+
 
 
   method moverse(nuevaDireccion) {
@@ -79,12 +78,6 @@ object caballero {
     barraDeVida.cambiaVida(self.vida())
     if (self.vida() == 0) {
       self.perder()
-    }
-  }
-
-  method atacar(enemigo){
-    if (enemigo.estaEnRango(self)){
-    enemigo.cambiaVida(-danio)
     }
   }
 
