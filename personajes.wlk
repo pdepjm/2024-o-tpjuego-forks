@@ -11,9 +11,6 @@ object caballero {
   var property direccion = izquierda
   var property nombre = "caballero"
   var property vida = 10
-  var property danio = 2
-  var property piso = 1
-  const property verde = "00FF00FF"
   var property estaVivo = true
 
   const equipamiento = #{}
