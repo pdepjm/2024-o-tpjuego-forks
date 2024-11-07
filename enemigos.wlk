@@ -86,7 +86,7 @@ class Arquero {
   var property position  
   var property image = "arqueroFrente.png"
   var property vida = 5
-  var property nombre 
+  var property nombre
   var property direccion
 
   method muerto(flecha) {
@@ -107,8 +107,8 @@ class Arquero {
 
 }
 
-const arquero1 = new Arquero (position = game.at(35, 28), direccion = abajo,nombre = arquero1)
-const arquero2 = new Arquero (position = game.at(2, 29), direccion = abajo,nombre = arquero2)
+const arquero1 = new Arquero (position = game.at(35, 28), direccion = abajo,nombre = "arquero1")
+const arquero2 = new Arquero (position = game.at(2, 29), direccion = abajo,nombre = "arquero2")
 
 const esqueleto1 = new Esqueleto (position= game.at(17,16))
 const esqueleto2 = new Esqueleto (position= game.at(30,25))
