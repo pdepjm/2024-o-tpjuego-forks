@@ -22,7 +22,7 @@ method estaEnRango(objeto) {
 const arco = new Elemento (position = game.at(5, 30), image = "arco.png", nombre = "arco")
 const llave = new Elemento (position = game.at(49,23), image = "llave.png", nombre = "llave")
 const pocion = new Elemento (position = game.at(54,10), image = "pocion.png", nombre = "pocion")
-const tesoro = new Elemento (position = game.at(59, 25), image = "tesoro.png", nombre = "tesoro")
+const tesoro = new Elemento (position = game.at(59, 25), image = "", nombre = "tesoro")
 
 const elementos = [arco,llave,pocion,tesoro]
 
