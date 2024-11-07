@@ -15,7 +15,7 @@ method estaEnRango(objeto) {
     const diferenciaX = (self.position().x() - objeto.position().x()).abs()
     const diferenciaY = (self.position().y() - objeto.position().y()).abs()
 
-    return diferenciaX <= 3 and diferenciaY <= 3
+    return diferenciaX <= 1 and diferenciaY <= 1
 }
 
 }

@@ -21,7 +21,7 @@ object caballero {
 
     method atacar(enemigo) {
         if (enemigo.estaEnRango(self)) { 
-            enemigo.cambiaVida(-danio)
+            enemigo.cambiaVida(-2)
         }
     }
 

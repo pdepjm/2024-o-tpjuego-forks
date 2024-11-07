@@ -16,7 +16,6 @@ class ZonaProhibida {
 }
 
 class Puerta {
-  const puerta
   var property position
   const direccion
   const destino
@@ -64,16 +63,16 @@ object mapa {
 		return !(self.zonasProhibidas().any { zona => zona.esZonaProhibida(x,y)}) 
 	}
 
-	const puerta1a3 = new Puerta (puerta = 1, position = game.at(13,2), destino = 3, direccion = izquierda)
-	const puerta3a1 = new Puerta (puerta = 1, position = game.at(9,2), destino = 1, direccion = derecha)
-	const puerta3a2 = new Puerta (puerta = 2, position = game.at(1,5), destino = 2, direccion = arriba)
-	const puerta2a3 = new Puerta (puerta = 2, position = game.at(1,8), destino = 3, direccion = abajo)
-	const puerta1a4 = new Puerta (puerta = 3, position = game.at(37,11), destino = 4, direccion = derecha)
-	const puerta4a1 = new Puerta (puerta = 3, position = game.at(39,11), destino = 1,direccion = izquierda )
-	const puerta1a5 = new Puerta (puerta = 4, position = game.at(37,25), destino = 5, direccion = derecha)
-	const puerta5a1 = new Puerta (puerta = 4, position = game.at(39,25), destino = 1, direccion = izquierda)
-	const puerta4a6 = new Puerta (puerta = 4, position = game.at(59,19), destino = 6, direccion = arriba)
-	const puerta6a4 = new Puerta (puerta = 4, position = game.at(59,21), destino = 4, direccion = abajo)
+	const puerta1a3 = new Puerta (position = game.at(13,2), destino = 3, direccion = izquierda)
+	const puerta3a1 = new Puerta (position = game.at(9,2), destino = 1, direccion = derecha)
+	const puerta3a2 = new Puerta (position = game.at(1,5), destino = 2, direccion = arriba)
+	const puerta2a3 = new Puerta (position = game.at(1,8), destino = 3, direccion = abajo)
+	const puerta1a4 = new Puerta (position = game.at(37,11), destino = 4, direccion = derecha)
+	const puerta4a1 = new Puerta (position = game.at(39,11), destino = 1,direccion = izquierda )
+	const puerta1a5 = new Puerta (position = game.at(37,25), destino = 5, direccion = derecha)
+	const puerta5a1 = new Puerta (position = game.at(39,25), destino = 1, direccion = izquierda)
+	const puerta4a6 = new Puerta (position = game.at(59,19), destino = 6, direccion = arriba)
+	const puerta6a4 = new Puerta (position = game.at(59,21), destino = 4, direccion = abajo)
 	var property puertas = [puerta1a3,puerta3a1,puerta3a2,puerta2a3,puerta1a4,puerta4a1,puerta1a5,puerta5a1,puerta4a6,puerta6a4]
 
 	method visuales() {
