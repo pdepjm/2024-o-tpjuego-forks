@@ -55,6 +55,9 @@ object caballero {
     if(equipo == pocion){
       self.cambiaVida(+3)
     }
+    if(equipo == tesoro){
+      game.stop()
+    }
     }
    
   }
