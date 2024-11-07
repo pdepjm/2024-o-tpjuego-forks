@@ -48,7 +48,7 @@ object configuracionesIniciales {
 	flechas.forEach {flecha => game.onCollideDo(flecha, {personaje => personaje.muerto(flecha)})}
 	
 	//Colisión con cualquier esqueleto
-	esqueletosPiso1.forEach {esqueleto => game.whenCollideDo(esqueleto, {personaje => esqueleto.ataca(personaje)
+	esqueletos.forEach {esqueleto => game.whenCollideDo(esqueleto, {personaje => esqueleto.ataca(personaje)
 	if(esqueleto.estaVivo() && personaje.estaVivo()){game.sound("hitSound.mp3").play()
 		personaje.rebote(personaje.direccion())}})}
 

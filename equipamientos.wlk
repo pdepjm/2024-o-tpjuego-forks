@@ -37,7 +37,7 @@ class Flecha {
     var property position
     var property direccion
     var property image = ""
-    var property nombre = "flecha"
+    var property nombre = "flecha" 
     var property tirador = null 
 
 method disparar(personaje) {
@@ -47,8 +47,8 @@ method disparar(personaje) {
     direccion.image(self)
     game.addVisual(self)
 
-    game.removeTickEvent("vuela_" + personaje)
-    game.onTick(50, "vuela_" + personaje, {
+    game.removeTickEvent("vuela" + personaje.nombre())
+    game.onTick(50, "vuela" + personaje.nombre(), {
         direccion.direc(self)
         if (self.position().x() < 0 || self.position().x() >= game.width() ||
             self.position().y() < 0 || self.position().y() >= game.height()) {
@@ -58,7 +58,7 @@ method disparar(personaje) {
 }
 
     method tocaBorde() {
-        game.removeTickEvent("vuela_" + self.tirador())
+        game.removeTickEvent("vuela" + self.tirador())
         game.removeVisual(self)
     }
 }

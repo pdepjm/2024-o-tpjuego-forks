@@ -78,10 +78,10 @@ object mapa {
 
 	method visuales() {
 		game.addVisualCharacter(caballero)
-		esqueletosPiso1.forEach{esqueleto => game.addVisual(esqueleto)}
+		esqueletos.forEach{esqueleto => game.addVisual(esqueleto)}
 		self.puertas().forEach{puerta => game.addVisual(puerta)}
 		game.addVisual(arco)	
-		arquerosPiso1.forEach{arquero => game.addVisual(arquero)}
+		arqueros.forEach{arquero => game.addVisual(arquero)}
 		game.addVisual(llave)
 		game.addVisual(pocion)
 		game.addVisual(paredes)

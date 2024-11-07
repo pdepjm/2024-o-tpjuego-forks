@@ -9,7 +9,6 @@ class Esqueleto {
   var property image = "esqueletoFrente.png"
   var property nombre = "esqueleto"
   var property vida = 5
-  //const danio = 1 
   var property direccion = abajo
   var property estaVivo = true
 
@@ -53,14 +52,14 @@ class Esqueleto {
   }
   method muerto() {
     self.estaVivo(false)
-    self.image(self.nombre() + "Muerto.png")
+    self.image("esqueletoMuerto.png")
     game.schedule(500, {game.removeVisual(self)} ) 
   }
 
   method muerto(flecha){
     if(!(flecha.tirador() == self)){
       self.estaVivo(false)
-      self.image(self.nombre()+"Muerto.png")
+      self.image("esqueletoMuertoFlecha.png")
       game.removeVisual(flecha)
       game.schedule(500, {game.removeVisual(self)})
     }
@@ -87,33 +86,28 @@ class Arquero {
   var property position  
   var property image = "arqueroFrente.png"
   var property vida = 5
-  //const danio = 1 
-  var property direccion = abajo
-
-  const equipamiento = #{arco}
+  var property nombre 
+  var property direccion
 
   method muerto(flecha) {
     if(!(flecha.tirador() == self)){  
     self.image("arqueroMuerto.png")
     game.removeVisual(flecha)
-    game.removeTickEvent("disparar"+self)
+    game.removeTickEvent("disparar"+self.nombre())
     game.schedule(500, {game.removeVisual(self)})
     }
   }
-
-  method tieneElElemento(elem) = equipamiento.contains(elem) 
 
   method estaEnRango(objeto) {
     const diferenciaX = (self.position().x() - objeto.position().x()).abs()
     const diferenciaY = (self.position().y() - objeto.position().y()).abs()
 
     return diferenciaX <= 3 and diferenciaY <= 3
+  }
 }
 
-}
-
-const arquero1 = new Arquero (position = game.at(36, 28), direccion = abajo, equipamiento = #{arco})
-const arquero2 = new Arquero (position = game.at(2, 29), direccion = abajo, equipamiento = #{arco})
+const arquero1 = new Arquero (position = game.at(35, 28), direccion = abajo,nombre = arquero1)
+const arquero2 = new Arquero (position = game.at(2, 29), direccion = abajo,nombre = arquero2)
 
 const esqueleto1 = new Esqueleto (position= game.at(17,16))
 const esqueleto2 = new Esqueleto (position= game.at(30,25))
@@ -124,5 +118,5 @@ const esqueleto6 = new Esqueleto (position= game.at(60,12))
 const esqueleto7 = new Esqueleto (position= game.at(4,16))
 const esqueleto8 = new Esqueleto (position= game.at(45,13))
 
-const esqueletosPiso1 = [esqueleto1,esqueleto2,esqueleto3,esqueleto4,esqueleto5,esqueleto6,esqueleto7,esqueleto8]
-const arquerosPiso1 = [arquero1, arquero2]
+const esqueletos = [esqueleto1,esqueleto2,esqueleto3,esqueleto4,esqueleto5,esqueleto6,esqueleto7,esqueleto8]
+const arqueros = [arquero1, arquero2]

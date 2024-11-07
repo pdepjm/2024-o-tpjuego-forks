@@ -62,22 +62,12 @@ object caballero {
     botonesE.forEach {boton => game.removeVisual(boton)}
     self.agregarEquipo(equipo)
     mapa.verificaLlave()
-    
-     if(equipo == pocion){
+    if(equipo == pocion){
       self.cambiaVida(+3)
     }
     }
    
   }
-
-  // method tomarPocion(equip){
-  //   if(equip.nombre() == "pocion"){
-  //     self.cambiaVida(+3)
-  //   }
-  //   else {
-  //     self.cambiaVida(0)
-  //   }
-  // }
 
   method tieneElElemento(elem) = equipamiento.contains(elem)
 
