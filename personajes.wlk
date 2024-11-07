@@ -62,11 +62,22 @@ object caballero {
     botonesE.forEach {boton => game.removeVisual(boton)}
     self.agregarEquipo(equipo)
     mapa.verificaLlave()
-    }
-    if(equipo == pocion){
+    
+     if(equipo == pocion){
       self.cambiaVida(+3)
     }
+    }
+   
   }
+
+  // method tomarPocion(equip){
+  //   if(equip.nombre() == "pocion"){
+  //     self.cambiaVida(+3)
+  //   }
+  //   else {
+  //     self.cambiaVida(0)
+  //   }
+  // }
 
   method tieneElElemento(elem) = equipamiento.contains(elem)
 
@@ -74,8 +85,8 @@ object caballero {
 
   method cambiaVida(cantidad) {
     vida += cantidad
-    vida = (vida).min(10)
-    barraDeVida.cambiaVida(cantidad)
+    vida = (self.vida()).min(10)
+    barraDeVida.cambiaVida(self.vida())
     if (self.vida() == 0) {
       self.perder()
     }
@@ -111,13 +122,14 @@ object caballero {
 object barraDeVida {
   var image = "Vidas10.png"
   var property position = game.at(65,32)
-  method vidaActual() = caballero.vida().min(10)
+  var property vidaActual = caballero.vida()
   method image() = image
 
-  method cambiaVida(cantidad) {
-    if (self.vidaActual() != -1) {
-      image = "Vidas" + self.vidaActual().toString() + ".png"
+  method cambiaVida(vida) {
+    if (vida != 0) {
+      image = "Vidas" + vida.toString() + ".png"
       }
+      self.vidaActual(vida)
   } 
 }
 

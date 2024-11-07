@@ -73,12 +73,12 @@ class Esqueleto {
     }
   }
 
-  method estaEnRango(objeto) {
+method estaEnRango(objeto) {
     const diferenciaX = (self.position().x() - objeto.position().x()).abs()
     const diferenciaY = (self.position().y() - objeto.position().y()).abs()
 
-    return diferenciaX <= 1 and diferenciaY <= 1
-  }
+    return diferenciaX <= 3 and diferenciaY <= 3
+}
 
   method tocaBorde() {}
 }
@@ -86,7 +86,6 @@ class Esqueleto {
 class Arquero {
   var property position  
   var property image = "arqueroFrente.png"
-  var property nombre = "arquero"
   var property vida = 5
   //const danio = 1 
   var property direccion = abajo
@@ -95,7 +94,7 @@ class Arquero {
 
   method muerto(flecha) {
     if(!(flecha.tirador() == self)){  
-    self.image(self.nombre() + "Muerto.png")
+    self.image("arqueroMuerto.png")
     game.removeVisual(flecha)
     game.removeTickEvent("disparar"+self)
     game.schedule(500, {game.removeVisual(self)})
@@ -104,10 +103,17 @@ class Arquero {
 
   method tieneElElemento(elem) = equipamiento.contains(elem) 
 
+  method estaEnRango(objeto) {
+    const diferenciaX = (self.position().x() - objeto.position().x()).abs()
+    const diferenciaY = (self.position().y() - objeto.position().y()).abs()
+
+    return diferenciaX <= 3 and diferenciaY <= 3
+}
+
 }
 
 const arquero1 = new Arquero (position = game.at(36, 28), direccion = abajo, equipamiento = #{arco})
-const arquero2 = new Arquero (position = game.at(2, 28), direccion = abajo, equipamiento = #{arco})
+const arquero2 = new Arquero (position = game.at(2, 29), direccion = abajo, equipamiento = #{arco})
 
 const esqueleto1 = new Esqueleto (position= game.at(17,16))
 const esqueleto2 = new Esqueleto (position= game.at(30,25))

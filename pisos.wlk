@@ -30,10 +30,10 @@ class Puerta {
 
 object paredes {
 	var property position = game.at(0,0) 
-	var property image = "habitacion1.jpg"  
+	var property image = "habitacion1.png"  
 
 	method cambiaHabitacion(habitacion) {
-		self.image("habitacion" + habitacion + ".jpg")
+		self.image("habitacion" + habitacion + ".png")
 	}
 }
 
@@ -46,7 +46,7 @@ object mapa {
 	const hueco1 = new ZonaProhibida(xMin=2,xMax=11,yMin=3,yMax=8)
 	const pared1 = new ZonaProhibida(xMin=10,xMax=11,yMin=6,yMax=33)
 	const pared2 = new ZonaProhibida(xMin=37,xMax=39,yMin=1,yMax=10)
-	const pared3 = new ZonaProhibida(xMin=37,xMax=39,yMin=13,yMax=24)
+	const pared3 = new ZonaProhibida(xMin=37,xMax=39,yMin=12,yMax=24)
 	const pared4 = new ZonaProhibida(xMin=37,xMax=39,yMin=26,yMax=33)
 	const pared5 = new ZonaProhibida(xMin=40,xMax=58,yMin=18,yMax=21)
 	const pared6 = new ZonaProhibida(xMin=60,xMax=69,yMin=18,yMax=21)
@@ -80,11 +80,12 @@ object mapa {
 		game.addVisualCharacter(caballero)
 		esqueletosPiso1.forEach{esqueleto => game.addVisual(esqueleto)}
 		self.puertas().forEach{puerta => game.addVisual(puerta)}
-		game.addVisual(arco)
-		game.addVisual(barraDeVida)
+		game.addVisual(arco)	
 		arquerosPiso1.forEach{arquero => game.addVisual(arquero)}
 		game.addVisual(llave)
 		game.addVisual(pocion)
+		game.addVisual(paredes)
+		game.addVisual(barraDeVida)
   }
 }
 

@@ -12,7 +12,7 @@ object configuracionesIniciales {
 	game.height(34)
 	game.width(70)
 	game.cellSize(100)
-	game.boardGround("fondo3.jpg")
+	game.boardGround("mazmorra.jpg")
   }
 
   method teclas() {

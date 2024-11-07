@@ -38,5 +38,14 @@ describe "Primeros tests" {
     assert.equals(vidaVieja+3, caballero.vida())
   }
 
+  test "Cuando agarras otro objeto tambien le agrega 3 de vida al personaje" {
+    caballero.vida(6)
+    const vidaVieja = caballero.vida()
+    caballero.agarrar(llave)
+    assert.equals(vidaVieja+3, caballero.vida())
+  }
+
+
+
 
 }

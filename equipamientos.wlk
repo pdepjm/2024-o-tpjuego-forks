@@ -8,27 +8,28 @@ import pisos.*
 class Elemento {
   var property position
   var property image
+  var property nombre
 
-  method estaEnRango(objeto) {
-    const diferenciaX = (self.position().x() - objeto.position().x()).abs()
-    const diferenciaY = (self.position().y() - objeto.position().y()).abs()
+//   method estaEnRango(objeto) {
+//     const diferenciaX = (self.position().x() - objeto.position().x()).abs()
+//     const diferenciaY = (self.position().y() - objeto.position().y()).abs()
 
-    return diferenciaX <= 1 and diferenciaY <= 1
-}
+//     return diferenciaX <= 1 and diferenciaY <= 1
+// }
 
-/*
+
 method estaEnRango(objeto) {
     const diferenciaX = (self.position().x() - objeto.position().x()).abs()
     const diferenciaY = (self.position().y() - objeto.position().y()).abs()
 
     return diferenciaX <= 3 and diferenciaY <= 3
 }
-*/
+
 }
 
-const arco = new Elemento (position = game.at(5, 30), image = "arco.png")
-const llave = new Elemento (position = game.at(49,23), image = "llave.png")
-const pocion = new Elemento (position = game.at(54,10), image = "pocion.png")
+const arco = new Elemento (position = game.at(5, 30), image = "arco.png", nombre = "arco")
+const llave = new Elemento (position = game.at(49,23), image = "llave.png", nombre = "llave")
+const pocion = new Elemento (position = game.at(54,10), image = "pocion.png", nombre = "pocion")
 
 const elementos = [arco,llave,pocion]
 
@@ -46,8 +47,8 @@ method disparar(personaje) {
     direccion.image(self)
     game.addVisual(self)
 
-    game.removeTickEvent("vuela_" + personaje.nombre())
-    game.onTick(50, "vuela_" + personaje.nombre(), {
+    game.removeTickEvent("vuela_" + personaje)
+    game.onTick(50, "vuela_" + personaje, {
         direccion.direc(self)
         if (self.position().x() < 0 || self.position().x() >= game.width() ||
             self.position().y() < 0 || self.position().y() >= game.height()) {
@@ -57,7 +58,7 @@ method disparar(personaje) {
 }
 
     method tocaBorde() {
-        game.removeTickEvent("vuela_" + tirador.nombre())
+        game.removeTickEvent("vuela_" + self.tirador())
         game.removeVisual(self)
     }
 }
