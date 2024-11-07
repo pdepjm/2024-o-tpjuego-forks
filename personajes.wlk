@@ -18,12 +18,6 @@ object caballero {
 
   const equipamiento = #{}
 
-    method atacar(enemigo) {
-        if (enemigo.estaEnRango(self)) { 
-            enemigo.cambiaVida(-2)
-        }
-    }
-
   method moverse(nuevaDireccion) {
     self.direccion(nuevaDireccion)
     nuevaDireccion.direc(self)

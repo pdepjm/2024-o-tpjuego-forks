@@ -65,13 +65,6 @@ class Esqueleto {
     }
   }
 
-method estaEnRango(objeto) {
-    const diferenciaX = (self.position().x() - objeto.position().x()).abs()
-    const diferenciaY = (self.position().y() - objeto.position().y()).abs()
-
-    return diferenciaX <= 3 and diferenciaY <= 3
-}
-
   method tocaBorde() {}
 }
 
@@ -92,14 +85,6 @@ class Arquero {
     game.schedule(500, {game.removeVisual(self)})
     }
   }
-
-  method estaEnRango(objeto) {
-    const diferenciaX = (self.position().x() - objeto.position().x()).abs()
-    const diferenciaY = (self.position().y() - objeto.position().y()).abs()
-
-    return diferenciaX <= 3 and diferenciaY <= 3
-  }
-
 }
 
 const arquero1 = new Arquero (position = game.at(35, 28), direccion = abajo,nombre = "arquero1")

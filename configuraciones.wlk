@@ -27,8 +27,6 @@ object configuracionesIniciales {
 	  flecha1.disparar(caballero)
 	  game.sound("bowSound.mp3").play()}}
 	  elementos.forEach {objeto => keyboard.e().onPressDo {caballero.agarrar(objeto)}}
-	//   keyboard.r().onPressDo {if(caballero.estaVivo()){caballero.atacar(esqueleto1)
-	esqueletos.forEach {enemigo => keyboard.r().onPressDo {caballero.atacar(enemigo)}}
 }
 
   method enemigos() {
