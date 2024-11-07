@@ -25,16 +25,16 @@ object caballero {
   }
 
   method rebote(direc){
-    if (direc == derecha){
+    if (direc == "derecha"){
       self.moverse(izquierda)
     }
-    else if (direc == izquierda){
+    else if (direc == "izquierda"){
       self.moverse(derecha)
     }
-    else if (direc == arriba){
+    else if (direc == "arriba"){
       self.moverse(abajo)
     }
-    else if (direc == abajo){
+    else if (direc == "abajo"){
       self.moverse(arriba)
     }
     if (self.vida() > 0){
