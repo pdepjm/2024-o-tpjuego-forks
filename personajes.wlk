@@ -18,14 +18,11 @@ object caballero {
 
   const equipamiento = #{}
 
-
     method atacar(enemigo) {
         if (enemigo.estaEnRango(self)) { 
             enemigo.cambiaVida(-2)
         }
     }
-
-
 
   method moverse(nuevaDireccion) {
     self.direccion(nuevaDireccion)
@@ -109,7 +106,7 @@ object barraDeVida {
   method image() = image
 
   method cambiaVida(vida) {
-    if (vida != 0) {
+    if (vida != -1) {
       image = "Vidas" + vida.toString() + ".png"
       }
       self.vidaActual(vida)
