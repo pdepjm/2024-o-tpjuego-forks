@@ -43,6 +43,7 @@ object mapa {
 	const limiteIzquierdo = new ZonaProhibida(xMin=0,xMax=0,yMin=0,yMax=33)
 
 	const hueco1 = new ZonaProhibida(xMin=2,xMax=11,yMin=3,yMax=8)
+	const mesa = new ZonaProhibida(xMin=23,xMax=25,yMin=11,yMax=27)
 	const pared1 = new ZonaProhibida(xMin=10,xMax=11,yMin=6,yMax=33)
 	const pared2 = new ZonaProhibida(xMin=37,xMax=39,yMin=1,yMax=10)
 	const pared3 = new ZonaProhibida(xMin=37,xMax=39,yMin=12,yMax=24)
@@ -51,7 +52,7 @@ object mapa {
 	const pared6 = new ZonaProhibida(xMin=60,xMax=69,yMin=18,yMax=21)
 	const pared7 = new ZonaProhibida(xMin=49,xMax=51,yMin=21,yMax=33)
 	const puertaCerrada = new ZonaProhibida(xMin=59,xMax=59,yMin=18,yMax=21) 
-	var property zonasProhibidas = [limiteInferior,limiteSuperior,limiteDerecho,limiteIzquierdo,hueco1,pared1,pared2,pared3,pared4,pared5,pared6,pared7,puertaCerrada]
+	var property zonasProhibidas = [limiteInferior,limiteSuperior,limiteDerecho,limiteIzquierdo,hueco1,mesa,pared1,pared2,pared3,pared4,pared5,pared6,pared7,puertaCerrada]
 
 	method verificaLlave() {
 		if(caballero.tieneElElemento(llave)) {
