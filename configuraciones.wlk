@@ -7,12 +7,15 @@ import direcciones.*
 import pisos.*
 
 object configuracionesIniciales {
+
+	var property juegoIniciado = false
+
   method pantalla() {
     game.title("Dungeon & Objects")
 	game.height(34)
 	game.width(70)
 	game.cellSize(100)
-	game.boardGround("pantallaInicio.png")
+	game.boardGround("mazmorra.jpg")
   }
 
   method teclas() {
@@ -27,11 +30,11 @@ object configuracionesIniciales {
 	  flecha1.disparar(caballero)
 	  game.sound("bowSound.mp3").play()}}
 	  elementos.forEach {objeto => keyboard.e().onPressDo {caballero.agarrar(objeto)}}
-
-	//Inicio
-	keyboard.enter().onPressDo {self.enemigos();mapa.visuales()}
-}
-
+	  
+	//Inicio	
+	  keyboard.enter().onPressDo {self.enemigos(); mapa.visuales()}
+}	
+  
   method enemigos() {
 	game.onTick(4000, "disparar"+arquero1, {if(arquero1.estaVivo()){ flecha2.disparar(arquero1)}})
 	game.onTick(4000, "disparar"+arquero2, {if(arquero2.estaVivo()){ flecha3.disparar(arquero2)}})

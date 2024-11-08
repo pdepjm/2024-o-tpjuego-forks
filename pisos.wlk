@@ -36,6 +36,11 @@ object paredes {
 	}
 }
 
+object fondoInicial {
+	var property image = "pantallaInicio.png"
+	var property position = game.at(0,0) 
+}
+
 object mapa {
 	const limiteInferior = new ZonaProhibida(xMin=0,xMax=69,yMin=1,yMax=1)
 	const limiteSuperior = new ZonaProhibida(xMin=0,xMax=69,yMin=30,yMax=33)
@@ -77,7 +82,7 @@ object mapa {
 	var property puertas = [puerta1a3,puerta3a1,puerta3a2,puerta2a3,puerta1a4,puerta4a1,puerta1a5,puerta5a1,puerta4a6,puerta6a4]
 
 	method visuales() {
-		game.boardGround("mazmorra.jpg")
+		game.removeVisual(fondoInicial)
 		game.addVisualCharacter(caballero)
 		esqueletos.forEach{esqueleto => game.addVisual(esqueleto)}
 		self.puertas().forEach{puerta => game.addVisual(puerta)}	
