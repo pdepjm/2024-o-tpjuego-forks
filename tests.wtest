@@ -1,0 +1,51 @@
+import main.*
+import wollok.game.*
+import configuraciones.*
+import personajes.*
+import enemigos.*
+import equipamientos.*
+import direcciones.*
+import pisos.*
+
+describe "Primeros tests" {
+    method initialize(){
+    game.clear()
+    
+  }
+
+  test "El caballero agrega el arco a su inventario" {
+    caballero.agregarEquipo(arco)
+    assert.that(caballero.tieneElElemento(arco))
+  }
+
+  test "El método cambiaVida() hace que le restes una cantidad de vida al caballero" {
+    const vidaAlPrincipio = caballero.vida()
+    caballero.cambiaVida(-1)
+    assert.equals(vidaAlPrincipio-1, caballero.vida())
+  }
+
+   test "El esqueleto no hace daño si no se encuentra vivo, por lo tanto la vida del caballero no cambia" {
+    const vidaVieja = caballero.vida()
+    esqueleto1.estaVivo(false)
+    esqueleto1.ataca(caballero)
+    assert.equals(vidaVieja-1, caballero.vida())
+  }
+
+  test "La pocion le agrega 3 de vida al personaje o se queda en 10 como maximo" {
+    caballero.vida(6)
+    const vidaVieja = caballero.vida()
+    caballero.agarrar(pocion)
+    assert.equals(vidaVieja+3, caballero.vida())
+  }
+
+  test "Cuando agarras otro objeto tambien le agrega 3 de vida al personaje" {
+    caballero.vida(6)
+    const vidaVieja = caballero.vida()
+    caballero.agarrar(llave)
+    assert.equals(vidaVieja+3, caballero.vida())
+  }
+
+
+
+
+}

@@ -1,16 +1,16 @@
 import wollok.game.*
+import configuraciones.*
+import personajes.*
+import enemigos.*
+import equipamientos.*
+import direcciones.*
+import pisos.*
 
-import pepita.*
-
-program PepitaGame {
-	game.title("Pepita")
-	game.height(10)
-	game.width(10)
-	game.cellSize(100)
-
-	game.addVisual(pepita)
-
-	keyboard.w().onPressDo({ pepita.fly(1) })
-
+program DungeonGame {
+	game.addVisual(fondoInicial)
+	configuracionesIniciales.pantalla()
+	configuracionesIniciales.teclas()	
+	configuracionesIniciales.colisiones()
 	game.start()
 }
+
