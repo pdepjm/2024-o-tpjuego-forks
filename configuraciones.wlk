@@ -12,7 +12,7 @@ object configuracionesIniciales {
 	game.height(34)
 	game.width(70)
 	game.cellSize(100)
-	game.boardGround("mazmorra.jpg")
+	game.boardGround("pantallaInicio.png")
   }
 
   method teclas() {
@@ -27,6 +27,9 @@ object configuracionesIniciales {
 	  flecha1.disparar(caballero)
 	  game.sound("bowSound.mp3").play()}}
 	  elementos.forEach {objeto => keyboard.e().onPressDo {caballero.agarrar(objeto)}}
+
+	//Inicio
+	keyboard.enter().onPressDo {self.enemigos();mapa.visuales()}
 }
 
   method enemigos() {
@@ -58,3 +61,8 @@ object configuracionesIniciales {
 	botonesE.forEach {boton => game.whenCollideDo(boton, {caballero => boton.letraGrande(boton.elemento())})}
   }
 }
+
+//object inicio {
+//	var property position = game.origin()
+//	var property image = "pantallaInicio.png"
+//}

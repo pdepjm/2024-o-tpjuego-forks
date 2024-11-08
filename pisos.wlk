@@ -77,6 +77,7 @@ object mapa {
 	var property puertas = [puerta1a3,puerta3a1,puerta3a2,puerta2a3,puerta1a4,puerta4a1,puerta1a5,puerta5a1,puerta4a6,puerta6a4]
 
 	method visuales() {
+		game.boardGround("mazmorra.jpg")
 		game.addVisualCharacter(caballero)
 		esqueletos.forEach{esqueleto => game.addVisual(esqueleto)}
 		self.puertas().forEach{puerta => game.addVisual(puerta)}	

@@ -8,10 +8,8 @@ import pisos.*
 
 program DungeonGame {
 	configuracionesIniciales.pantalla()
-	configuracionesIniciales.teclas()
-	configuracionesIniciales.enemigos()
+	configuracionesIniciales.teclas()	
 	configuracionesIniciales.colisiones()
-	mapa.visuales()
 	game.start()
 }
 
