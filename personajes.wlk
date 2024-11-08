@@ -77,17 +77,19 @@ object caballero {
       self.estaVivo(false) 
       self.image(self.nombre() + "Muerto.png")
       game.removeVisual(flecha1)
-      game.schedule(500, {game.removeVisual(self)})
-      game.schedule(2000, {game.stop()})
+      game.schedule(1000, {game.removeVisual(self)})
+      game.schedule(2000, {game.addVisual(fondoSiPerdes)})
+      game.schedule(2001, {game.stop()})
     }
   }
 
   method perder() {
     self.estaVivo(false) 
     game.schedule(0, {self.image("caballeroMuerto.png")})
-    game.schedule(2000, {game.removeVisual(self)})
+    game.schedule(1000, {game.removeVisual(self)})
+    game.schedule(2000, {game.addVisual(fondoSiPerdes)})
      // Sale una nota que moriste
-    game.schedule(2100, {game.stop()})
+    game.schedule(2001, {game.stop()})
   }
 
 }
