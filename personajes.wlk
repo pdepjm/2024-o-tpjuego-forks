@@ -12,6 +12,8 @@ object caballero {
   var property nombre = "caballero"
   var property vida = 10
   var property estaVivo = true
+  var property disparoLaFlecha = false
+  var property habitacionDelCaballero = 1
 
   const equipamiento = #{}
 
@@ -73,7 +75,7 @@ object caballero {
   }
 
   method muerto(flecha){
-    if(!(flecha.tirador() == self)){
+    if(!(flecha.tirador() == self.toString())){
       self.estaVivo(false) 
       self.image(self.nombre() + "Muerto.png")
       game.removeVisual(flecha1)

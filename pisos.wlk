@@ -33,6 +33,7 @@ object paredes {
 
 	method cambiaHabitacion(habitacion) {
 		self.image("habitacion" + habitacion + ".png")
+		caballero.habitacionDelCaballero(habitacion)
 	}
 }
 

@@ -57,7 +57,7 @@ class Esqueleto {
   }
 
   method muerto(flecha){
-    if(!(flecha.tirador() == self)){
+    if(!(flecha.tirador() == self.toString())){
       self.estaVivo(false)
       self.image("esqueletoMuertoFlecha.png")
       game.removeVisual(flecha)
@@ -75,9 +75,10 @@ class Arquero {
   var property nombre
   var property direccion
   var property estaVivo = true
+  var property disparoLaFlecha = false
 
   method muerto(flecha) {
-    if(!(flecha.tirador() == self)){  
+    if(!(flecha.tirador() == self.toString())){  
     self.estaVivo(false)
     self.image("arqueroMuerto.png")
     game.removeVisual(flecha)

@@ -32,9 +32,11 @@ class Flecha {
     var property image = ""
     var property nombre = "flecha" 
     var property tirador = null 
+    var property habitacionDeLaFlecha 
 
 method disparar(personaje) {
-    self.tirador(personaje)
+    self.tirador(personaje.nombre())
+    if (self.habitacionDeLaFlecha() == caballero.habitacionDelCaballero() || self.tirador() == "caballero"){
     direccion = personaje.direccion()
     position = personaje.position().right(1)
     direccion.image(self)
@@ -48,6 +50,7 @@ method disparar(personaje) {
             self.tocaBorde()
         }
     })
+    }
 }
 
     method tocaBorde() {
@@ -56,9 +59,9 @@ method disparar(personaje) {
     }
 }
 
-const flecha1 = new Flecha(position = caballero.position(), direccion = caballero.direccion(), tirador = caballero)
-const flecha2 = new Flecha(position = arquero1.position(), direccion = arquero1.direccion(), tirador = arquero1)
-const flecha3 = new Flecha(position = arquero2.position(), direccion = arquero2.direccion(), tirador = arquero2)
+const flecha1 = new Flecha(position = caballero.position(), direccion = caballero.direccion(), tirador = caballero.nombre(), habitacionDeLaFlecha = caballero.habitacionDelCaballero())
+const flecha2 = new Flecha(position = arquero1.position(), direccion = arquero1.direccion(), tirador = arquero1.nombre(), habitacionDeLaFlecha = 1)
+const flecha3 = new Flecha(position = arquero2.position(), direccion = arquero2.direccion(), tirador = arquero2.nombre(), habitacionDeLaFlecha = 2)
 
 const flechas = [flecha1, flecha2, flecha3]
 
