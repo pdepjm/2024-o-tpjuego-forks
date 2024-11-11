@@ -63,14 +63,15 @@ const flecha3 = new Flecha(position = arquero2.position(), direccion = arquero2.
 const flechas = [flecha1, flecha2, flecha3]
 
  class AgarrarConLaE {
-  method image() = "tecla.jpg"
   var property position
-  var property elemento
+  var property elemento  
+  method image() = "tecla.jpg"
+  
   method letraGrande(_elemento){
   if (caballero.puedeAgarrar(_elemento)){
-      game.addVisual(self)
-  }
-    else{
+    if (!game.hasVisual(self)) game.addVisual(self)
+    //  game.addVisual(self)
+  } else {
       game.removeVisual(self)
     }
   }
