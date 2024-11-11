@@ -3,14 +3,25 @@ import personajes.*
 import equipamientos.*
 import direcciones.*
 import pisos.*
-
-class Esqueleto {
+class Enemigo {
+  var property image
   var property position  
-  var property image = "esqueletoFrente.png"
-  var property nombre = "esqueleto"
   var property vida = 5
-  var property direccion = abajo
+  var property nombre
+  var property direccion
   var property estaVivo = true
+
+  method muerto(flecha) {
+    if(!(flecha.tirador() == self.toString())){  
+    self.estaVivo(false)
+    self.image(self.nombre() + "Muerto.png")
+    game.removeVisual(flecha)
+    game.removeTickEvent("disparar"+ self.nombre())
+    game.schedule(500, {game.removeVisual(self)})
+    }
+  }
+}
+class Esqueleto inherits Enemigo {
 
   method ataca(personaje){
     if(self.estaVivo()){
@@ -44,61 +55,22 @@ class Esqueleto {
     }
   }
 
-  method cambiaVida(cantidad) {
-    vida += cantidad
-    if (vida == 0) {
-      self.muerto()
-    }
-  }
-  method muerto() {
-    self.estaVivo(false)
-    self.image("esqueletoMuerto.png")
-    game.schedule(500, {game.removeVisual(self)} ) 
-  }
-
-  method muerto(flecha){
-    if(!(flecha.tirador() == self.toString())){
-      self.estaVivo(false)
-      self.image("esqueletoMuertoFlecha.png")
-      game.removeVisual(flecha)
-      game.schedule(500, {game.removeVisual(self)})
-    }
-  }
-
   method tocaBorde() {}
 }
 
-class Arquero {
-  var property position  
-  var property image = "arqueroFrente.png"
-  var property vida = 5
-  var property nombre
-  var property direccion
-  var property estaVivo = true
-  var property disparoLaFlecha = false
+class Arquero inherits Enemigo{var property disparoLaFlecha = false}
 
-  method muerto(flecha) {
-    if(!(flecha.tirador() == self.toString())){  
-    self.estaVivo(false)
-    self.image("arqueroMuerto.png")
-    game.removeVisual(flecha)
-    game.removeTickEvent("disparar"+self.nombre())
-    game.schedule(500, {game.removeVisual(self)})
-    }
-  }
-}
+const arquero1 = new Arquero (position = game.at(35, 28), direccion = abajo,nombre = "arquero1",image = "arqueroFrente.png")
+const arquero2 = new Arquero (position = game.at(2, 29), direccion = abajo,nombre = "arquero2",image = "arqueroFrente.png")
 
-const arquero1 = new Arquero (position = game.at(35, 28), direccion = abajo,nombre = "arquero1")
-const arquero2 = new Arquero (position = game.at(2, 29), direccion = abajo,nombre = "arquero2")
-
-const esqueleto1 = new Esqueleto (position= game.at(17,16))
-const esqueleto2 = new Esqueleto (position= game.at(30,25))
-const esqueleto3 = new Esqueleto (position= game.at(29,8))
-const esqueleto4 = new Esqueleto (position= game.at(6,22))
-const esqueleto5 = new Esqueleto (position= game.at(50,8))
-const esqueleto6 = new Esqueleto (position= game.at(60,12))
-const esqueleto7 = new Esqueleto (position= game.at(4,16))
-const esqueleto8 = new Esqueleto (position= game.at(45,13))
+const esqueleto1 = new Esqueleto (position= game.at(17,16),direccion = abajo,image = "esqueletoFrente.png", nombre = "esqueleto")
+const esqueleto2 = new Esqueleto (position= game.at(30,25),direccion = abajo,image = "esqueletoFrente.png", nombre = "esqueleto")
+const esqueleto3 = new Esqueleto (position= game.at(29,8),direccion = abajo,image = "esqueletoFrente.png", nombre = "esqueleto")
+const esqueleto4 = new Esqueleto (position= game.at(6,22),direccion = abajo,image = "esqueletoFrente.png", nombre = "esqueleto")
+const esqueleto5 = new Esqueleto (position= game.at(50,8),direccion = abajo,image = "esqueletoFrente.png", nombre = "esqueleto")
+const esqueleto6 = new Esqueleto (position= game.at(60,12),direccion = abajo,image = "esqueletoFrente.png", nombre = "esqueleto")
+const esqueleto7 = new Esqueleto (position= game.at(4,16),direccion = abajo,image = "esqueletoFrente.png", nombre = "esqueleto")
+const esqueleto8 = new Esqueleto (position= game.at(45,13),direccion = abajo,image = "esqueletoFrente.png", nombre = "esqueleto")
 
 const esqueletos = [esqueleto1,esqueleto2,esqueleto3,esqueleto4,esqueleto5,esqueleto6,esqueleto7,esqueleto8]
 const arqueros = [arquero1, arquero2]
