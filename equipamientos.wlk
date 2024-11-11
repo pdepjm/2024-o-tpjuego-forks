@@ -70,7 +70,6 @@ const flechas = [flecha1, flecha2, flecha3]
   method letraGrande(_elemento){
   if (caballero.puedeAgarrar(_elemento)){
     if (!game.hasVisual(self)) game.addVisual(self)
-    //  game.addVisual(self)
   } else {
       game.removeVisual(self)
     }

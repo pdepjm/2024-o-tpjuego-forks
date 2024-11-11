@@ -53,9 +53,10 @@ object configuracionesIniciales {
 	flechas.forEach {flecha => game.onCollideDo(flecha, {personaje => personaje.muerto(flecha)})}
 	
 	//Colisión con cualquier esqueleto
-	esqueletos.forEach {esqueleto => game.whenCollideDo(esqueleto, {personaje => esqueleto.ataca(personaje)
+	esqueletos.forEach {esqueleto => game.whenCollideDo(esqueleto, {personaje => 
 	if(esqueleto.estaVivo() && personaje.estaVivo()){game.sound("hitSound.mp3").play()
-		personaje.rebote(personaje.direccion().toString())}})}
+		personaje.rebote(personaje.direccion().toString())
+		esqueleto.ataca(personaje)}})}
 
 	//Cambio de habitación
 	mapa.puertas().forEach {puerta => game.whenCollideDo(puerta,{personaje => puerta.pasaElCaballero()})}
