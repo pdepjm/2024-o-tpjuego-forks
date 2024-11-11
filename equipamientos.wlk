@@ -6,23 +6,43 @@ import pisos.*
 
 
 class Elemento {
-  var property position
-  var property image
-  var property nombre
+    var property position
+    var property image
+    var property nombre
 
-method estaEnRango(objeto) {
-    const diferenciaX = (self.position().x() - objeto.position().x()).abs()
-    const diferenciaY = (self.position().y() - objeto.position().y()).abs()
+    method estaEnRango(objeto) {
+        const diferenciaX = (self.position().x() - objeto.position().x()).abs()
+        const diferenciaY = (self.position().y() - objeto.position().y()).abs()
 
-    return diferenciaX <= 2 and diferenciaY <= 2
+        return diferenciaX <= 2 and diferenciaY <= 2
+    }
+    method serAgarrado() {
+        game.removeVisual(self)
+    }
 }
 
+object pocion inherits Elemento (position = game.at(54,10), image = "pocion.png", nombre = "pocion") {
+    override method serAgarrado() {
+        caballero.cambiaVida(+3)
+        game.removeVisual(self)
+    }
+}
+
+object llave inherits Elemento (position = game.at(49,23), image = "llave.png", nombre = "llave") {
+    override method serAgarrado() {
+        mapa.verificaLlave()
+        game.removeVisual(self)
+    }
+}
+
+object tesoro inherits Elemento (position = game.at(59, 25), image = "", nombre = "tesoro") {
+    override method serAgarrado() {
+        game.removeVisual(self)
+        game.stop()
+    }
 }
 
 const arco = new Elemento (position = game.at(5, 30), image = "arco.png", nombre = "arco")
-const llave = new Elemento (position = game.at(49,23), image = "llave.png", nombre = "llave")
-const pocion = new Elemento (position = game.at(54,10), image = "pocion.png", nombre = "pocion")
-const tesoro = new Elemento (position = game.at(59, 25), image = "", nombre = "tesoro")
 
 const elementos = [arco,llave,pocion,tesoro]
 

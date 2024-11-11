@@ -47,18 +47,10 @@ object caballero {
   
   method agarrar(equipo) {
     if (self.puedeAgarrar(equipo)){
-    game.removeVisual(equipo)
     botonesE.forEach {boton => game.removeVisual(boton)}
     self.agregarEquipo(equipo)
-    mapa.verificaLlave()
-    if(equipo == pocion){
-      self.cambiaVida(+3)
-    }
-    if(equipo == tesoro){
-      game.stop()
-    }
-    }
-   
+    equipo.serAgarrado()
+    }  
   }
 
   method tieneElElemento(elem) = equipamiento.contains(elem)
