@@ -24,18 +24,7 @@ object caballero {
   }
 
   method rebote(direc){
-    if (direc == "derecha"){
-      self.moverse(izquierda)
-    }
-    else if (direc == "izquierda"){
-      self.moverse(derecha)
-    }
-    else if (direc == "arriba"){
-      self.moverse(abajo)
-    }
-    else if (direc == "abajo"){
-      self.moverse(arriba)
-    }
+    direc.direccionOpuesta(self)
     if (self.vida() > 0){
     game.schedule(0, {self.image("rojo" + self.image())})
     }

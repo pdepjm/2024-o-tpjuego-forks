@@ -7,6 +7,7 @@ import pisos.*
 
 object arriba {
   method image(obj) = obj.image(obj.nombre() + "Espalda.png")
+  method direccionOpuesta(obj) { obj.moverse(abajo)  }
   method direc(obj) {
     const nuevaPosicion = obj.position().up(1)  
     
@@ -21,6 +22,7 @@ object arriba {
 
 object abajo {
   method image(obj) = obj.image(obj.nombre() + "Frente.png")
+  method direccionOpuesta(obj) { obj.moverse(arriba)  }
   method direc(obj) {
     const nuevaPosicion = obj.position().down(1)  
     
@@ -36,6 +38,7 @@ object abajo {
 
 object izquierda {
   method image(obj) = obj.image(obj.nombre() + "Izquierda.png")
+  method direccionOpuesta(obj) { obj.moverse(derecha)  }
    method direc(obj) {
     const nuevaPosicion = obj.position().left(1)  
 
@@ -51,6 +54,8 @@ object izquierda {
 
 object derecha {
   method image(obj) = obj.image(obj.nombre() + "Derecha.png")
+
+  method direccionOpuesta(obj) { obj.moverse(izquierda)  }
     
    method direc(obj) {
     const nuevaPosicion = obj.position().right(1)  
