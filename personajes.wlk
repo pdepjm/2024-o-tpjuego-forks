@@ -59,8 +59,7 @@ object caballero {
     if(!(flecha.tirador() == self.toString())){
       self.estaVivo(false) 
       self.image(self.nombre() + "Muerto.png")
-      game.removeVisual(flecha1)
-      game.schedule(1000, {game.removeVisual(self)})
+      game.removeVisual(flecha)
       game.schedule(2000, {game.addVisual(fondoSiPerdes)})
       game.schedule(2001, {game.stop()})
     }
@@ -68,10 +67,9 @@ object caballero {
 
   method perder() {
     self.estaVivo(false) 
-    game.schedule(0, {self.image("caballeroMuerto.png")})
+    game.schedule(0, {self.image(self.nombre()+"Muerto.png")})
     game.schedule(1000, {game.removeVisual(self)})
     game.schedule(2000, {game.addVisual(fondoSiPerdes)})
-     // Sale una nota que moriste
     game.schedule(2001, {game.stop()})
   }
 

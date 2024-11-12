@@ -38,6 +38,7 @@ object llave inherits Elemento (position = game.at(49,23), image = "llave.png", 
 object tesoro inherits Elemento (position = game.at(59, 25), image = "", nombre = "tesoro") {
     override method serAgarrado() {
         game.removeVisual(self)
+        game.addVisual(fondoSiGanas)
         game.stop()
     }
 }

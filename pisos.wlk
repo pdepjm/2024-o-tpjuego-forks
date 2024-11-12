@@ -47,6 +47,11 @@ object fondoSiPerdes {
 	var property position = game.at(0,0) 
 }
 
+object fondoSiGanas {
+	var property image = "pantallaVictoria.jpg"
+	var property position = game.at(0,0) 
+}
+
 object mapa {
 	const limiteInferior = new ZonaProhibida(xMin=0,xMax=69,yMin=1,yMax=1)
 	const limiteSuperior = new ZonaProhibida(xMin=0,xMax=69,yMin=30,yMax=33)
