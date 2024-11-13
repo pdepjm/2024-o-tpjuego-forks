@@ -78,6 +78,8 @@ method disparar(personaje) {
         game.removeTickEvent("vuela" + self.tirador())
         game.removeVisual(self)
     }
+
+    method estaVivo() {}
 }
 
 const flecha1 = new Flecha(position = caballero.position(), direccion = caballero.direccion(), tirador = caballero.nombre(), habitacionDeLaFlecha = caballero.habitacionDelCaballero())
