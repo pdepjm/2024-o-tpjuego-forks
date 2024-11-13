@@ -100,6 +100,23 @@ const flechas = [flecha1, flecha2, flecha3]
   }
 }
 
+object faltaLlaveMensaje {
+    var property image = "tecla.png"
+    var property position = game.at(0, 0)  // Posición por defecto, se actualizará al mostrar el mensaje
+
+    method mostrarMensaje() {
+        // Actualiza la posición al momento de colisión
+        self.position(mapa.puerta4a6.position()) 
+        game.addVisual(self)
+
+        // Remueve el mensaje después de 2 segundos
+        game.onTick(2000, "ocultarMensaje", {
+            game.removeVisual(self)
+            game.removeTickEvent("ocultarMensaje")
+        })
+    }
+}
+
 const arcoE = new AgarrarConLaE (position = arco.position(),elemento = arco)
 const llaveE = new AgarrarConLaE (position = llave.position(),elemento = llave)
 const pocionE = new AgarrarConLaE (position = pocion.position(),elemento = pocion)
