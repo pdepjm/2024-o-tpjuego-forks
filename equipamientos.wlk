@@ -102,22 +102,22 @@ const flechas = [flecha1, flecha2, flecha3]
   }
 }
 
-object faltaLlaveMensaje {
-    var property image = "tecla.png"
-    var property position = game.at(0, 0)  // Posición por defecto, se actualizará al mostrar el mensaje
+// object faltaLlaveMensaje {
+//     var property image = "tecla.png"
+//     var property position = game.at(0, 0)  // Posición por defecto, se actualizará al mostrar el mensaje
 
-    method mostrarMensaje() {
-        // Actualiza la posición al momento de colisión
-        self.position(mapa.puerta4a6.position()) 
-        game.addVisual(self)
+//     method mostrarMensaje() {
+//         // Actualiza la posición al momento de colisión
+//         self.position(mapa.puerta4a6.position()) 
+//         game.addVisual(self)
 
-        // Remueve el mensaje después de 2 segundos
-        game.onTick(2000, "ocultarMensaje", {
-            game.removeVisual(self)
-            game.removeTickEvent("ocultarMensaje")
-        })
-    }
-}
+//         // Remueve el mensaje después de 2 segundos
+//         game.onTick(2000, "ocultarMensaje", {
+//             game.removeVisual(self)
+//             game.removeTickEvent("ocultarMensaje")
+//         })
+//     }
+// }
 
 const arcoE = new AgarrarConLaE (position = arco.position(),elemento = arco)
 const llaveE = new AgarrarConLaE (position = llave.position(),elemento = llave)
@@ -125,3 +125,16 @@ const pocionE = new AgarrarConLaE (position = pocion.position(),elemento = pocio
 const tesoroE = new AgarrarConLaE (position = tesoro.position(),elemento = tesoro)
 
 const botonesE = [arcoE,llaveE,pocionE,tesoroE]
+
+class CartelFalta {
+    var property position = game.at(24,24)
+    var property image
+
+    method agregarCartel() {
+        game.addVisual(self)
+        game.schedule(3000, game.removeVisual(self))
+    }  
+}
+
+const faltaLlave = new CartelFalta(image ="faltaLaLlave.png")
+const faltaArco = new CartelFalta(image ="faltaElArco.png")

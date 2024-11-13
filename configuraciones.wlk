@@ -65,11 +65,12 @@ object configuracionesIniciales {
 	botonesE.forEach {boton => game.whenCollideDo(boton, {caballero => boton.letraGrande(boton.elemento())})}
 
 	// Colisión con la puerta4a6
-        game.whenCollideDo(puertitaFalsa4a6, { personaje => 
-    if(personaje == caballero) {
-        mapa.puedePasarPorPuerta4a6()
-    }
-		})
+        //game.whenCollideDo(puertitaFalsa4a6, { personaje => 
+    //if(personaje == caballero) {
+        //mapa.puedePasarPorPuerta4a6()
+   // }
+//})
+
   }
 }
 

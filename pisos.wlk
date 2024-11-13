@@ -51,9 +51,9 @@ object fondoSiGanas {
 	var property image = "pantallaVictoria.jpg"
 	var property position = game.at(0,0) 
 }
-object puertitaFalsa4a6 {
-		var property position = game.at(59, 14)
-	}
+// object puertitaFalsa4a6 {
+// 		var property position = game.at(59, 14)
+// 	}
 
 object mapa {
 	const limiteInferior = new ZonaProhibida(xMin=0,xMax=69,yMin=1,yMax=1)
@@ -79,13 +79,13 @@ object mapa {
 		}
 	}
 
-	method puedePasarPorPuerta4a6() {
-        if (caballero.tieneElElemento(llave)) {
-            mapa.puerta4a6.pasaElCaballero()  // Deja pasar si tiene la llave
-        } else {
-            faltaLlaveMensaje.mostrarMensaje()  // Muestra el mensaje si no tiene la llave
-        }
-    }
+	// method puedePasarPorPuerta4a6() {
+    //     if (caballero.tieneElElemento(llave)) {
+    //         mapa.puerta4a6.pasaElCaballero()  // Deja pasar si tiene la llave
+    //     } else {
+    //         faltaLlaveMensaje.mostrarMensaje()  // Muestra el mensaje si no tiene la llave
+    //     }
+    // }
 
 	method puedePasar (x,y) {
 		return !(self.zonasProhibidas().any { zona => zona.esZonaProhibida(x,y)}) 
