@@ -126,15 +126,15 @@ const tesoroE = new AgarrarConLaE (position = tesoro.position(),elemento = tesor
 
 const botonesE = [arcoE,llaveE,pocionE,tesoroE]
 
-class CartelFalta {
-    var property position = game.at(24,24)
-    var property image
+// class CartelFalta {
+//     var property position = game.at(24,24)
+//     var property image
 
-    method agregarCartel() {
-        game.addVisual(self)
-        game.schedule(3000, game.removeVisual(self))
-    }  
-}
+//     method agregarCartel() {
+//         game.addVisual(self)
+//         game.schedule(3000, game.removeVisual(self))
+//     }  
+// }
 
-const faltaLlave = new CartelFalta(image ="faltaLaLlave.png")
-const faltaArco = new CartelFalta(image ="faltaElArco.png")
+// const faltaLlave = new CartelFalta(image ="faltaLaLlave.png")
+// const faltaArco = new CartelFalta(image ="faltaElArco.png")
