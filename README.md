@@ -30,5 +30,4 @@ UTN - Facultad Regional Buenos Aires - Materia Paradigmas de Programación
 - `S` Ir hacia abajo
 - `D` Ir hacia la derecha
 - `E` Agarrar objeto
-- `R` Golpear cuerpo a cuerpo
 - `space` Disparar flecha 
