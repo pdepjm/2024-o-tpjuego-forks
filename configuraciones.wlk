@@ -64,6 +64,9 @@ object configuracionesIniciales {
 	//Colisión con los elementos
 	botonesE.forEach {boton => game.whenCollideDo(boton, {caballero => boton.letraGrande(boton.elemento())})}
 
+	carteles.forEach {cartel => game.whenCollideDo(cartel, {caballero => cartel.agregarCartel(cartel.condicion())})}
+
+
 	// Colisión con la puerta4a6
         //game.whenCollideDo(puertitaFalsa4a6, { personaje => 
     //if(personaje == caballero) {
