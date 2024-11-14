@@ -112,10 +112,11 @@ const botonesE = [arcoE,llaveE,pocionE,tesoroE]
 class CartelFalta {
     var property position
     var property image
-    var property condicion
+    var property elemento
+    //var property condicion
 
-    method agregarCartel(condic) {
-        if(!condic){
+    method agregarCartel(elem) {
+        if(!caballero.tieneElElemento(elem)){
         if(!game.hasVisual(self)) game.addVisual(self)
          else {
             game.schedule(2000, {game.removeVisual(self)})
@@ -125,7 +126,7 @@ class CartelFalta {
 }  
 }
 
-const faltaLlave = new CartelFalta(image ="faltaLaLlave.png", condicion = caballero.tieneElElemento(llave), position = game.at(59,16))
-const faltaArco = new CartelFalta(image ="faltaElArco.png", condicion = caballero.tieneElElemento(arco), position = game.at(24,2))
+const faltaLlave = new CartelFalta(image ="faltaLaLlave.png", position = game.at(59,17),elemento = llave)
+const faltaArco = new CartelFalta (image ="faltaElArco.png", position = game.at(24,2),elemento = arco)
 
 const carteles = [faltaLlave, faltaArco]

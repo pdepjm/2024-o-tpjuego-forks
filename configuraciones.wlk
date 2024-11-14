@@ -64,6 +64,7 @@ object configuracionesIniciales {
 	//Colisión con los elementos
 	botonesE.forEach {boton => game.whenCollideDo(boton, {caballero => boton.letraGrande(boton.elemento())})}
 
-	carteles.forEach {cartel => game.whenCollideDo(cartel, {caballero => cartel.agregarCartel(cartel.condicion())})}
+	//Carteles de aviso
+	carteles.forEach {cartel => game.whenCollideDo(cartel, {caballero => cartel.agregarCartel(cartel.elemento())})}
   }
 }
